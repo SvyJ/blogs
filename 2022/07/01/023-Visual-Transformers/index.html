@@ -1,0 +1,536 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>转载：Awesome Visual-Transformer | “干杯( ﾟ-ﾟ)っロ”</title><meta name="author" content="SvyJ"><meta name="copyright" content="SvyJ"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="转载自：[Awesome Visual-Transformer]Collect some Transformer with Computer-Vision (CV) papers.   Awesome Visual-TransformerPapersTransformer original paper Attention is All You Need (NIPS 2017)  综述 Transf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="转载：Awesome Visual-Transformer">
+<meta property="og:url" content="http://example.com/2022/07/01/023-Visual-Transformers/index.html">
+<meta property="og:site_name" content="“干杯( ﾟ-ﾟ)っロ”">
+<meta property="og:description" content="转载自：[Awesome Visual-Transformer]Collect some Transformer with Computer-Vision (CV) papers.   Awesome Visual-TransformerPapersTransformer original paper Attention is All You Need (NIPS 2017)  综述 Transf">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2021/12/22/raDjVhH3egsF9fx.png">
+<meta property="article:published_time" content="2022-07-01T01:48:26.000Z">
+<meta property="article:modified_time" content="2022-07-01T01:48:26.000Z">
+<meta property="article:author" content="SvyJ">
+<meta property="article:tag" content="图像处理">
+<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="网络模型">
+<meta property="article:tag" content="Transformer">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2021/12/22/raDjVhH3egsF9fx.png"><link rel="shortcut icon" href="/img/logo.png"><link rel="canonical" href="http://example.com/2022/07/01/023-Visual-Transformers/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: SvyJ","link":"链接: ","source":"来源: “干杯( ﾟ-ﾟ)っロ”","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '转载：Awesome Visual-Transformer',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-07-01 09:48:26'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/font_3054216_qov50ieeupn.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2021/12/23/X7TzdfHKCI56Vus.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2021/12/22/raDjVhH3egsF9fx.png')"><nav id="nav"><span id="blog-info"><a href="/" title="“干杯( ﾟ-ﾟ)っロ”"><span class="site-name">“干杯( ﾟ-ﾟ)っロ”</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">转载：Awesome Visual-Transformer</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-01T01:48:26.000Z" title="发表于 2022-07-01 09:48:26">2022-07-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-07-01T01:48:26.000Z" title="更新于 2022-07-01 09:48:26">2022-07-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>17分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="转载：Awesome Visual-Transformer"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>转载自：[<a target="_blank" rel="noopener" href="https://github.com/dk-liang/Awesome-Visual-Transformer">Awesome Visual-Transformer</a>]<br>Collect some Transformer with Computer-Vision (CV) papers. </p>
+<hr>
+<h1 id="Awesome-Visual-Transformer"><a href="#Awesome-Visual-Transformer" class="headerlink" title="Awesome Visual-Transformer"></a>Awesome Visual-Transformer</h1><h2 id="Papers"><a href="#Papers" class="headerlink" title="Papers"></a>Papers</h2><h3 id="Transformer-original-paper"><a href="#Transformer-original-paper" class="headerlink" title="Transformer original paper"></a>Transformer original paper</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.03762">Attention is All You Need</a> (NIPS 2017)</li>
+</ul>
+<h3 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h3><ul>
+<li>Transformers in Vision: A Survey [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2101.01169">paper</a>]   - 2021.02.22</li>
+<li>A Survey on Visual Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2012.12556">paper</a>]   - 2020.1.30</li>
+<li>A Survey of Transformers  [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.04554">paper</a>]   - 2020.6.09</li>
+</ul>
+<h3 id="arXiv-papers"><a href="#arXiv-papers" class="headerlink" title="arXiv papers"></a>arXiv papers</h3><ul>
+<li><strong>[CrossFormer]</strong> CrossFormer: A Versatile Vision Transformer Based on Cross-scale Attention [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2108.00154v1">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/cheerss/CrossFormer">code</a>]</li>
+<li><strong>[Styleformer]</strong> Styleformer: Transformer based Generative Adversarial Networks with Style Vector [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.07023">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/Jeeseung-Park/Styleformer">code</a>]</li>
+<li><strong>[CMT]</strong> CMT: Convolutional Neural Networks Meet Vision Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.06263">paper</a>]</li>
+<li><strong>[TransAttUnet]</strong> TransAttUnet: Multi-level Attention-guided U-Net with Transformer for Medical Image Segmentation [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.05274">paper</a>]</li>
+<li>TransClaw U-Net: Claw U-Net with Transformers for Medical Image Segmentation [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.05188">paper</a>]</li>
+<li><strong>[ViTGAN]</strong> ViTGAN: Training GANs with Vision Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.04589">paper</a>]</li>
+<li>What Makes for Hierarchical Vision Transformer? [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.02174">paper</a>]</li>
+<li>CSWin Transformer: A General Vision Transformer Backbone with Cross-Shaped Windows [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.00652">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/microsoft/CSWin-Transformer">code</a>]</li>
+<li><strong>[Trans4Trans]</strong> Trans4Trans: Efficient Transformer for Transparent Object Segmentation to Help Visually Impaired People Navigate in the Real World [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.03172">paper</a>] </li>
+<li><strong>[FFVT]</strong> Feature Fusion Vision Transformer for Fine-Grained Visual Categorization [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.02341">paper</a>] </li>
+<li><strong>[TransformerFusion]</strong> TransformerFusion: Monocular RGB Scene Reconstruction using Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.02191">paper</a>]</li>
+<li>Escaping the Big Data Paradigm with Compact Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2104.05704.pdf">paper</a>]</li>
+<li>How to train your ViT? Data, Augmentation,and Regularization in Vision Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2106.10270.pdf">paper</a>]</li>
+<li>Beyond Self-attention: External Attention using Two Linear Layers for Visual Tasks [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2105.02358.pdf">paper</a>]</li>
+<li><strong>[XCiT]</strong> XCiT: Cross-Covariance Image Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2106.09681.pdf">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/facebookresearch/xcit">code</a>]</li>
+<li>Shuffle Transformer: Rethinking Spatial Shuffle for Vision Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.03650">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/mulinmeng/Shuffle-Transformer">code</a>]</li>
+<li>Video Swin Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.13230">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/SwinTransformer/Video-Swin-Transformer">code</a>]</li>
+<li><strong>[VOLO]</strong> VOLO: Vision Outlooker for Visual Recognition [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.13112">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/sail-sg/volo">code</a>]</li>
+<li>Transformer Meets Convolution: A Bilateral Awareness Net-work for Semantic Segmentation of Very Fine Resolution Ur-ban Scene Images [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.12413">paper</a>] </li>
+<li><strong>[P2T]</strong> P2T: Pyramid Pooling Transformer for Scene Understanding [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.12011">paper</a>]</li>
+<li><strong>[DocFormer]</strong> DocFormer: End-to-End Transformer for Document Understanding [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.11539">paper</a>]</li>
+<li>End-to-end Temporal Action Detection with Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.10271">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/xlliu7/TadTR">code</a>]</li>
+<li>How to train your ViT? Data, Augmentation, and Regularization in Vision Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.10270">paper</a>]</li>
+<li>Efficient Self-supervised Vision Transformers for Representation Learning [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.09785">paper</a>]</li>
+<li>Space-time Mixing Attention for Video Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.05968">paper</a>]</li>
+<li>Transformed CNNs: recasting pre-trained convolutional layers with self-attention [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.05795">paper</a>]</li>
+<li><strong>[CAT]</strong> CAT: Cross Attention in Vision Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.05786">paper</a>]</li>
+<li>Scaling Vision Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.04560">paper</a>]</li>
+<li><strong>[DETReg]</strong> DETReg: Unsupervised Pretraining with Region Priors for Object Detection [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.04550">paper</a>] [<a target="_blank" rel="noopener" href="https://amirbar.net/detreg">code</a>]</li>
+<li>Chasing Sparsity in Vision Transformers:An End-to-End Exploration [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.04533">paper</a>]</li>
+<li><strong>[MViT]</strong> MViT: Mask Vision Transformer for Facial Expression Recognition in the wild [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.04520">paper</a>]</li>
+<li>Demystifying Local Vision Transformer: Sparse Connectivity, Weight Sharing, and Dynamic Weight [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.04263">paper</a>]</li>
+<li>On Improving Adversarial Transferability of Vision Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.04169">paper</a>]</li>
+<li>Fully Transformer Networks for Semantic ImageSegmentation [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.04108">paper</a>]</li>
+<li>Visual Transformer for Task-aware Active Learning [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.03801">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/razvancaramalau/Visual-Transformer-for-Task-aware-Active-Learning">code</a>]</li>
+<li>Efficient Training of Visual Transformers with Small-Size Datasets [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.03746">paper</a>] </li>
+<li>Reveal of Vision Transformers Robustness against Adversarial Attacks [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.03734">paper</a>]</li>
+<li>Person Re-Identification with a Locally Aware Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.03720">paper</a>]</li>
+<li><strong>[Refiner]</strong> Refiner: Refining Self-attention for Vision Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.03714">paper</a>]</li>
+<li><strong>[ViTAE]</strong> ViTAE: Vision Transformer Advanced by Exploring Intrinsic Inductive Bias [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.03348">paper</a>]</li>
+<li>Video Instance Segmentation using Inter-Frame Communication Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.03299">paper</a>]</li>
+<li>Transformer in Convolutional Neural Networks [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.03180">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/yun-liu/TransCNN">code</a>]</li>
+<li>Oriented Object Detection with Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.03146">paper</a>]</li>
+<li><strong>[Uformer]</strong> Uformer: A General U-Shaped Transformer for Image Restoration [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.03106">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/ZhendongWang6/Uformer">code</a>]</li>
+<li>Patch Slimming for Efficient Vision Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.02852">paper</a>]</li>
+<li><strong>[RegionViT]</strong> RegionViT: Regional-to-Local Attention for Vision Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.02689">paper</a>]</li>
+<li>Associating Objects with Transformers for Video Object Segmentation [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.02638">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/z-x-yang/AOT">code</a>]</li>
+<li>Few-Shot Segmentation via Cycle-Consistent Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.02320">paper</a>]</li>
+<li>Glance-and-Gaze Vision Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.02277">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/yucornetto/GG-Transformer">code</a>]</li>
+<li>Unsupervised MRI Reconstruction via Zero-Shot Learned Adversarial Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2105.08059.pdf">paper</a>]</li>
+<li>Anticipative Video Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.02036">paper</a>] [<a target="_blank" rel="noopener" href="http://facebookresearch.github.io/AVT">code</a>]</li>
+<li><strong>[DynamicViT]</strong> DynamicViT: Efficient Vision Transformers with Dynamic Token Sparsification [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.02034">paper</a>] [<a target="_blank" rel="noopener" href="https://dynamicvit.ivg-research.xyz/">code</a>]</li>
+<li>When Vision Transformers Outperform ResNets without Pretraining or Strong Data Augmentations [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.01548">paper</a>] [<a href="">code</a>]</li>
+<li><strong>[Container]</strong> Container: Context Aggregation Network [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.01401">paper</a>]</li>
+<li>Unsupervised Out-of-Domain Detection via Pre-trained Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.00948">paper</a>]</li>
+<li><strong>[TransMIL]</strong> TransMIL: Transformer based Correlated Multiple Instance Learning for Whole Slide Image Classication [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.00908">paper</a>]</li>
+<li><strong>[YOLOS]</strong> You Only Look at One Sequence: Rethinking Transformer in Vision through Object Detection [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.00666">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/hustvl/YOLOS">code</a>]</li>
+<li><strong>[TransVOS]</strong>  TransVOS: Video Object Segmentation with Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.00588">paper</a>]</li>
+<li><strong>[KVT]</strong> KVT: k-NN Attention for Boosting Vision Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.00515">paper</a>] </li>
+<li><strong>[MSG-Transformer]</strong> MSG-Transformer: Exchanging Local Spatial Information by Manipulating Messenger Tokens [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.15168">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/hustvl/MSG-Transformer">code</a>]</li>
+<li><strong>[SegFormer]</strong> SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.15203">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/NVlabs/SegFormer">code</a>]</li>
+<li><strong>[SDNet]</strong> SDNet: mutil-branch for single image deraining using swin [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.15077">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/H-tfx/SDNet">code</a>]</li>
+<li><strong>[DVT]</strong> Not All Images are Worth 16x16 Words: Dynamic Vision Transformers with Adaptive Sequence Length [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.15075">paper</a>]</li>
+<li>Dual-stream Network for Visual Recognition [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.14734">paper</a>]</li>
+<li><strong>[GazeTR]</strong> Gaze Estimation using Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.14424">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/yihuacheng/GazeTR">code</a>]</li>
+<li>Transformer-Based Deep Image Matching for Generalizable Person Re-identification [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.14432">paper</a>]</li>
+<li>Less is More: Pay Less Attention in Vision Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.14217">paper</a>] </li>
+<li><strong>[FoveaTer]</strong> FoveaTer: Foveated Transformer for Image Classification [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.14173">paper</a>]</li>
+<li><strong>[TransDA]</strong> Transformer-Based Source-Free Domain Adaptation [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.14138">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/ygjwd12345/TransDA">code</a>]</li>
+<li>An Attention Free Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.14103">paper</a>]</li>
+<li><strong>[PTNet]</strong> PTNet: A High-Resolution Infant MRI Synthesizer Based on Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.13993">paper</a>]</li>
+<li><strong>[ResT]</strong> ResT: An Efficient Transformer for Visual Recognition [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.13677">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/wofmanaf/ResT">code</a>]</li>
+<li><strong>[CogView]</strong> CogView: Mastering Text-to-Image Generation via Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.13290">paper</a>]</li>
+<li><strong>[NesT]</strong> Aggregating Nested Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.12723">paper</a>] </li>
+<li><strong>[TAPG]</strong> Temporal Action Proposal Generation with Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.12043">paper</a>] </li>
+<li>Boosting Crowd Counting with Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.10926">paper</a>] </li>
+<li><strong>[COTR]</strong> COTR: Convolution in Transformer Network for End to End Polyp Detection [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.10925">paper</a>]</li>
+<li><strong>[TransVOD]</strong> End-to-End Video Object Detection with Spatial-Temporal Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.10920">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/SJTU-LuHe/TransVOD">code</a>]</li>
+<li>Intriguing Properties of Vision Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.10497">paper</a>] [<a target="_blank" rel="noopener" href="https://git.io/Js15X">code</a>] </li>
+<li>Combining Transformer Generators with Convolutional Discriminators [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.10189">paper</a>]</li>
+<li>Rethinking the Design Principles of Robust Vision Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.07926">paper</a>]</li>
+<li>Vision Transformers are Robust Learners [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.07581">paper</a>] [<a target="_blank" rel="noopener" href="https://git.io/J3VO0">code</a>]</li>
+<li>Manipulation Detection in Satellite Images Using Vision Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.06373">paper</a>]</li>
+<li><strong>[Segmenter]</strong> Segmenter: Transformer for Semantic Segmentation [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.05633">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/rstrudel/segmenter">code</a>]</li>
+<li><strong>[Swin-Unet]</strong> Swin-Unet: Unet-like Pure Transformer for Medical Image Segmentation [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.05537">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/HuCaoFighting/Swin-Unet">code</a>]</li>
+<li>Self-Supervised Learning with Swin Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.04553">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/SwinTransformer/Transformer-SSL">code</a>]</li>
+<li><strong>[SCTN]</strong> SCTN: Sparse Convolution-Transformer Network for Scene Flow Estimation [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.04447">paper</a>] </li>
+<li><strong>[RelationTrack]</strong> RelationTrack: Relation-aware Multiple Object Tracking with Decoupled Representation [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.04322">paper</a>]</li>
+<li><strong>[VGTR]</strong> Visual Grounding with Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.04281">paper</a>]</li>
+<li><strong>[PST]</strong> Visual Composite Set Detection Using Part-and-Sum Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.02170">paper</a>] </li>
+<li><strong>[TrTr]</strong> TrTr: Visual Tracking with Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.03817">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/tongtybj/TrTr">code</a>]</li>
+<li><strong>[MOTR]</strong> MOTR: End-to-End Multiple-Object Tracking with TRansformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.03247">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/megvii-model/MOTR">code</a>]</li>
+<li>Attention for Image Registration (AiR): an unsupervised Transformer approach [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.02282">paper</a>] </li>
+<li><strong>[TransHash]</strong> TransHash: Transformer-based Hamming Hashing for Efficient Image Retrieval [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.01823">paper</a>]</li>
+<li><strong>[ISTR]</strong> ISTR: End-to-End Instance Segmentation with Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.00637">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/hujiecpp/ISTR">code</a>]</li>
+<li><strong>[CAT]</strong> CAT: Cross-Attention Transformer for One-Shot Object Detection [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.14984">paper</a>] </li>
+<li><strong>[CoSformer]</strong> CoSformer: Detecting Co-Salient Object with Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.14729">paper</a>]</li>
+<li>End-to-End Attention-based Image Captioning [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.14721">paper</a>]</li>
+<li><strong>[PMTrans]</strong> Pyramid Medical Transformer for Medical Image Segmentation [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.14702">paper</a>]</li>
+<li><strong>[HandsFormer]</strong> HandsFormer: Keypoint Transformer for Monocular 3D Pose Estimation ofHands and Object in Interaction [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.14639">paper</a>]</li>
+<li><strong>[GasHis-Transformer]</strong> GasHis-Transformer: A Multi-scale Visual Transformer Approach for Gastric Histopathology Image Classification [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.14528">paper</a>] </li>
+<li>Emerging Properties in Self-Supervised Vision Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.14294">paper</a>]</li>
+<li><strong>[InTra]</strong> Inpainting Transformer for Anomaly Detection [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.13897">paper</a>] </li>
+<li><strong>[Twins]</strong> Twins: Revisiting Spatial Attention Design in Vision Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.13840">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/Meituan-AutoML/Twins">code</a>]</li>
+<li><strong>[MLMSPT]</strong> Point Cloud Learning with Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.13636">paper</a>]</li>
+<li>Medical Transformer: Universal Brain Encoder for 3D MRI Analysis [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.13633">paper</a>]</li>
+<li><strong>[ConTNet]</strong> ConTNet: Why not use convolution and transformer at the same time? [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.13497">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/yan-hao-tian/ConTNet">code</a>]</li>
+<li><strong>[DTNet]</strong> Dual Transformer for Point Cloud Analysis [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.13044">paper</a>] </li>
+<li>Improve Vision Transformers Training by Suppressing Over-smoothing [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.12753">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/ChengyueGongR/PatchVisionTransformer">code</a>]</li>
+<li><strong>[Visformer]</strong> Visformer: The Vision-friendly Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.12533">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/danczs/Visformer">code</a>]</li>
+<li>Transformer Meets DCFAM: A Novel Semantic Segmentation Scheme for Fine-Resolution Remote Sensing Images [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.12137">paper</a>]</li>
+<li><strong>[VST]</strong> Visual Saliency Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.12099">paper</a>] </li>
+<li><strong>[M3DeTR]</strong> M3DeTR: Multi-representation, Multi-scale, Mutual-relation 3D Object Detection with Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.11896">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/rayguan97/M3DeTR">code</a>]</li>
+<li><strong>[VidTr]</strong> VidTr: Video Transformer Without Convolutions [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.11746">paper</a>] </li>
+<li><strong>[Skeletor]</strong> Skeletor: Skeletal Transformers for Robust Body-Pose Estimation [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.11712">paper</a>] </li>
+<li><strong>[FaceT]</strong> Learning to Cluster Faces via Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.11502">paper</a>]</li>
+<li><strong>[MViT]</strong> Multiscale Vision Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.11227">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/facebookresearch/SlowFast">code</a>]</li>
+<li><strong>[VATT]</strong> VATT: Transformers for Multimodal Self-Supervised Learning from Raw Video, Audio and Text [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.11178">paper</a>]</li>
+<li><strong>[So-ViT]</strong> So-ViT: Mind Visual Tokens for Vision Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.10935">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/jiangtaoxie/So-ViT">code</a>]</li>
+<li>Token Labeling: Training a 85.5% Top-1 Accuracy Vision Transformer with 56M Parameters on ImageNet [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.10858">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/zihangJiang/TokenLabeling">code</a>]</li>
+<li><strong>[TransRPPG]</strong> TransRPPG: Remote Photoplethysmography Transformer for 3D Mask Face Presentation Attack Detection [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.07419">paper</a>]</li>
+<li><strong>[VideoGPT]</strong> VideoGPT: Video Generation using VQ-VAE and Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.10157">paper</a>]</li>
+<li><strong>[M2TR]</strong> M2TR: Multi-modal Multi-scale Transformers for Deepfake Detection [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.09770">paper</a>]</li>
+<li>Transformer Transforms Salient Object Detection and Camouflaged Object Detection [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.10127">paper</a>]</li>
+<li><strong>[TransCrowd]</strong> TransCrowd: Weakly-Supervised Crowd Counting with Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.09116">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/dk-liang/TransCrowd">code</a>]</li>
+<li><strong>[TransVG]</strong> TransVG: End-to-End Visual Grounding with Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.08541">paper</a>]</li>
+<li>Visual Transformer Pruning [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.08500">paper</a>]</li>
+<li>Self-supervised Video Retrieval Transformer Network [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.07993">paper</a>]</li>
+<li>Vision Transformer using Low-level Chest X-ray Feature Corpus for COVID-19 Diagnosis and Severity Quantification [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.07235">paper</a>]</li>
+<li><strong>[TransGAN]</strong> TransGAN: Two Transformers Can Make One Strong GAN [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2102.07074">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/VITA-Group/TransGAN">code</a>]</li>
+<li>Geometry-Free View Synthesis: Transformers and no 3D Priors [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.07652">paper</a>] [<a target="_blank" rel="noopener" href="https://git.io/JOnwn">code</a>]</li>
+<li><strong>[CoaT]</strong> Co-Scale Conv-Attentional Image Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.06399">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/mlpc-ucsd/CoaT">code</a>]</li>
+<li><strong>[LocalViT]</strong> LocalViT: Bringing Locality to Vision Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.05707">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/ofsoundof/LocalViT">code</a>]</li>
+<li><strong>[ACTOR]</strong> Action-Conditioned 3D Human Motion Synthesis with Transformer VAE [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.05670">paper</a>]</li>
+<li><strong>[CIT]</strong> Cloth Interactive Transformer for Virtual Try-On [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.05519">paper</a>] [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.05519">code</a>]</li>
+<li>Handwriting Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.03964">paper</a>]</li>
+<li><strong>[SiT]</strong> SiT: Self-supervised vIsion Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.03602">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/Sara-Ahmed/SiT">code</a>]</li>
+<li>On the Robustness of Vision Transformers to Adversarial Examples [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.02610">paper</a>]</li>
+<li>An Empirical Study of Training Self-Supervised Visual Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.02057">paper</a>]</li>
+<li>A Video Is Worth Three Views: Trigeminal Transformers for Video-based Person Re-identification [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.01745">paper</a>]</li>
+<li><strong>[AOT-GAN]</strong> Aggregated Contextual Transformations for High-Resolution Image Inpainting [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.01431">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/researchmm/AOT-GAN-for-Inpainting">code</a>]</li>
+<li>Deepfake Detection Scheme Based on Vision Transformer and Distillation [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.01353">paper</a>]</li>
+<li><strong>[ATAG]</strong> Augmented Transformer with Adaptive Graph for Temporal Action Proposal Generation [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2103.16024">paper</a>] </li>
+<li><strong>[LeViT]</strong> LeViT: a Vision Transformer in ConvNet’s Clothing for Faster Inference [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.01136">paper</a>] </li>
+<li><strong>[TubeR]</strong> TubeR: Tube-Transformer for Action Detection [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.00969">paper</a>]</li>
+<li><strong>[AAformer]</strong> AAformer: Auto-Aligned Transformer for Person Re-Identification [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.00921">paper</a>]</li>
+<li><strong>[TFill]</strong> TFill: Image Completion via a Transformer-Based Architecture [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.00845">paper</a>]</li>
+<li>Group-Free 3D Object Detection via Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.00678">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/zeliu98/Group-Free-3D">code</a>]</li>
+<li><strong>[STGT]</strong> Spatial-Temporal Graph Transformer for Multiple Object Tracking [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.00194">paper</a>] </li>
+<li><strong>[YOGO]</strong> You Only Group Once: Efficient Point-Cloud Processing with Token<br>Representation and Relation Inference Module[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.09975">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/chenfengxu714/YOGO.git">code</a>]</li>
+<li>Going deeper with Image Transformers[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.17239">paper</a>] </li>
+<li><strong>[Stark]</strong> Learning Spatio-Temporal Transformer for Visual Tracking [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.17154">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/researchmm/Stark">code</a>]</li>
+<li><strong>[Meta-DETR]</strong> Meta-DETR: Few-Shot Object Detection via Unified Image-Level Meta-Learning [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.11731">paper</a> [<a target="_blank" rel="noopener" href="https://github.com/ZhangGongjie/Meta-DETR">code</a>]</li>
+<li><strong>[DA-DETR]</strong> DA-DETR: Domain Adaptive Detection Transformer by Hybrid Attention [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.17084">paper</a>]</li>
+<li>Robust Facial Expression Recognition with Convolutional Visual Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.16854">paper</a>]</li>
+<li>Thinking Fast and Slow: Efficient Text-to-Visual Retrieval with Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.16553">paper</a>]</li>
+<li>Spatiotemporal Transformer for Video-based Person Re-identification[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.16469">paper</a>] </li>
+<li><strong>[PiT]</strong> Rethinking Spatial Dimensions of Vision Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.16302">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/naver-ai/pit">code</a>]</li>
+<li><strong>[TransUNet]</strong> TransUNet: Transformers Make Strong Encoders for Medical Image Segmentation [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2102.04306">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/Beckschen/TransUNet">code</a>]</li>
+<li><strong>[CvT]</strong> CvT: Introducing Convolutions to Vision Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.15808">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/leoxiaobin/CvT">code</a>]</li>
+<li>Multi-Scale Vision Longformer: A New Vision Transformer for High-Resolution Image Encoding [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.15358">paper</a>]</li>
+<li><strong>[TFPose]</strong> TFPose: Direct Human Pose Estimation with Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.15320">paper</a>]</li>
+<li><strong>[TransCenter]</strong> TransCenter: Transformers with Dense Queries for Multiple-Object Tracking [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.15145">paper</a>]</li>
+<li><strong>[ViViT]</strong> ViViT: A Video Vision Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.15691">paper</a>]</li>
+<li><strong>[CrossViT]</strong> CrossViT: Cross-Attention Multi-Scale Vision Transformer for Image Classification [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.14899">paper</a>]</li>
+<li><strong>[TS-CAM]</strong> TS-CAM: Token Semantic Coupled Attention Map for Weakly Supervised Object Localization [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.14862">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/vasgaowei/TS-CAM.git">code</a>]</li>
+<li>Face Transformer for Recognition [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.14803">paper</a>]</li>
+<li>On the Adversarial Robustness of Visual Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.15670">paper</a>]</li>
+<li>Understanding Robustness of Transformers for Image Classification [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.14586">paper</a>]</li>
+<li>Lifting Transformer for 3D Human Pose Estimation in Video [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.14304">paper</a>]</li>
+<li><strong>[GSA-Net]</strong> Global Self-Attention Networks for Image Recognition[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2010.03019">paper</a>]</li>
+<li>High-Fidelity Pluralistic Image Completion with Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.14031">paper</a>] [<a target="_blank" rel="noopener" href="http://raywzy.com/ICT">code</a>]</li>
+<li>Swin Transformer: Hierarchical Vision Transformer using Shifted Windows [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.14030">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/microsoft/Swin-Transformer">code</a>]</li>
+<li><strong>[DPT]</strong> Vision Transformers for Dense Prediction [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.13413">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/intel-isl/DPT">code</a>]</li>
+<li><strong>[TransFG]</strong> TransFG: A Transformer Architecture for Fine-grained Recognition? [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.07976">paper</a>]</li>
+<li><strong>[TimeSformer]</strong> Is Space-Time Attention All You Need for Video Understanding? [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2102.05095">paper</a>]</li>
+<li>Multi-view 3D Reconstruction with Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.12957">paper</a>] </li>
+<li>Can Vision Transformers Learn without Natural Images? [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.13023">paper</a>] [<a target="_blank" rel="noopener" href="https://hirokatsukataoka16.github.io/Vision-Transformers-without-Natural-Images/">code</a>]</li>
+<li>Transformers Solve the Limited Receptive Field for Monocular Depth Prediction [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.12091">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/ygjwd12345/TransDepth">code</a>]</li>
+<li>End-to-End Trainable Multi-Instance Pose Estimation with Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.12115">paper</a>] </li>
+<li>Instance-level Image Retrieval using Reranking Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.12424">paper</a>] [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.12236">code</a>]</li>
+<li><strong>[BossNAS]</strong> BossNAS: Exploring Hybrid CNN-transformers with Block-wisely Self-supervised Neural Architecture Search [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.12424">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/changlin31/BossNAS">code</a>]</li>
+<li><strong>[CeiT]</strong> Incorporating Convolution Designs into Visual Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.11816">paper</a>] </li>
+<li><strong>[DeepViT]</strong> DeepViT: Towards Deeper Vision Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.11886">paper</a>] </li>
+<li><strong>[TNT]</strong> Transformer in Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.00112">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/huawei-noah/noah-research/tree/master/TNT">code</a>]</li>
+<li>Enhancing Transformer for Video Understanding Using Gated Multi-Level Attention and Temporal Adversarial Training [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.10043">paper</a>] </li>
+<li>3D Human Pose Estimation with Spatial and Temporal Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.10455">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/zczcwh/PoseFormer">code</a>]</li>
+<li><strong>[SUNETR]</strong> SUNETR: Transformers for 3D Medical Image Segmentation [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.10504">paper</a>] </li>
+<li>Scalable Visual Transformers with Hierarchical Pooling [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.10619">paper</a>] </li>
+<li><strong>[ConViT]</strong> ConViT: Improving Vision Transformers with Soft Convolutional Inductive Biases [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.10697">paper</a>] </li>
+<li><strong>[TransMed]</strong> TransMed: Transformers Advance Multi-modal Medical Image Classification [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.05940">paper</a>] </li>
+<li><strong>[U-Transformer]</strong> U-Net Transformer: Self and Cross Attention for Medical Image Segmentation [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.06104">paper</a>] </li>
+<li><strong>[SpecTr]</strong> SpecTr: Spectral Transformer for Hyperspectral Pathology Image Segmentation [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.03604">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/hfut-xc-yun/SpecTr">code</a>]</li>
+<li><strong>[TransBTS]</strong> TransBTS: Multimodal Brain Tumor Segmentation Using Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.04430">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/Wenxuan-1119/TransBTS">code</a>]</li>
+<li><strong>[SSTN]</strong> SSTN: Self-Supervised Domain Adaptation Thermal<br>Object Detection for Autonomous Driving [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.03150">paper</a>] </li>
+<li><strong>[GANsformer]</strong> Generative Adversarial Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.01209">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/dorarad/gansformer">code</a>]</li>
+<li><strong>[PVT]</strong> Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2102.12122">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/whai362/PVT">code</a>]</li>
+<li>Transformer is All You Need:<br>Multimodal Multitask Learning with a Unified Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2102.10772">paper</a>] [<a target="_blank" rel="noopener" href="https://mmf.sh/">code</a>]</li>
+<li><strong>[CPVT]</strong> Do We Really Need Explicit Position Encodings for Vision Transformers? [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2102.10882">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/Meituan-AutoML/CPVT">code</a>]</li>
+<li>Deepfake Video Detection Using Convolutional Vision Transformer[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2102.11126">paper</a>]</li>
+<li>Training Vision Transformers for Image Retrieval[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2102.05644">paper</a>]</li>
+<li><strong>[TransReID]</strong> TransReID: Transformer-based Object Re-Identification[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2102.04378">paper</a>]</li>
+<li><strong>[VTN]</strong> Video Transformer Network[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2102.00719">paper</a>]</li>
+<li><strong>[T2T-ViT]</strong> Tokens-to-Token ViT: Training Vision Transformers from Scratch on ImageNet [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2101.11986">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/yitu-opensource/T2T-ViT">code</a>]</li>
+<li><strong>[BoTNet]</strong> Bottleneck Transformers for Visual Recognition [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2101.11605">paper</a>]</li>
+<li><strong>[CPTR]</strong> CPTR: Full Transformer Network for Image Captioning [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2101.10804">paper</a>]</li>
+<li>Learn to Dance with AIST++: Music Conditioned 3D Dance Generation [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2101.08779">paper</a>] [<a target="_blank" rel="noopener" href="https://google.github.io/aichoreographer/">code</a>]</li>
+<li><strong>[Trans2Seg]</strong>  Segmenting Transparent Object in the Wild with Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2101.08461">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/xieenze/Trans2Seg">code</a>]</li>
+<li>Investigating the Vision Transformer Model for Image Retrieval Tasks [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2101.03771">paper</a>]</li>
+<li><strong>[Trear]</strong> Trear: Transformer-based RGB-D Egocentric Action Recognition [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2101.03904">paper</a>]</li>
+<li><strong>[VisualSparta]</strong> VisualSparta: Sparse Transformer Fragment-level Matching for Large-scale Text-to-Image Search [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2101.00265">paper</a>]</li>
+<li><strong>[TrackFormer]</strong> TrackFormer: Multi-Object Tracking with Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2101.02702">paper</a>]</li>
+<li><strong>[LETR]</strong> Line Segment Detection Using Transformers without Edges [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2101.01909">paper</a>]</li>
+<li><strong>[TAPE]</strong> Transformer Guided Geometry Model for Flow-Based Unsupervised Visual Odometry [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2101.02143">paper</a>]</li>
+<li><strong>[TRIQ]</strong> Transformer for Image Quality Assessment [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2101.01097">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/junyongyou/triq">code</a>]</li>
+<li><strong>[TransTrack]</strong> TransTrack: Multiple-Object Tracking with Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2012.15460">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/PeizeSun/TransTrack">code</a>]</li>
+<li><strong>[TransPose]</strong> TransPose: Towards Explainable Human Pose Estimation by Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2012.14214">paper</a>] </li>
+<li><strong>[DeiT]</strong> Training data-efficient image transformers &amp; distillation through attention [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2012.12877">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/facebookresearch/deit">code</a>]</li>
+<li><strong>[Pointformer]</strong> 3D Object Detection with Pointformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2012.11409">paper</a>] </li>
+<li><strong>[ViT-FRCNN]</strong> Toward Transformer-Based Object Detection [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2012.09958">paper</a>] </li>
+<li><strong>[Taming-transformers]</strong> Taming Transformers for High-Resolution Image Synthesis [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2012.09841">paper</a>] [<a target="_blank" rel="noopener" href="https://compvis.github.io/taming-transformers/">code</a>]</li>
+<li><strong>[SceneFormer]</strong> SceneFormer: Indoor Scene Generation with Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2012.09793">paper</a>] </li>
+<li><strong>[PCT]</strong> PCT: Point Cloud Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2012.09688">paper</a>] </li>
+<li><strong>[METRO]</strong> End-to-End Human Pose and Mesh Reconstruction with Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2012.09760">paper</a>]</li>
+<li><strong>[PointTransformer]</strong> Point Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2012.09164">paper</a>]</li>
+<li><strong>[PED]</strong> DETR for Pedestrian Detection[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2012.06785">paper</a>]</li>
+<li>Transformer Guided Geometry Model for Flow-Based Unsupervised Visual Odometry[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2101.02143">paper</a>]</li>
+<li><strong>[C-Tran]</strong> General Multi-label Image Classification with Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2011.14027">paper</a>]</li>
+<li><strong>[TSP-FCOS]</strong> Rethinking Transformer-based Set Prediction for Object Detection [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2011.10881">paper</a>]</li>
+<li><strong>[ACT]</strong> End-to-End Object Detection with Adaptive Clustering Transformer [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2011.09315">paper</a>]</li>
+<li><strong>[STTR]</strong> Revisiting Stereo Depth Estimation From a Sequence-to-Sequence Perspective with Transformers [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2011.02910v2">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/mli0603/stereo-transformer">code</a>]</li>
+<li><strong>[VTs]</strong> Visual Transformers: Token-based Image Representation and Processing for Computer Vision [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.03677">paper</a>]</li>
+</ul>
+<h3 id="已见刊-2021"><a href="#已见刊-2021" class="headerlink" title="已见刊 (2021)"></a>已见刊 (2021)</h3><ul>
+<li>Vision Transformer with Progressive Sampling (<strong>ICCV</strong>)[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2108.01684v1">paper</a>]</li>
+<li><strong>[SMCA]</strong>  Fast Convergence of DETR with Spatially Modulated Co-Attention (<strong>ICCV</strong>)[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2101.07448">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/abc403/SMCA-replication">code</a>]</li>
+<li><strong>[AutoFormer]</strong> AutoFormer: Searching Transformers for Visual Recognition (<strong>ICCV</strong>)[<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2107.00651.pdf">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/microsoft/AutoML">code</a>]</li>
+<li><strong>[NDT-Transformer]</strong> NDT-Transformer: Large-Scale 3D Point Cloud Localisation using the Normal Distribution Transform Representation (<strong>ICRA</strong>)[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.12292">paper</a>] </li>
+<li><strong>[DPT]</strong> DPT: Deformable Patch-based Transformer for Visual Recognition (<strong>ACM MM</strong>) [<a target="_blank" rel="noopener" href="http://arxiv.org/abs/2107.14467v1">paper</a>]</li>
+<li><strong>[HAT]</strong> HAT: Hierarchical Aggregation Transformers for Person Re-identification (<strong>ACM MM</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.05946">paper</a>]</li>
+<li><strong>[UTNet]</strong> UTNet: A Hybrid Transformer Architecture for Medical Image Segmentation (<strong>MICCAI</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.00781">paper</a>] </li>
+<li><strong>[MedT]</strong> Medical Transformer: Gated Axial-Attention for Medical Image Segmentation (<strong>MICCAI</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2102.10662">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/jeya-maria-jose/Medical-Transformer">code</a>]</li>
+<li><strong>[MCTrans]</strong> Multi-Compound Transformer for Accurate Biomedical Image Segmentation (<strong>MICCAI</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.14385">paper</a>]</li>
+<li><strong>[PNS-Net]</strong> Progressively Normalized Self-Attention Network for Video Polyp Segmentation (<strong>MICCAI</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.08468">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/GewelsJI/PNS-Net">code</a>]</li>
+<li><strong>[MBT-Net]</strong> A Multi-Branch Hybrid Transformer Networkfor Corneal Endothelial Cell Segmentation [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.07557">paper</a>]</li>
+<li>VT-ADL: A Vision Transformer Network for Image Anomaly Detection and Localization (<strong>ISIE</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.10036">paper</a>]</li>
+<li>Medical Image Segmentation using Squeeze-and-Expansion Transformers  (<strong>IJCAI</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.09511">paper</a>]</li>
+<li>Vision Transformer for Fast and Efficient Scene Text Recognition (<strong>ICDAR</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.08582">paper</a>]</li>
+<li>Diverse Part Discovery: Occluded Person Re-identification with Part-Aware Transformer (<strong>CVPR</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.04095">paper</a>]</li>
+<li><strong>[HOTR]</strong> HOTR: End-to-End Human-Object Interaction Detection with Transformers (<strong>CVPR oral</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.13682">paper</a>] </li>
+<li>High-Resolution Complex Scene Synthesis with Transformers (<strong>CVPRW</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.06458">paper</a>]</li>
+<li><strong>[TransFuser]</strong> Multi-Modal Fusion Transformer for End-to-End Autonomous Driving (<strong>CVPR</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.09224">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/autonomousvision/transfuser">code</a>]</li>
+<li>Pose Recognition with Cascade Transformers  (<strong>CVPR</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.06976">paper</a>]</li>
+<li>Seeing Out of tHe bOx: End-to-End Pre-training for Vision-Language Representation Learning  (<strong>CVPR</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.03135">paper</a>]</li>
+<li><strong>[LoFTR]</strong> LoFTR: Detector-Free Local Feature Matching with Transformers (<strong>CVPR</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.00680">paper</a>] [<a target="_blank" rel="noopener" href="https://zju3dv.github.io/loftr/">code</a>]</li>
+<li>Thinking Fast and Slow: Efficient Text-to-Visual Retrieval with Transformers (<strong>CVPR</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.16553">paper</a>] </li>
+<li><strong>[SETR]</strong> Rethinking Semantic Segmentation from a Sequence-to-Sequence Perspective with Transformers (<strong>CVPR</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2012.15840">paper</a>] [<a target="_blank" rel="noopener" href="https://fudan-zvg.github.io/SETR/">code</a>]</li>
+<li><strong>[TransT]</strong> Transformer Tracking  (<strong>CVPR</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.15436">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/chenxin-dlut/TransT">code</a>]</li>
+<li>Transformer Meets Tracker: Exploiting Temporal Context for Robust Visual Tracking (<strong>CVPR oral</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2103.11681">paper</a>]</li>
+<li><strong>[VisTR]</strong> End-to-End Video Instance Segmentation with Transformers (<strong>CVPR</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2011.14503">paper</a>]</li>
+<li>Transformer Interpretability Beyond Attention Visualization (<strong>CVPR</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2012.09838">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/hila-chefer/Transformer-Explainability">code</a>]</li>
+<li><strong>[IPT]</strong> Pre-Trained Image Processing Transformer (<strong>CVPR</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2012.00364">paper</a>]</li>
+<li><strong>[UP-DETR]</strong> UP-DETR: Unsupervised Pre-training for Object Detection with Transformers (<strong>CVPR</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2011.09094">paper</a>]</li>
+<li><strong>[IQT]</strong> Perceptual Image Quality Assessment with Transformers (<strong>CVPRW</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2104.14730">paper</a>]</li>
+<li><strong>[VTNet]</strong> VTNet: Visual Transformer Network for Object Goal Navigation (<strong>ICLR</strong>)[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2105.09447">paper</a>]</li>
+<li><strong>[Vision Transformer]</strong> An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale (<strong>ICLR</strong>)[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2010.11929">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/google-research/vision_transformer">code</a>]</li>
+<li><strong>[Deformable DETR]</strong> Deformable DETR: Deformable Transformers for End-to-End Object Detection (<strong>ICLR</strong>)[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2010.04159">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/fundamentalvision/Deformable-DETR">code</a>]</li>
+<li><strong>[LAMBDANETWORKS]</strong> MODELING LONG-RANGE INTERACTIONS WITHOUT ATTENTION (<strong>ICLR</strong>) <a target="_blank" rel="noopener" href="https://openreview.net/pdf?id=xTJEN-ggl1b">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/lucidrains/lambda-networks">code</a>]</li>
+<li><strong>[LSTR]</strong> End-to-end Lane Shape Prediction with Transformers (<strong>WACV</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2011.04233">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/liuruijin17/LSTR">code</a>]</li>
+</ul>
+<h3 id="已见刊-2020"><a href="#已见刊-2020" class="headerlink" title="已见刊 (2020)"></a>已见刊 (2020)</h3><ul>
+<li><strong>[DETR]</strong> End-to-End Object Detection with Transformers (<strong>ECCV</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2005.12872">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/facebookresearch/detr">code</a>]</li>
+<li>[<strong>FPT</strong>] Feature Pyramid Transformer (<strong>CVPR</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2007.09451">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/ZHANGDONG-NJUST/FPT">code</a>]</li>
+<li><strong>[TTSR]</strong> Learning Texture Transformer Network for Image Super-Resolution (<strong>CVPR</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.04139">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/researchmm/TTSR">code</a>]</li>
+<li><strong>[STTN]</strong> Learning Joint Spatial-Temporal Transformations for Video Inpainting (<strong>ECCV</strong>) [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2007.10247">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/researchmm/STTN">code</a>]</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">SvyJ</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/07/01/023-Visual-Transformers/">http://example.com/2022/07/01/023-Visual-Transformers/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">“干杯( ﾟ-ﾟ)っロ”</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a><a class="post-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/">网络模型</a><a class="post-meta__tags" href="/tags/Transformer/">Transformer</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2021/12/22/raDjVhH3egsF9fx.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/07/01/013-Web_Job_Specification/" title="前端开发任职要求汇总（2020）"><img class="cover" src="https://s2.loli.net/2021/12/22/952aekgwzWF8Rto.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">前端开发任职要求汇总（2020）</div></div></a></div><div class="next-post pull-right"><a href="/2022/07/01/014-UNet_Family/" title="U-Net系列文献综述"><img class="cover" src="https://i.loli.net/2021/07/05/ahHDQsSkVb32qTn.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">U-Net系列文献综述</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/07/05/022-Transformers/" title="Transformer系列的简单整理（挖坑）"><img class="cover" src="https://s2.loli.net/2021/12/22/raDjVhH3egsF9fx.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-05</div><div class="title">Transformer系列的简单整理（挖坑）</div></div></a></div><div><a href="/2022/07/05/002-LeNet_Mnist/" title="深度学习算法中的Hello-World：用LeNet模型实现手写数字识别"><img class="cover" src="https://i.loli.net/2021/07/05/uVxbZ7TaRqkijHf.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-05</div><div class="title">深度学习算法中的Hello-World：用LeNet模型实现手写数字识别</div></div></a></div><div><a href="/2022/07/01/010-Semantic_Segementation/" title="语义分割综述"><img class="cover" src="https://i.loli.net/2021/07/05/z3mAyiTIeYhFDQO.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-01</div><div class="title">语义分割综述</div></div></a></div><div><a href="/2022/07/05/005-DL_Models_Classification/" title="经典分类模型的Pytorch实现"><img class="cover" src="https://s2.loli.net/2022/06/30/mh1gcH8wJx9QMCs.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-05</div><div class="title">经典分类模型的Pytorch实现</div></div></a></div><div><a href="/2022/07/05/021-VesselSegmentation/" title="医学图像中的血管分割"><img class="cover" src="https://s2.loli.net/2022/07/05/IrpVOv3lQtRTCPW.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-05</div><div class="title">医学图像中的血管分割</div></div></a></div><div><a href="/2022/07/05/025-PytorchImplementation/" title="（整理链接）常用网络的Pytorch实现"><img class="cover" src="https://s2.loli.net/2021/12/22/vJgDoWfu8BP3jah.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-05</div><div class="title">（整理链接）常用网络的Pytorch实现</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Awesome-Visual-Transformer"><span class="toc-number">1.</span> <span class="toc-text">Awesome Visual-Transformer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Papers"><span class="toc-number">1.1.</span> <span class="toc-text">Papers</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Transformer-original-paper"><span class="toc-number">1.1.1.</span> <span class="toc-text">Transformer original paper</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%BC%E8%BF%B0"><span class="toc-number">1.1.2.</span> <span class="toc-text">综述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#arXiv-papers"><span class="toc-number">1.1.3.</span> <span class="toc-text">arXiv papers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%B2%E8%A7%81%E5%88%8A-2021"><span class="toc-number">1.1.4.</span> <span class="toc-text">已见刊 (2021)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%B2%E8%A7%81%E5%88%8A-2020"><span class="toc-number">1.1.5.</span> <span class="toc-text">已见刊 (2020)</span></a></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://s2.loli.net/2021/12/22/raDjVhH3egsF9fx.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By SvyJ</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hello, Stranger~</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'e5bWQMoOycxPCdtTvxkPGJ0d-gzGzoHsz',
+      appKey: 'peE7twywLp5HcdBx6gmKQYUH',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

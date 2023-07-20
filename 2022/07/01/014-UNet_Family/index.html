@@ -1,0 +1,384 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>U-Net系列文献综述 | “干杯( ﾟ-ﾟ)っロ”</title><meta name="author" content="SvyJ"><meta name="copyright" content="SvyJ"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="一、U-NetContribution 更规整的网络结构 通过将编码器的每层结果拼接到译码器中得到更好的结果  1、Architecture 二、3D U-NetArchitecture 3、Tricks 两种分割方式（1）半自动分割半自动分割网络允许用户输入几个注释的2维切片，来得到整个三维体的分割。在半自动分割方法中，使用了IoU指标作为精度度量，得出结论3D U-Net能够从很少的带标注的切">
+<meta property="og:type" content="article">
+<meta property="og:title" content="U-Net系列文献综述">
+<meta property="og:url" content="http://example.com/2022/07/01/014-UNet_Family/index.html">
+<meta property="og:site_name" content="“干杯( ﾟ-ﾟ)っロ”">
+<meta property="og:description" content="一、U-NetContribution 更规整的网络结构 通过将编码器的每层结果拼接到译码器中得到更好的结果  1、Architecture 二、3D U-NetArchitecture 3、Tricks 两种分割方式（1）半自动分割半自动分割网络允许用户输入几个注释的2维切片，来得到整个三维体的分割。在半自动分割方法中，使用了IoU指标作为精度度量，得出结论3D U-Net能够从很少的带标注的切">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/07/05/ahHDQsSkVb32qTn.png">
+<meta property="article:published_time" content="2022-07-01T01:48:04.000Z">
+<meta property="article:modified_time" content="2022-07-01T01:48:04.000Z">
+<meta property="article:author" content="SvyJ">
+<meta property="article:tag" content="图像处理">
+<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="图像分割">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/07/05/ahHDQsSkVb32qTn.png"><link rel="shortcut icon" href="/img/logo.png"><link rel="canonical" href="http://example.com/2022/07/01/014-UNet_Family/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: SvyJ","link":"链接: ","source":"来源: “干杯( ﾟ-ﾟ)っロ”","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'U-Net系列文献综述',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-07-01 09:48:04'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/font_3054216_qov50ieeupn.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2021/12/23/X7TzdfHKCI56Vus.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2021/07/05/ahHDQsSkVb32qTn.png')"><nav id="nav"><span id="blog-info"><a href="/" title="“干杯( ﾟ-ﾟ)っロ”"><span class="site-name">“干杯( ﾟ-ﾟ)っロ”</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">U-Net系列文献综述</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-01T01:48:04.000Z" title="发表于 2022-07-01 09:48:04">2022-07-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-07-01T01:48:04.000Z" title="更新于 2022-07-01 09:48:04">2022-07-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>12分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="U-Net系列文献综述"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="一、U-Net"><a href="#一、U-Net" class="headerlink" title="一、U-Net"></a><strong>一、U-Net</strong></h1><h2 id="Contribution"><a href="#Contribution" class="headerlink" title="Contribution"></a><strong>Contribution</strong></h2><ul>
+<li>更规整的网络结构</li>
+<li>通过将编码器的每层结果拼接到译码器中得到更好的结果</li>
+</ul>
+<h2 id="1、Architecture"><a href="#1、Architecture" class="headerlink" title="1、Architecture"></a><strong>1、Architecture</strong></h2><p><img src="https://i.loli.net/2021/07/05/ahHDQsSkVb32qTn.png" alt="U-Net"></p>
+<h1 id="二、3D-U-Net"><a href="#二、3D-U-Net" class="headerlink" title="二、3D U-Net"></a><strong>二、3D U-Net</strong></h1><h2 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a><strong>Architecture</strong></h2><p><img src="https://i.loli.net/2021/07/05/5cxAgn1IiGZJdEC.png" alt="3D U-Net"></p>
+<h2 id="3、Tricks"><a href="#3、Tricks" class="headerlink" title="3、Tricks"></a><strong>3、Tricks</strong></h2><ul>
+<li>两种分割方式<br>（1）半自动分割<br>半自动分割网络允许用户输入几个注释的2维切片，来得到整个三维体的分割。在半自动分割方法中，使用了IoU指标作为精度度量，得出结论3D U-Net能够从很少的带标注的切片中推广到非常精确的三维分割，而不需要太多的标注工作。<br>（2）全自动分割<br>已经有一个在具有代表性的训练集上（带注释的切片）进行训练得到的网络，用户可以使用这个网络在没有注释的体积卷上运行,来得到整个三维体的分割。</li>
+<li>通道数翻倍的时机和反卷积操作。在2D Unet中，通道数翻倍的时机在下采样后的第一次卷积时；而在3D U-Net中，通道数翻倍发生在下采样或上采样前的卷积中。对于反卷积操作，区别在于通道数是否减半，2D U-Net中通道数减半，而3D U-Net中通道数不变。</li>
+<li>使用Batch Normalization来加快收敛和避免网络结构的瓶颈。</li>
+<li>使用了旋转、缩放和灰度增强等数据增强方法，此外在训练数据和正确标注数据上运用平滑的密集变形场，即从一个标准差为4的正态分布中抽取随机向量，每个方向的间距为32个体素，然后应用b样条插值。</li>
+<li>使用带加权交叉熵损失的Softmax函数对网络输出和正确标注数据进行比较，对经常出现的背景减少权重，对标注到的图像数据部分增加权重，以平衡微管和背景体素对损失的影响。未标记的像素不参与损失计算，即权重为0。这样可以让网络可以更多地仅仅学习标注到的像素点，从而达到普适性地特点。</li>
+</ul>
+<h1 id="三、U-Net"><a href="#三、U-Net" class="headerlink" title="三、U-Net++"></a><strong>三、U-Net++</strong></h1><p>作者知乎解读：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/44958351">https://zhuanlan.zhihu.com/p/44958351</a><br>小总结：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u013066730/article/details/84954229?biz_id=102&utm_term=UNet++&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-84954229&spm=1018.2118.3001.4187">https://blog.csdn.net/u013066730/article/details/84954229?biz_id=102&amp;utm_term=UNet++&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-84954229&amp;spm=1018.2118.3001.4187</a></p>
+<h2 id="1、Architecture-1"><a href="#1、Architecture-1" class="headerlink" title="1、Architecture"></a><strong>1、Architecture</strong></h2><ul>
+<li>黑色部分代表的就是原始U-Net结构,绿色代表添加的卷积层，蓝色代表改进的Skip Connection。</li>
+<li>以X(1,2)为例说明，它是由X(1,0)、X(1,1)和上采样后的X(2,1)拼接之后，再经过一次Conv与ReLU得到。<br><img src="https://i.loli.net/2021/07/05/SDgP3rRY4cUsd7b.png" alt="U-Net++"></li>
+</ul>
+<h1 id="四、Res-U-Net和Dense-U-Net"><a href="#四、Res-U-Net和Dense-U-Net" class="headerlink" title="四、Res U-Net和Dense U-Net"></a><strong>四、Res U-Net和Dense U-Net</strong></h1><h2 id="1、Contribution"><a href="#1、Contribution" class="headerlink" title="1、Contribution"></a><strong>1、Contribution</strong></h2><ul>
+<li>Res U-Net和Dense U-Net分别受到残差连接和密集连接的启发，将U-Net的每一个子模块分别替换为具有残差连接和密集连接的形式。</li>
+</ul>
+<h2 id="2、Architecture"><a href="#2、Architecture" class="headerlink" title="2、Architecture"></a><strong>2、Architecture</strong></h2><p><img src="https://i.loli.net/2021/07/05/s9N3gaDQdAjorvn.png" alt="Res U-Net"></p>
+<h1 id="五、MultiRes-U-Net"><a href="#五、MultiRes-U-Net" class="headerlink" title="五、MultiRes U-Net"></a><strong>五、MultiRes U-Net</strong></h1><h2 id="1、Contribution-1"><a href="#1、Contribution-1" class="headerlink" title="1、Contribution"></a><strong>1、Contribution</strong></h2><ul>
+<li>将U-Net中的两个3*3的卷积替换成3*3，7*7卷积运算与5*5卷积运算并行合并，使用多分辨率思路替换传统卷积层。</li>
+<li>使用Res Path替换传统U-Net中的简单的跳过连接。</li>
+<li>在具有挑战性的训练集有着卓越的提高。</li>
+</ul>
+<h2 id="2、Architecture-1"><a href="#2、Architecture-1" class="headerlink" title="2、Architecture"></a><strong>2、Architecture</strong></h2><p><img src="https://i.loli.net/2021/07/05/iyK21bS4GRvjDEN.png" alt="MultiRes U-Net"></p>
+<ul>
+<li><strong>MultiBlock</strong><br>多分辨率分析来扩展U-Net的最简单方法是将3*3和7*7卷积运算与5*5卷积运算并行地合并，如图a所示。<br>论文中使用一系列更小，更轻便的3*3卷积块来分解更大，更苛刻的5*5和7*7卷积层，如图b所示。<br>2个3*3卷积块的输出有效地近似5*5卷积运算，3个3*3卷积块的输出有效地近似7*7卷积运算。<br>最终MultiResUnet使用了三个3*3的卷积替换了U-Net中的模块，并且引入了1*1卷积层，添加了剩余连接，使模型能够理解一些其他空间信息。<br><img src="https://i.loli.net/2021/07/05/WMOix2Y1JyXc3DA.png" alt="MultiRes U-Net中的模块详细结构"></li>
+<li><strong>Res Path</strong><br>引入残差连接，不是简单地将特征图从编码器级连接到解码器级，而是先将它们<strong>穿过带有残差连接的卷积层链，然后再与解码器特征连接</strong>。<br><img src="https://i.loli.net/2021/07/05/BAfbVU9ECgsH8xv.png" alt="MultiRes U-Net中的Residual Path"></li>
+</ul>
+<h1 id="六、R2-U-Net"><a href="#六、R2-U-Net" class="headerlink" title="六、R2 U-Net"></a><strong>六、R2 U-Net</strong></h1><h2 id="1、Contribution-2"><a href="#1、Contribution-2" class="headerlink" title="1、Contribution"></a><strong>1、Contribution</strong></h2><ul>
+<li>提出了两个新模型RU-Net和R2U-Net用于医学图像分割。</li>
+<li>对医学成像的三种不同模式进行了实验，包括视网膜血管分割，皮肤癌分割和肺分割。</li>
+<li>对基于模型的视网膜血管分割任务和基于端到端图像的皮肤病变和肺分割任务的模型，对提出的模型进行性能评估。</li>
+<li>与最近提出的最新方法进行比较，该方法与具有相同数量网络参数的等效模型相比具有<strong>优越的性能</strong>。</li>
+</ul>
+<h2 id="2、Architecture-2"><a href="#2、Architecture-2" class="headerlink" title="2、Architecture"></a><strong>2、Architecture</strong></h2><p><img src="https://i.loli.net/2021/07/05/ZpW2dLlRz693COE.png" alt="(a)为普通的两个Conv模块，(b)为使用了Recurrent Conv的模块，(c)为使用了Residual Conv的模块，(d)是同时使用了Residual和Recurrent Conv的模块(即R2)"><br><img src="https://i.loli.net/2021/07/05/mg4VzWa1nGPO6JU.png" alt="Unfolded Recurrent Convolutional Units"></p>
+<ul>
+<li>一个Recurrent Block其实就是t个普通的Conv（Conv+BN+ReLU）的堆叠，只是每个堆叠层的输入有所变化，第一个Conv的输入为X，之后的Cconv的输入为前一个Conv的输出加上X，写成代码则为：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">class Recurrent_block(nn.Module):<br>    def __init__(self, out_channels, t=2):<br>        super(Recurrent_block, self).__init__()<br>        self.t = t<br>        self.out_channels = out_channels<br>        self.conv = nn.Sequential(<br>            nn.Conv2d(out_channels, out_channels, kernel_size=3, stride=1, padding=1, bias=True),<br>		    nn.BatchNorm2d(out_channels),<br>			nn.ReLU(inplace=True)<br>        )<br>    def forward(self,x):<br>        for i in range(self.t):<br>            if i==0:<br>                x1 = self.conv(x)<br>            x1 = self.conv(x+x1)<br>        return x1<br></code></pre></td></tr></table></figure>
+<img src="https://i.loli.net/2021/07/05/6S8tnJWjUEBP5KX.png" alt="Recurrent U-Net"></li>
+<li>在U-Net的基础上添加了Recurrent Conv模块来改进得到的RU-Net（Recurrent U-Net），如上图。</li>
+<li>在上图的基础上加入如ResU-Net的残差模块后得到R2U-Net（Recurrent Residual U-Net）。</li>
+</ul>
+<h1 id="七、Attention-U-Net"><a href="#七、Attention-U-Net" class="headerlink" title="七、Attention U-Net"></a><strong>七、Attention U-Net</strong></h1><p>Codes: <a target="_blank" rel="noopener" href="https://github.com/SvyJ/svyj.github.io/blob/master/codes/Attention_UNet.py">https://github.com/SvyJ/svyj.github.io/blob/master/codes/Attention_UNet.py</a><br>Attention，即为注意力机制。在医疗图像中，就是把注意力集中到对特定任务有用的显著特征（比如说相关组织或者是器官），抑制输入图像中的不相关区域。在级联神经网络中，需要明确的外部组织&#x2F;器官定位模块，而使用Attention就不需要了。</p>
+<h2 id="1、Contribution-3"><a href="#1、Contribution-3" class="headerlink" title="1、Contribution"></a><strong>1、Contribution</strong></h2><ul>
+<li>进一步采用注意力方法，提出基于网格的门控（Grid-Based Gating），使注意系数（Attention Coefficients）更加特定于局部区域。 与基于全局特征向量的门控相比，这提高了性能。 此外，本方法可用于密集预测，因为不执行自适应池化。</li>
+<li>提出了应用于医学成像任务的前馈CNN模型中的软注意（Soft-Attention）技术的第一个用例之一。 提出的注意力可以取代图像分类中使用的硬注意方法和图像分割框架中的外部器官定位模型。</li>
+<li>提出了标准U-Net模型的扩展，以提高模型对前景（Foreground）像素的灵敏度，而无需复杂的启发式算法。 通过实验观察到U-Net的准确度改进在不同的图像数据集中是一致的。</li>
+</ul>
+<h2 id="2、Architecture-3"><a href="#2、Architecture-3" class="headerlink" title="2、Architecture"></a><strong>2、Architecture</strong></h2><p><img src="https://i.loli.net/2021/07/05/agW8D9eQtEMYOvm.png" alt="Attention Gate"></p>
+<ul>
+<li>Xl代表输入Feature Map, g代表Gate Signal，Wg:1*1*1，Wx:1*1*1，代表三维卷积核尺寸为1*1*1的卷积。</li>
+<li>Attention Gate可以理解为：<strong>输入Feature Map和Gate Signal在Add之后依次经过1*1*1的卷积核压缩，ReLU，再压缩，Sigmoid增加非线性，得到与输入Feature Map相同大小的注意力系数，将注意力系数与输入Feature Map相乘得到输出</strong><br><img src="https://i.loli.net/2021/07/05/7krwMtndac5Ph9z.png" alt="Attention U-Net"></li>
+<li>如上图为带有Attention Gate的U-Net模型，与标准U-Net相比，改进的地方在于Skip-Connection增加了Attention Gate，而<strong>Gating Signal是采用的较深层Feature Map</strong>。</li>
+</ul>
+<h1 id="八、U-Net-3"><a href="#八、U-Net-3" class="headerlink" title="八、U-Net 3+"></a><strong>八、U-Net 3+</strong></h1><h2 id="1、Contribution-4"><a href="#1、Contribution-4" class="headerlink" title="1、Contribution"></a><strong>1、Contribution</strong></h2><ul>
+<li>设计了一种新的网络结构U-Net3+，通过引入全尺度的跳过连接，在全尺度特征映射中融合了低层细节和高层语义，充分利用了多尺度特征的同时具有更少的参数；</li>
+<li>通过深度监督让网络从全尺度特征中学习分割表示，提出了更优的混合损失函数以增强器官的边界；</li>
+<li>提出分类指导模块，通过与图像分类分支联合训练的方式，减少了网络在非器官图像的过度分割（Over-Segmentation）；</li>
+<li>在肝脏和脾脏数据集上进行了广泛的实验，证明了U-Net 3+的有效性。</li>
+</ul>
+<h2 id="2、Architecture-4"><a href="#2、Architecture-4" class="headerlink" title="2、Architecture"></a><strong>2、Architecture</strong></h2><p><img src="https://i.loli.net/2021/07/05/ZCzPdn7qOWG539S.png" alt="U-Net(a)，U-Net++(b)，U-Net 3+(c)"></p>
+<h2 id="3、Tricks-1"><a href="#3、Tricks-1" class="headerlink" title="3、Tricks"></a><strong>3、Tricks</strong></h2><p>UNET 3+论文笔记：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/134119120">https://zhuanlan.zhihu.com/p/134119120</a></p>
+<ul>
+<li>全尺度跳过连接</li>
+<li>全尺度的深度监督<br>为了进一步<strong>优化网络对图像边界的分割</strong>，文章借鉴了图像质量评估中常用的多尺度SSIM（MS-SSIM）提出了MS-SSIM loss。本文最终采用了混合损失函数（Focal Loss，MS_SSIM_Loss和iou loss）来对各层进行监督。<br><img src="https://i.loli.net/2021/07/05/lT3dR2n9eNXYIwF.png" alt="MS SSIM Loss"></li>
+<li>分类指导模块（CGM）</li>
+</ul>
+<h1 id="附：UNet-family论文及代码"><a href="#附：UNet-family论文及代码" class="headerlink" title="附：UNet-family论文及代码"></a><strong>附：UNet-family论文及代码</strong></h1><h2 id="2015"><a href="#2015" class="headerlink" title="2015"></a>2015</h2><ul>
+<li>U-Net: Convolutional Networks for Biomedical Image Segmentation (MICCAI) [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1505.04597.pdf">paper</a>]  [<a target="_blank" rel="noopener" href="https://github.com/ShawnBIT/UNet-family/blob/master/networks/UNet.py">my-pytorch</a>][<a target="_blank" rel="noopener" href="https://github.com/zhixuhao/unet">keras</a>]</li>
+</ul>
+<h2 id="2016"><a href="#2016" class="headerlink" title="2016"></a>2016</h2><ul>
+<li>V-Net: Fully Convolutional Neural Networks for Volumetric Medical Image Segmentation [<a target="_blank" rel="noopener" href="http://campar.in.tum.de/pub/milletari2016Vnet/milletari2016Vnet.pdf">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/faustomilletari/VNet">caffe</a>][<a target="_blank" rel="noopener" href="https://github.com/mattmacy/vnet.pytorch">pytorch</a>]</li>
+<li>3D U-Net: Learning Dense Volumetric Segmentation from Sparse Annotation [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1606.06650.pdf">paper</a>][<a target="_blank" rel="noopener" href="https://github.com/wolny/pytorch-3dunet">pytorch</a>]</li>
+</ul>
+<h2 id="2017"><a href="#2017" class="headerlink" title="2017"></a>2017</h2><ul>
+<li>H-DenseUNet: Hybrid Densely Connected UNet for Liver and Tumor Segmentation from CT Volumes (IEEE Transactions on Medical Imaging)[<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1709.07330.pdf">paper</a>][<a target="_blank" rel="noopener" href="https://github.com/xmengli999/H-DenseUNet">keras</a>]</li>
+<li>GP-Unet: Lesion Detection from Weak Labels with a 3D Regression Network (MICCAI) [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1705.07999.pdf">paper</a>]</li>
+</ul>
+<h2 id="2018"><a href="#2018" class="headerlink" title="2018"></a>2018</h2><ul>
+<li>UNet++: A Nested U-Net Architecture for Medical Image Segmentation (MICCAI) [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1807.10165.pdf">paper</a>][<a target="_blank" rel="noopener" href="https://github.com/ShawnBIT/UNet-family/blob/master/networks/UNet_Nested.py">my-pytorch</a>][<a target="_blank" rel="noopener" href="https://github.com/MrGiovanni/UNetPlusPlus">keras</a>]</li>
+<li>MDU-Net: Multi-scale Densely Connected U-Net for biomedical image segmentation [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1812.00352.pdf">paper</a>]</li>
+<li>DUNet: A deformable network for retinal vessel segmentation [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1811.01206.pdf">paper</a>]</li>
+<li>RA-UNet: A hybrid deep attention-aware network to extract liver and tumor in CT scans [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1811.01328.pdf">paper</a>]</li>
+<li>Dense Multi-path U-Net for Ischemic Stroke Lesion Segmentation in Multiple Image Modalities [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1810.07003.pdf">paper</a>]</li>
+<li>Stacked Dense U-Nets with Dual Transformers for Robust Face Alignment [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1812.01936.pdf">paper</a>]</li>
+<li>Prostate Segmentation using 2D Bridged U-net [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1807.04459.pdf">paper</a>]</li>
+<li>nnU-Net: Self-adapting Framework for U-Net-Based Medical Image Segmentation [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1809.10486.pdf">paper</a>][<a target="_blank" rel="noopener" href="https://github.com/MIC-DKFZ/nnUNet">pytorch</a>]</li>
+<li>SUNet: a deep learning architecture for acute stroke lesion segmentation and<br>outcome prediction in multimodal MRI [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1810.13304.pdf">paper</a>]</li>
+<li>IVD-Net: Intervertebral disc localization and segmentation in MRI with a multi-modal UNet [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1811.08305.pdf">paper</a>]</li>
+<li>LADDERNET: Multi-Path Networks Based on U-Net for Medical Image Segmentation [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1810.07810.pdf">paper</a>][<a target="_blank" rel="noopener" href="https://github.com/juntang-zhuang/LadderNet">pytorch</a>]</li>
+<li>Glioma Segmentation with Cascaded Unet [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1810.04008.pdf">paper</a>]</li>
+<li>Attention U-Net: Learning Where to Look for the Pancreas [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1804.03999.pdf">paper</a>]</li>
+<li>Recurrent Residual Convolutional Neural Network based on U-Net (R2U-Net) for Medical Image Segmentation [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1802.06955.pdf">paper</a>]</li>
+<li>Concurrent Spatial and Channel ‘Squeeze &amp; Excitation’ in Fully Convolutional Networks <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1803.02579.pdf">[paper]</a></li>
+<li>A Probabilistic U-Net for Segmentation of Ambiguous Images (NIPS) [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1806.05034.pdf">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/SimonKohl/probabilistic_unet">tensorflow</a>]</li>
+<li>AnatomyNet: Deep Learning for Fast and Fully Automated Whole-volume Segmentation of Head and Neck Anatomy [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1808.05238.pdf">paper</a>]</li>
+<li>3D RoI-aware U-Net for Accurate and Efficient Colorectal Cancer Segmentation [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1806.10342.pdf">paper</a>][<a target="_blank" rel="noopener" href="https://github.com/huangyjhust/3D-RU-Net">pytorch</a>]</li>
+<li>Detection and Delineation of Acute Cerebral Infarct on DWI Using Weakly Supervised Machine Learning (Y-Net) (MICCAI) [<a target="_blank" rel="noopener" href="https://link.springer.com/content/pdf/10.1007%2F978-3-030-00931-1.pdf">paper</a>](Page 82)</li>
+<li>Fully Dense UNet for 2D Sparse Photoacoustic Tomography Artifact Removal [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1808.10848.pdf">paper</a>]</li>
+</ul>
+<h2 id="2019"><a href="#2019" class="headerlink" title="2019"></a>2019</h2><ul>
+<li>MultiResUNet : Rethinking the U-Net Architecture for Multimodal Biomedical Image Segmentation [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1902.04049v1.pdf">paper</a>][<a target="_blank" rel="noopener" href="https://github.com/nibtehaz/MultiResUNet">keras</a>]</li>
+<li>U-NetPlus: A Modified Encoder-Decoder U-Net Architecture for Semantic and Instance Segmentation of Surgical Instrument [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1902.08994.pdf">paper</a>]</li>
+<li>Probability Map Guided Bi-directional Recurrent UNet for Pancreas Segmentation [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1903.00923.pdf">paper</a>]</li>
+<li>CE-Net: Context Encoder Network for 2D Medical Image Segmentation [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1903.02740.pdf">paper</a>][<a target="_blank" rel="noopener" href="https://github.com/Guzaiwang/CE-Net">pytorch</a>]</li>
+<li>Graph U-Net [<a target="_blank" rel="noopener" href="https://openreview.net/pdf?id=HJePRoAct7">paper</a>]</li>
+<li>A Novel Focal Tversky Loss Function with Improved Attention U-Net for Lesion Segmentation (ISBI) [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1810.07842.pdf">paper</a>]</li>
+<li>ST-UNet: A Spatio-Temporal U-Network for Graph-structured Time Series Modeling [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1903.05631.pdf">paper</a>]</li>
+<li>Connection Sensitive Attention U-NET for Accurate Retinal Vessel Segmentation [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1903.05558.pdf">paper</a>]</li>
+<li>CIA-Net: Robust Nuclei Instance Segmentation with Contour-aware Information Aggregation [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1903.05358.pdf">paper</a>]</li>
+<li>W-Net: Reinforced U-Net for Density Map Estimation [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1903.11249.pdf">paper</a>]</li>
+<li>Automated Segmentation of Pulmonary Lobes using Coordination-guided Deep Neural Networks (ISBI oral) [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1904.09106.pdf">paper</a>]</li>
+<li>U2-Net: A Bayesian U-Net Model with Epistemic Uncertainty Feedback for Photoreceptor Layer Segmentation in Pathological OCT Scans [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1901.07929.pdf">paper</a>]</li>
+<li>ScleraSegNet: an Improved U-Net Model with Attention for Accurate Sclera Segmentation (ICB Honorable Mention Paper Award) [<a target="_blank" rel="noopener" href="https://github.com/ShawnBIT/Paper-Reading/blob/master/ScleraSegNet.pdf">paper</a>]</li>
+<li>AHCNet: An Application of Attention Mechanism and Hybrid Connection for Liver Tumor Segmentation in CT Volumes [<a target="_blank" rel="noopener" href="https://github.com/ShawnBIT/Paper-Reading/blob/master/AHCNet.pdf">paper</a>]</li>
+<li>A Hierarchical Probabilistic U-Net for Modeling Multi-Scale Ambiguities [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1905.13077.pdf">paper</a>]</li>
+<li>Recurrent U-Net for Resource-Constrained Segmentation [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1906.04913.pdf">paper</a>]</li>
+<li>MFP-Unet: A Novel Deep Learning Based Approach for Left Ventricle Segmentation in Echocardiography [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1906.10486.pdf">paper</a>]</li>
+<li>A Partially Reversible U-Net for Memory-Efficient Volumetric Image Segmentation (MICCAI 2019) [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1906.06148.pdf">paper</a>][<a target="_blank" rel="noopener" href="https://github.com/RobinBruegger/PartiallyReversibleUnet">pytorch</a>]</li>
+<li>ResUNet-a: a deep learning framework for semantic segmentation of remotely sensed data [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1904.00592v2.pdf">paper</a>]</li>
+<li>A multi-task U-net for segmentation with lazy labels [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1906.12177.pdf">paper</a>]</li>
+<li>RAUNet: Residual Attention U-Net for Semantic Segmentation of Cataract Surgical Instruments [<a target="_blank" rel="noopener" href="http://xxx.itp.ac.cn/pdf/1909.10360v1">paper</a>]</li>
+<li>3D U2-Net: A 3D Universal U-Net for Multi-Domain Medical Image Segmentation (MICCAI 2019) [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1909.06012.pdf">paper</a>] [<a target="_blank" rel="noopener" href="https://github.com/huangmozhilv/u2net_torch/">pytorch</a>]</li>
+<li>SegNAS3D: Network Architecture Search with Derivative-Free Global Optimization for 3D Image Segmentation (MICCAI 2019) [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1909.05962.pdf">paper</a>]</li>
+<li>3D Dilated Multi-Fiber Network for Real-time Brain Tumor Segmentation in MRI [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1904.03355.pdf">paper</a>][<a target="_blank" rel="noopener" href="https://github.com/China-LiuXiaopeng/BraTS-DMFNet">pytorch</a>] (MICCAI 2019)</li>
+<li>The Domain Shift Problem of Medical Image Segmentation and Vendor-Adaptation by Unet-GAN [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1910.13681.pdf">paper</a>]</li>
+<li>Recurrent U-Net for Resource-Constrained Segmentation [<a target="_blank" rel="noopener" href="http://openaccess.thecvf.com/content_ICCV_2019/papers/Wang_Recurrent_U-Net_for_Resource-Constrained_Segmentation_ICCV_2019_paper.pdf">paper</a>] (ICCV 2019)</li>
+<li>Siamese U-Net with Healthy Template for Accurate Segmentation of Intracranial Hemorrhage (MICCAI 2019)</li>
+</ul>
+<h2 id="2020"><a href="#2020" class="headerlink" title="2020"></a>2020</h2><ul>
+<li>U^2-Net: Going Deeper with Nested U-Structure for Salient Object Detection (Pattern Recognition 2020) [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2005.09007v1.pdf">paper</a>][<a target="_blank" rel="noopener" href="https://github.com/NathanUA/U-2-Net">pytorch</a>]</li>
+<li>UNET 3+: A Full-Scale Connected UNet for Medical Image Segmentation (ICASSP 2020) [<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2004.08790.pdf">paper</a>][<a target="_blank" rel="noopener" href="https://github.com/ZJUGiveLab/UNet-Version">pytorch</a>]</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">SvyJ</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/07/01/014-UNet_Family/">http://example.com/2022/07/01/014-UNet_Family/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">“干杯( ﾟ-ﾟ)っロ”</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a><a class="post-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a><a class="post-meta__tags" href="/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/">图像分割</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/07/05/ahHDQsSkVb32qTn.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/07/01/023-Visual-Transformers/" title="转载：Awesome Visual-Transformer"><img class="cover" src="https://s2.loli.net/2021/12/22/raDjVhH3egsF9fx.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">转载：Awesome Visual-Transformer</div></div></a></div><div class="next-post pull-right"><a href="/2022/07/01/010-Semantic_Segementation/" title="语义分割综述"><img class="cover" src="https://i.loli.net/2021/07/05/z3mAyiTIeYhFDQO.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">语义分割综述</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/07/01/010-Semantic_Segementation/" title="语义分割综述"><img class="cover" src="https://i.loli.net/2021/07/05/z3mAyiTIeYhFDQO.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-01</div><div class="title">语义分割综述</div></div></a></div><div><a href="/2022/07/05/017-ISICDM2020/" title="ISICDM_2020挑战赛——肺部组织分割"><img class="cover" src="https://i.loli.net/2021/07/05/Pc5JtLSfEuWZOYk.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-05</div><div class="title">ISICDM_2020挑战赛——肺部组织分割</div></div></a></div><div><a href="/2022/07/05/021-VesselSegmentation/" title="医学图像中的血管分割"><img class="cover" src="https://s2.loli.net/2022/07/05/IrpVOv3lQtRTCPW.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-05</div><div class="title">医学图像中的血管分割</div></div></a></div><div><a href="/2022/07/05/022-Transformers/" title="Transformer系列的简单整理（挖坑）"><img class="cover" src="https://s2.loli.net/2021/12/22/raDjVhH3egsF9fx.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-05</div><div class="title">Transformer系列的简单整理（挖坑）</div></div></a></div><div><a href="/2022/07/05/002-LeNet_Mnist/" title="深度学习算法中的Hello-World：用LeNet模型实现手写数字识别"><img class="cover" src="https://i.loli.net/2021/07/05/uVxbZ7TaRqkijHf.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-05</div><div class="title">深度学习算法中的Hello-World：用LeNet模型实现手写数字识别</div></div></a></div><div><a href="/2022/07/05/005-DL_Models_Classification/" title="经典分类模型的Pytorch实现"><img class="cover" src="https://s2.loli.net/2022/06/30/mh1gcH8wJx9QMCs.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-05</div><div class="title">经典分类模型的Pytorch实现</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81U-Net"><span class="toc-number">1.</span> <span class="toc-text">一、U-Net</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Contribution"><span class="toc-number">1.1.</span> <span class="toc-text">Contribution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81Architecture"><span class="toc-number">1.2.</span> <span class="toc-text">1、Architecture</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%813D-U-Net"><span class="toc-number">2.</span> <span class="toc-text">二、3D U-Net</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Architecture"><span class="toc-number">2.1.</span> <span class="toc-text">Architecture</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81Tricks"><span class="toc-number">2.2.</span> <span class="toc-text">3、Tricks</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81U-Net"><span class="toc-number">3.</span> <span class="toc-text">三、U-Net++</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81Architecture-1"><span class="toc-number">3.1.</span> <span class="toc-text">1、Architecture</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81Res-U-Net%E5%92%8CDense-U-Net"><span class="toc-number">4.</span> <span class="toc-text">四、Res U-Net和Dense U-Net</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81Contribution"><span class="toc-number">4.1.</span> <span class="toc-text">1、Contribution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81Architecture"><span class="toc-number">4.2.</span> <span class="toc-text">2、Architecture</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81MultiRes-U-Net"><span class="toc-number">5.</span> <span class="toc-text">五、MultiRes U-Net</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81Contribution-1"><span class="toc-number">5.1.</span> <span class="toc-text">1、Contribution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81Architecture-1"><span class="toc-number">5.2.</span> <span class="toc-text">2、Architecture</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E3%80%81R2-U-Net"><span class="toc-number">6.</span> <span class="toc-text">六、R2 U-Net</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81Contribution-2"><span class="toc-number">6.1.</span> <span class="toc-text">1、Contribution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81Architecture-2"><span class="toc-number">6.2.</span> <span class="toc-text">2、Architecture</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83%E3%80%81Attention-U-Net"><span class="toc-number">7.</span> <span class="toc-text">七、Attention U-Net</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81Contribution-3"><span class="toc-number">7.1.</span> <span class="toc-text">1、Contribution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81Architecture-3"><span class="toc-number">7.2.</span> <span class="toc-text">2、Architecture</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AB%E3%80%81U-Net-3"><span class="toc-number">8.</span> <span class="toc-text">八、U-Net 3+</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81Contribution-4"><span class="toc-number">8.1.</span> <span class="toc-text">1、Contribution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81Architecture-4"><span class="toc-number">8.2.</span> <span class="toc-text">2、Architecture</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81Tricks-1"><span class="toc-number">8.3.</span> <span class="toc-text">3、Tricks</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%EF%BC%9AUNet-family%E8%AE%BA%E6%96%87%E5%8F%8A%E4%BB%A3%E7%A0%81"><span class="toc-number">9.</span> <span class="toc-text">附：UNet-family论文及代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2015"><span class="toc-number">9.1.</span> <span class="toc-text">2015</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2016"><span class="toc-number">9.2.</span> <span class="toc-text">2016</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2017"><span class="toc-number">9.3.</span> <span class="toc-text">2017</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2018"><span class="toc-number">9.4.</span> <span class="toc-text">2018</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2019"><span class="toc-number">9.5.</span> <span class="toc-text">2019</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2020"><span class="toc-number">9.6.</span> <span class="toc-text">2020</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://i.loli.net/2021/07/05/ahHDQsSkVb32qTn.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By SvyJ</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hello, Stranger~</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'e5bWQMoOycxPCdtTvxkPGJ0d-gzGzoHsz',
+      appKey: 'peE7twywLp5HcdBx6gmKQYUH',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

@@ -1,0 +1,521 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>For Offersssss! （深度学习篇） | “干杯( ﾟ-ﾟ)っロ”</title><meta name="author" content="SvyJ"><meta name="copyright" content="SvyJ"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="卷积神经网络（CNN）卷积层 提取图像中的局部特征，其原理是通过许多的卷积核 (filter, kernel) 在图片上进行滑动提取特征。  卷积核 特性：权值共享（一个卷积核滑动提取图像的某一个特征，进而带来平移不变性）、局部连接（感知图像的局部信息） 参数：核大小 Kernel Size、步长 Stride、卷积核数量（通道） Channel、边界填充 Padding 输出大小计算公式：$ H">
+<meta property="og:type" content="article">
+<meta property="og:title" content="For Offersssss! （深度学习篇）">
+<meta property="og:url" content="http://example.com/2022/09/17/027-InterviewQs_DL/index.html">
+<meta property="og:site_name" content="“干杯( ﾟ-ﾟ)っロ”">
+<meta property="og:description" content="卷积神经网络（CNN）卷积层 提取图像中的局部特征，其原理是通过许多的卷积核 (filter, kernel) 在图片上进行滑动提取特征。  卷积核 特性：权值共享（一个卷积核滑动提取图像的某一个特征，进而带来平移不变性）、局部连接（感知图像的局部信息） 参数：核大小 Kernel Size、步长 Stride、卷积核数量（通道） Channel、边界填充 Padding 输出大小计算公式：$ H">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/06/22/2dXg9eDULu3lQsE.webp">
+<meta property="article:published_time" content="2022-09-17T08:31:08.000Z">
+<meta property="article:modified_time" content="2022-09-17T08:31:08.000Z">
+<meta property="article:author" content="SvyJ">
+<meta property="article:tag" content="图像处理">
+<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/06/22/2dXg9eDULu3lQsE.webp"><link rel="shortcut icon" href="/img/logo.png"><link rel="canonical" href="http://example.com/2022/09/17/027-InterviewQs_DL/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: SvyJ","link":"链接: ","source":"来源: “干杯( ﾟ-ﾟ)っロ”","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'For Offersssss! （深度学习篇）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-17 16:31:08'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/font_3054216_qov50ieeupn.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2021/12/23/X7TzdfHKCI56Vus.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2022/06/22/2dXg9eDULu3lQsE.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="“干杯( ﾟ-ﾟ)っロ”"><span class="site-name">“干杯( ﾟ-ﾟ)っロ”</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">For Offersssss! （深度学习篇）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-17T08:31:08.000Z" title="发表于 2022-09-17 16:31:08">2022-09-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-17T08:31:08.000Z" title="更新于 2022-09-17 16:31:08">2022-09-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">6.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>25分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="For Offersssss! （深度学习篇）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="卷积神经网络（CNN）"><a href="#卷积神经网络（CNN）" class="headerlink" title="卷积神经网络（CNN）"></a>卷积神经网络（CNN）</h1><h2 id="卷积层"><a href="#卷积层" class="headerlink" title="卷积层"></a>卷积层</h2><blockquote>
+<p>提取图像中的<strong>局部特征</strong>，其原理是通过许多的<strong>卷积核</strong> <code>(filter, kernel)</code> 在图片上进行滑动提取特征。</p>
+</blockquote>
+<h3 id="卷积核"><a href="#卷积核" class="headerlink" title="卷积核"></a>卷积核</h3><ul>
+<li>特性：<strong>权值共享</strong>（一个卷积核滑动提取图像的某一个特征，进而带来平移不变性）、<strong>局部连接</strong>（感知图像的局部信息）</li>
+<li>参数：核大小 <code>Kernel Size</code>、步长 <code>Stride</code>、卷积核数量（通道） <code>Channel</code>、边界填充 <code>Padding</code></li>
+<li>输出大小计算公式：$ H_{out} &#x3D; \frac{H_{in} - K + 2P}{S} + 1 $，$ W_{out} &#x3D; \frac{W_{in} - K + 2P}{S} + 1 $</li>
+</ul>
+<p>注：卷积核通常设定为奇数的原因？（保证padding时候，图像的两边依然相对称），3×3 的卷积核是最优选择。</p>
+<h3 id="感受野"><a href="#感受野" class="headerlink" title="感受野"></a>感受野</h3><ul>
+<li>概念：输出特征图上的像素点<strong>对于原图的映射区域的大小</strong></li>
+</ul>
+<!-- ### 卷积的类型 -->
+<h3 id="1-×-1-卷积"><a href="#1-×-1-卷积" class="headerlink" title="1 × 1 卷积"></a><code>1 × 1</code> 卷积</h3><blockquote>
+<p><strong>作用：</strong><br>（1）实现信息的跨通道交互和整合；<br>（2）对卷积核通道数进行降维或升维，减小参数量。</p>
+</blockquote>
+<h3 id="K-×-K-卷积"><a href="#K-×-K-卷积" class="headerlink" title="K × K 卷积"></a><code>K × K</code> 卷积</h3><blockquote>
+<p><em>⼤多数情况下</em>，通过 <strong>堆叠较⼩的卷积核</strong> ⽐直接采⽤ <strong>单个更⼤的卷积核</strong> 会更加有效。**<br>如：两层 <code>3×3</code> 卷积会比一层 <code>5×5</code> 卷积有效（<strong>深度更大</strong>），且 <strong>参数量更小</strong>（$3\times3\times2&lt;5\times5$）</p>
+</blockquote>
+<p><strong><code>3 × 3</code> 卷积的实现</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np <br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">Conv2d</span>(<span class="hljs-params">img, in_channels, out_channels, kernels, bias=<span class="hljs-literal">False</span>, stride=<span class="hljs-number">1</span>, padding=<span class="hljs-number">0</span></span>):<br>    N, C, H, W = img.shape<br>    kh, kw = kernels.shape<br>    <span class="hljs-keyword">assert</span> C == in_channels<br> <br>    <span class="hljs-keyword">if</span> padding:<br>        img = np.pad(img, ((<span class="hljs-number">0</span>, <span class="hljs-number">0</span>),(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>),(padding, padding),(padding, padding)), <span class="hljs-string">&#x27;constant&#x27;</span>)<br> <br>    out_h = (H + <span class="hljs-number">2</span>*padding - kh) // stride + <span class="hljs-number">1</span><br>    out_w = (W + <span class="hljs-number">2</span>*padding - kw) // stride + <span class="hljs-number">1</span><br> <br>    outputs = np.zeros([N, out_channels, out_h, out_w])<br><br>    <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(N):<br>        <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(out_channels):<br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(in_channels):<br>                <span class="hljs-keyword">for</span> h <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(out_h):<br>                    <span class="hljs-keyword">for</span> w <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(out_w):<br>                        <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(kh):<br>                            <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(kw):<br>                                outputs[n][c][h][w] += img[n][i][h*stride+x][w*stride+y] * kernels[x][y]<br>    <span class="hljs-keyword">return</span> outputs<br><br>img = np.random.random(size=(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">32</span>, <span class="hljs-number">32</span>))<br>kernel = np.random.random(size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>))<br>outputs = Conv2d(img, in_channels=<span class="hljs-number">3</span>, out_channels=<span class="hljs-number">3</span>, kernels=kernel, bias=<span class="hljs-literal">False</span>, stride=<span class="hljs-number">1</span>, padding=<span class="hljs-number">1</span>)<br><span class="hljs-built_in">print</span>(img, kernel, outputs)<br></code></pre></td></tr></table></figure>
+
+
+<h3 id="分组卷积"><a href="#分组卷积" class="headerlink" title="分组卷积"></a>分组卷积</h3><h3 id="深度可分离卷积"><a href="#深度可分离卷积" class="headerlink" title="深度可分离卷积"></a>深度可分离卷积</h3><h3 id="可变形卷积"><a href="#可变形卷积" class="headerlink" title="可变形卷积"></a>可变形卷积</h3><h3 id="转置卷积"><a href="#转置卷积" class="headerlink" title="转置卷积"></a>转置卷积</h3><p><strong>棋盘效应</strong></p>
+<blockquote>
+<p><strong>产生原因</strong>：卷积计算后差异被放大所导致的明暗相间的网格状。</p>
+</blockquote>
+<table>
+    <tr>
+        <td><center><img src="https://s2.loli.net/2022/09/11/lxOh9f7HPikeaXC.png" width=350></center>stride=2, kernel size=2</td>
+        <td><center><img src="https://s2.loli.net/2022/09/11/7brA8lPyew43BfN.png" width=350></center>stride=2, kernel size=3</td>
+        <td><center><img src="https://s2.loli.net/2022/09/11/SsV4YNE1tpPA9RH.png" width=350></center>stride=2, kernel size=4</td>
+    </tr>
+</table>
+
+<blockquote>
+<p><strong>解决办法</strong>：（推荐使用第二种）<br>（1）<strong>设置的 kernel size 能够被 stride 整除</strong>；（无法从根本上解决问题）<br>（2）<strong>采用双线性插值+卷积</strong>，即先利用双线性插值上采样，以减小插值的像素和原输入像素值的大小差异，再进行卷积可以避免棋盘效应的产生。</p>
+</blockquote>
+<h2 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h2><blockquote>
+<p>主要用来缩小特征图的大小，<strong>减少计算量和参数量</strong>(降维)、<strong>减少过拟合</strong>问题、缓解卷积层对位置的敏感度。</p>
+</blockquote>
+<h3 id="上采样"><a href="#上采样" class="headerlink" title="上采样"></a>上采样</h3><h4 id="反卷积（转置卷积）"><a href="#反卷积（转置卷积）" class="headerlink" title="反卷积（转置卷积）"></a>反卷积（转置卷积）</h4><p><img src="https://s2.loli.net/2022/08/22/ZUdfGSpN1zYBaiL.jpg"></p>
+<h4 id="插值法（双线性插值）"><a href="#插值法（双线性插值）" class="headerlink" title="插值法（双线性插值）"></a>插值法（双线性插值）</h4><p><img src="https://s2.loli.net/2022/08/22/jZamER6BcAiTuQ5.jpg"></p>
+<h4 id="反池化（Unpooling-x2F-Unsampling）"><a href="#反池化（Unpooling-x2F-Unsampling）" class="headerlink" title="反池化（Unpooling &#x2F; Unsampling）"></a>反池化（Unpooling &#x2F; Unsampling）</h4><p><img src="https://s2.loli.net/2022/08/22/AKgez8c4MyXDOfl.jpg"></p>
+<h2 id="全连接层"><a href="#全连接层" class="headerlink" title="全连接层"></a>全连接层</h2><blockquote>
+<p>全连接层中的每个神经元与其前一层的所有神经元进行中全连接，全连接层可以整合卷积层或者池化层中具有类别区分性的<strong>局部信息</strong></p>
+</blockquote>
+<h3 id="FC、MLP-和-DNN"><a href="#FC、MLP-和-DNN" class="headerlink" title="FC、MLP 和 DNN"></a>FC、MLP 和 DNN</h3><blockquote>
+<p><strong><code>MLP</code> （多层感知机）</strong>：<strong>至少两层</strong> 全连接层（FC）堆叠得到的模型，能够解决单层感知机无法解决的 <strong>非线性问题</strong>；<br><strong><code>DNN</code>（深度神经网络）</strong>：网络深度较大的 <code>MLP</code>。</p>
+</blockquote>
+<h3 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h3><blockquote>
+<p><code>Dropout</code> 被大量利用于全连接网络，而由于卷积自身的稀疏化以及稀疏化的 <code>ReLU</code> 函数（置零特性）的大量使用等原因，<code>Dropout</code> 策略也逐渐被淘汰。</p>
+</blockquote>
+<ul>
+<li><strong>训练过程中 <code>Dropout</code> 函数的 <code>re-scale</code></strong></li>
+</ul>
+<p>设 <code>dropout</code> 在训练过程中以一定概率 <code>p</code> 使神经元 <strong>失活</strong>，则为了保证随机失活后被保留的神经元的期望保持不变，则需要对神经元的数值进行 <code>re-scale</code>，不妨设输入序列为 $X&#x3D;[1, 1, 1, 1, 1]$，设以失活概率 <code>p=0.2</code> 对该序列进行 <code>mask</code> 后的序列为 $X’&#x3D;[1, 0, 1, 1, 1]$，易知 $E(X)&#x3D;1, E(X’)&#x3D;0.8$，因此为了 <strong>保证期望不变</strong>，需要对 $X’$ 的数值进行 $\frac{1}{1-p}$ 倍的放大（<code>re-scale</code>），本例中 $E(\frac{X’}{0.8})&#x3D;1$。</p>
+<h2 id="归一化层"><a href="#归一化层" class="headerlink" title="归一化层"></a>归一化层</h2><p><img src="https://s2.loli.net/2022/08/21/pDJPXOkGY9brFwh.png"></p>
+<blockquote>
+<p>将输入的特征图 $x \in \mathbb{R}^{N \times C \times H \times W}$ 比喻成一摞书，这摞书总共有 $N$ 本，每本有 $C$ 页，每页有 $H$ 行，每行有 $W$ 个字符；<br>（1）<code>BN</code> 是在 <code>batch</code> 上，对 <code>N、H、W</code> 做归一化，而保留通道 <code>C</code> 的维度。<code>BN</code> 对较小的 <code>batch size</code> 效果不好。**<code>BN</code> 适用于固定深度的前向神经网络**，如 <code>CNN</code>，不适用于 <code>RNN</code>；<br><strong>注：</strong><code>BN</code> 相当于把这些书按页码一一对应地加起来，再除以每个页码下的字符总数：$N×H×W$；<br>（2）<code>LN</code> 在通道方向上，对 <code>C、H、W</code> 归一化，主要 <strong>对 <code>RNN</code> 和 <code>Transformer</code> 效果明显</strong>；<br><strong>注：</strong><code>LN</code>  相当于把每一本书的所有字加起来，再除以这本书的字符总数：$C×H×W$；<br>（3）<code>IN</code> 在图像像素上，对 <code>H、W</code> 做归一化，用在 <strong>风格化迁移</strong>；<br><strong>注：</strong><code>IN</code> 相当于把一页书中所有字加起来，再除以该页的总字数：$H×W$；<br>（4）<code>GN</code> 将 <code>channel</code> 分组，然后再做归一化；<br><strong>注：</strong><code>GN</code> 相当于把一本 $C$ 页的书平均分成 $G$ 份，每份成为有 $C&#x2F;G$ 页的小册子，对每个小册子做 <code>Norm</code>。</p>
+</blockquote>
+<h3 id="Batch-Normalization"><a href="#Batch-Normalization" class="headerlink" title="Batch Normalization"></a>Batch Normalization</h3><ul>
+<li><strong>算法步骤</strong></li>
+</ul>
+<p>（0）给定 <code>1</code> 个 $batch&#x3D;m$ 的 <strong>输入</strong> $X&#x3D;[x^{(1)},x^{(2)},…,x^{(m)}]$，在神经网络某一层对应的中间隐藏值为 $Z&#x3D;[z^{(1)},z^{(2)},…,z^{(m)}]$；</p>
+<p>（1）<strong>计算均值</strong>： $\mu &#x3D; \frac{1}{m}\sum_{i&#x3D;1}^{m}z^{(i)}$</p>
+<p>（2）<strong>计算方差</strong>： $\sigma^{2}&#x3D;\frac{1}{m}\sum_{i&#x3D;1}^{m}(z^{(i)}-\mu)^2$</p>
+<p>（3）<strong>归一化</strong>： $z_{norm}^{(i)}&#x3D;\frac{z^{(i)}-\mu}{\sqrt{\sigma^2 + \epsilon}}$ ,其中 $\epsilon$ 是为了防止除 <code>0</code>。</p>
+<p>（4）<strong>缩放和平移</strong>： $\tilde{z}^{(i)}&#x3D;\gamma z_{norm}^{(i)}+\beta$ ,其中 $\gamma$ 和 $\beta$ 是要训练的超参数。</p>
+<img src="https://s2.loli.net/2022/08/21/qdv4ZFoj61n98hK.png" height=300px>
+
+<ul>
+<li><strong>Why BN works?</strong></li>
+</ul>
+<blockquote>
+<p><strong>BN 的作用</strong><br>（1）<strong>加速训练</strong>，可以使用更大的学习率；<br>（2）解决 <strong>梯度消失和梯度爆炸</strong>；<br>（3）有 <strong>轻微的正则化作用</strong>（相当于给隐藏层加入噪声），神经网络无需再使用 <code>dropout</code> 和 <code>L2</code> 正则。</p>
+</blockquote>
+<blockquote>
+<p><strong>有效的原因？</strong>（说法有很多种，以下为个人见解）<br>（1）<strong>加速训练：</strong>归一化使得每层输入的特征都处于同一分布或尺度，这种情况下的数据拟合更高效；（理论解释：对特征进⾏了归⼀化，其对应的等⾼线会显得很圆（下右图），在梯度下降进⾏求解时能较快的收敛。）<br>（2）<strong>梯度问题：</strong>数据归一化到区间 [-1,1] 内，能够有效避免梯度弥散，且减少了链式求导法则带来的梯度依赖；<br>（3）<strong>正则化：</strong>每次使用的是当前 <code>batch</code> 的均值和方差而不是整个数据集的均值和方差，引入了些微噪声。因此，<code>Batch size</code> 越大，正则化效果越弱。</p>
+</blockquote>
+<p><img src="https://s2.loli.net/2022/09/06/C5UtNPxuw1gdO4F.png"></p>
+<ul>
+<li><strong>Python实现</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyBN</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, momentum, eps, num_features</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">        初始化参数值</span><br><span class="hljs-string">        :param momentum: 追踪样本整体均值和方差的动量</span><br><span class="hljs-string">        :param eps: 防止数值计算错误</span><br><span class="hljs-string">        :param num_features: 特征数量</span><br><span class="hljs-string">        &quot;&quot;&quot;</span><br><br>        self.running_mean = <span class="hljs-number">0</span><br>        self.running_var = <span class="hljs-number">1</span><br><br>        self.momentum = momentum<br><br>        self.eps = eps<br>        self.beta = np.zeros(shape=(num_features, ))<br>        self.gamma = np.ones(shape=(num_features, ))<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">batch_norm</span>(<span class="hljs-params">self, x</span>):<br>        x_mean = x.mean(axis=<span class="hljs-number">0</span>)<br>        x_var = x.var(axis=<span class="hljs-number">0</span>)<br><br>        self.running_mean = (<span class="hljs-number">1</span>-self.momentum)*x_mean + self._momentum*self.running_mean<br>        self.running_var = (<span class="hljs-number">1</span>-self.momentum)*x_var + self._momentum*self.running_var<br><br>        x_hat = (x-x_mean) / np.sqrt(x_var+self.eps)<br>        y = self.gamma*x_hat + self.beta<br><br>        <span class="hljs-keyword">return</span> y<br></code></pre></td></tr></table></figure>
+
+<h3 id="Layer-Normalization"><a href="#Layer-Normalization" class="headerlink" title="Layer Normalization"></a>Layer Normalization</h3><blockquote>
+<p>在 <code>RNNs</code> 网络中，不同的 <code>mini-batch</code> 可能具有 <strong>不同的输入序列长度（深度）</strong>，计算统计信息比较困难，而且测试序列长度不能大于最大训练序列长度；</p>
+</blockquote>
+<ul>
+<li><strong>算法步骤</strong></li>
+</ul>
+<p>（0）对于前向神经网络的<strong>第 $l$ 个隐藏层</strong>（等价于 <code>RNNs</code> 中 $x^{l}$ 时刻对应的隐藏层），令 $a^{l}$ 表示输入向量（前层网络输出加权后的向量），$H$ 表示隐藏单元数量；</p>
+<p>（1）<strong>计算均值</strong>：$\mu^{l}&#x3D;\frac{1}{H}\sum_{i&#x3D;1}^{H}a_{i}^{l}$，在 <strong>通道维度</strong> 上求每一个 <code>token</code> 的均值（方差同理）；</p>
+<p>（2）<strong>计算方差</strong>：$\sigma^{l}&#x3D;\sqrt{\frac{1}{H}\sum_{i&#x3D;1}^{H}(a_{i}^{l}-\mu^{l})^{2}}$；</p>
+<p>（3）<strong>归一化</strong>：$z_{norm}^{l}&#x3D;\frac{z^{l}-\mu^{l}}{\sqrt{(\sigma^{l})^{2} + \epsilon}}$；</p>
+<p>（4）<strong>缩放和平移</strong>：$\tilde{z}^{l}&#x3D;\gamma z_{norm}^{l}+\beta$。</p>
+<blockquote>
+<p><strong>LN 的优势：</strong>：无需批训练，适用于 <code>batch size</code> 为 <code>1</code> 的数据输入</p>
+</blockquote>
+<blockquote>
+<p><strong>一个很好的解释：</strong><br>深度学习里的正则化方法就是 <strong>“通过把一部分不重要的复杂信息损失掉，以此来降低拟合难度以及过拟合的风险，从而加速了模型的收敛”<strong>。<br><code>Normalization</code> 目的就是让分布稳定下来（降低各维度数据的方差）。<br>&amp;nbsp;<br>不同正则化方法的区别只是操作的信息维度不同，即选择损失信息的维度不同。<br>在 <code>CV</code> 场景中，各个 <code>Channel</code> 维度中的信息原封不动，因为数据在不同 <code>channel</code> 中的信息很重要，如果</strong>对 <code>channle</code> 维度进行归一化将会损失不同 <code>channel</code> 的差异信息。</strong><br>而 <code>NLP</code> 中不同 <code>batch</code> 样本的信息关联性不大，而且由于不同的句子长度不同，强行归一化会损失不同样本间的差异信息，所以就没在 <code>batch</code> 维度进行归一化，而是选择 <code>Layer Normalization</code>，只考虑的句子内部维度的归一化。 可以认为 <code>NLP</code> 应用场景中一个样本内部维度间是有关联的，所以在信息归一化时，<strong>对样本内部差异信息进行一些损失，反而能降低方差。</strong><br>&amp;nbsp;<br>总结：<strong>选择什么样的归一化方式，取决于你关注数据的哪部分信息。如果某个维度信息的差异性很重要，需要被拟合，那就别在那个维度进行归一化。</strong></p>
+</blockquote>
+<h2 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h2><p><strong>激活函数和归一化的顺序问题？</strong><br>若激活函数为 ReLU，则必须将 BN 置于激活前，否则经过 ReLU 后的失活神经元会造成归一化的偏移和抖动。若激活函数为 Sigmoid 或 tanh，则顺序根据实验效果而定。</p>
+<h3 id="Sigmoid"><a href="#Sigmoid" class="headerlink" title="Sigmoid"></a>Sigmoid</h3><p>$$f(x)&#x3D;\frac{1}{1+e^{-x}}$$</p>
+<blockquote>
+<p><strong>劣势：</strong>（1）梯度弥散（消失或爆炸）；（2）求导耗时；（3）不关于原点对称；（4）收敛速度慢；</p>
+</blockquote>
+<p><strong>激活函数关于原点对称的重要性：</strong><br>Sigmoid 的非原点对称的特点导致所有参数的梯度方向都是同向的；而深度学习模型的参数在更新时，不一定都朝着同一（正向&#x2F;反向）梯度方向更新，因此 sigmoid 这一特点使得模型收敛速度减慢了；</p>
+<h3 id="tanh"><a href="#tanh" class="headerlink" title="tanh"></a>tanh</h3><p>$$f(x)&#x3D;\frac{e^{x}-e^{-x}}{e^{x}+e^{-x}}$$</p>
+<blockquote>
+<p><strong>优势：</strong>（1）关于原点对称；（2）收敛速度比 sigmoid 更快；<br><strong>劣势：</strong>（1）梯度弥散（消失或爆炸）；</p>
+</blockquote>
+<p><strong>为什么 tanh 比 sigmoid 收敛快？</strong><br>tanh 激活函数关于原点对称，训练过程中梯度可以朝着两个方向呈现 zigzag 形式的更新，更容易达到最优值。</p>
+<h3 id="ReLU"><a href="#ReLU" class="headerlink" title="ReLU"></a>ReLU</h3><p>$$f(x)&#x3D;\begin{cases} x, x&gt;0, \\ 0, x&lt;0 \end{cases}$$</p>
+<blockquote>
+<p><strong>优势：</strong>（1）求导运算量小；（2）有效避免梯度消失；（3）置零能够缓解过拟合。<br><strong>劣势：</strong>（1）神经元死亡且不会复活；</p>
+</blockquote>
+<hr>
+<h1 id="循环神经网络（RNN）"><a href="#循环神经网络（RNN）" class="headerlink" title="循环神经网络（RNN）"></a>循环神经网络（RNN）</h1><p><img src="https://s2.loli.net/2022/08/19/AZ94NPjQwvSmVTH.png"></p>
+<blockquote>
+<p><strong><code>RNN</code> 和 <code>CNN</code> 中的梯度问题，为什么 <code>RNN</code> 更容易梯度消失或爆炸？</strong><br>（1）**<code>RNN</code><strong>：长时间序列的传播过程会用到前一时刻的信息，导致 <code>n</code> 个 <strong>相同的</strong> 雅可比矩阵 W <strong>连续相乘</strong>；（</strong>解决方法：梯度截断<strong>）<br>（2）</strong><code>CNN</code><strong>：每层的</strong>参数矩阵** W 不同；（<strong>解决方法：激活函数，正则化等</strong>）</p>
+</blockquote>
+<h2 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h2><p><img src="https://s2.loli.net/2022/08/19/T9l3UcGDe7qmFAP.png"></p>
+<blockquote>
+<p><strong>三个门</strong>：<br>（1）<strong>遗忘门（<code>Forget</code>）</strong>：最左侧 <code>Sigmoid</code>，选择保留（遗忘）<strong>旧的信息</strong>；<br>（3）<strong>输入门（<code>Input</code>）</strong>：中间的 <code>Sigmoid + tanh</code>，选择保留（遗忘）<strong>新的信息</strong>；<br>（3）<strong>输出门（<code>Output</code>）</strong>：最右侧 <code>Sigmoid + tanh</code>，<strong>选择输出</strong>内容。</p>
+</blockquote>
+<blockquote>
+<p><strong>LSTM 如何解决梯度问题？</strong><br>当前的 <code>cell informaton</code> 是通过 <code>input gate</code> 控制之后叠加的，<code>RNN</code> 是叠乘。</p>
+</blockquote>
+<blockquote>
+<p><strong>为什么既存在tanh和sigmoid，而不统一采用一样的?</strong><br><code>sigmoid</code> 用于<strong>门控处理</strong>（一般不可替换），<code>tanh</code> 用于<strong>状态输出</strong>（可替换）</p>
+</blockquote>
+<h2 id="GRU"><a href="#GRU" class="headerlink" title="GRU"></a>GRU</h2><p><img src="https://s2.loli.net/2022/08/19/otYMmSWRE3yZcpw.png"></p>
+<blockquote>
+<p>进一步<strong>解决长期记忆</strong>和<strong>反向传播中的梯度等问题</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>两个门</strong>：<br>（1）<strong>更新门（<code>Update</code>）</strong>：两个 <code>Sigmoid</code>，<strong>合并了 <code>LSTM</code> 中的输入门和遗忘门</strong>，分别选择保留（遗忘）新&#x2F;旧的信息；<br>（2）<strong>重置门（<code>Reset</code>）</strong>：一个 <code>tanh</code>，选择输出内容。</p>
+</blockquote>
+<hr>
+<h1 id="生成模型"><a href="#生成模型" class="headerlink" title="生成模型"></a>生成模型</h1><p>根据<strong>真实分布</strong> <code>p-data(x)</code> 的训练数据，通过训练学习得到<strong>近似于真实的分布</strong> <code>p-model(x)</code> 的新样本数据。</p>
+<h2 id="生成模型与判别模型"><a href="#生成模型与判别模型" class="headerlink" title="生成模型与判别模型"></a>生成模型与判别模型</h2><h2 id="Pixel-RNN-x2F-CNN"><a href="#Pixel-RNN-x2F-CNN" class="headerlink" title="Pixel RNN &#x2F; CNN"></a>Pixel RNN &#x2F; CNN</h2><blockquote>
+<p>从左上角开始定义 <strong>之前的像素</strong>，生成图像 <code>x</code> 的 <strong>条件概率分布</strong> 为：<br>$$p(x)&#x3D;\prod_{i&#x3D;1}^{n}p(x_{i}|x_{1},…,x_{i-1})$$<br><strong>注</strong>：对于 <code>Pixel RNN</code> 而言，公式中的每一项的输出概率 $p(x_{i})$ 都依赖于之前所有概率 $p(x_{1}),…,p(x_{i-1})$；<br>而 <code>Pixel CNN</code> 在训练时可以 <strong>并行计算</strong> 公式中的每一项，然后进行参数更新，因此 <strong>训练速度远快于 <code>Pixel RNN</code></strong></p>
+</blockquote>
+<blockquote>
+<p><strong>训练方式</strong>：<br>（1）<strong>前向传播</strong>：根据上面的公式求出似然<br>（<code>Pixel RNN</code> 需要 <strong>从左上到右下串行</strong> 走一遍，而 <code>Pixel CNN</code> 并行计算所有像素点）；<br>（2）<strong>最大化似然</strong> 以对参数 <strong>做一轮更新</strong>。<br><strong>测试方式</strong>：<br><code>Pixel RNN</code> 和 <code>Pixel CNN</code> 都要 <strong>从左上角开始逐个像素点地生成图片</strong></p>
+</blockquote>
+<blockquote>
+<p><code>Pixel RNN / CNN</code> 的优劣势：<br><strong>优势</strong>：是一种 <strong>可优化的显式密度模型</strong>，可以通过似然评估生成质量；<br><strong>劣势</strong>：由于需要逐像素点生成图像，实际应用中的 <strong>速度很慢</strong>。</p>
+</blockquote>
+<h2 id="变分自编码器（VAE）"><a href="#变分自编码器（VAE）" class="headerlink" title="变分自编码器（VAE）"></a>变分自编码器（VAE）</h2><p><strong>待补充……</strong></p>
+<h2 id="生成对抗网络（GAN）"><a href="#生成对抗网络（GAN）" class="headerlink" title="生成对抗网络（GAN）"></a>生成对抗网络（GAN）</h2><h3 id="核心思路"><a href="#核心思路" class="headerlink" title="核心思路"></a>核心思路</h3><blockquote>
+<p><code>GAN</code> 中我们定义了两个网络：<strong>生成器</strong> 和 <strong>判别器</strong><br><strong>生成器</strong>：利用随机噪声 $z$ <strong>生成尽可能真的样本</strong> 以骗过判别器。<br><strong>判别器</strong>：辨别区分 <strong>生成器生成的假样本</strong> 和 <strong>训练集中抽出来的真样本</strong>。</p>
+</blockquote>
+<blockquote>
+<p><strong>对抗形式：</strong><br>$$\min_{\theta_{g}}\max_{\theta_{d}}[\mathbb{E}_{x \sim p_{data}} \log D_{\theta_{d}}(x) + \mathbb{E}_{z \sim p_{z}} \log (1-D_{\theta_{d}}(G_{\theta_{g}}(z)))]$$<br>其中第一项为输入真实数据 $x \sim p_{data}$，第二项为输入生成数据 $G_{\theta_{g}}(z)$，优化过程：<br><strong>对判别器网络训练 K 次，使目标函数在判别器参数 $\theta_{d}$ 下最大化，</strong><br>（1）使得 $D_{\theta_{d}}(x)$ 接近 1，即将真实样本 $x$ 判定为真；<br>（2）使得 $D_{\theta_{d}}(G_{\theta_{g}}(z))$ 接近 0，即将生成样本 $G_{\theta_{g}}(z)$ 判定为假；<br><strong>对生成器网络训练 1 次，使目标函数在生成器参数 $\theta_{g}$ 下最小化，</strong><br>（3）使得 $D_{\theta_{d}}(G_{\theta_{g}}(z))$ 接近 1，即骗过判别器将生成样本 $G_{\theta_{g}}(z)$ 判定为真；</p>
+</blockquote>
+<blockquote>
+<p><strong>生成分布和真实分布之间的差异衡量</strong>：<br>（1）<code>KL</code> 散度:<br>$$KL(P(x)||Q(x)) &#x3D; \sum_{x \in X}[P(x) \log\frac{P(x)}{Q(x)}]&#x3D;\mathbb{E}_{x \sim P(x)}[\log\frac{P(x)}{Q(x)}],$$<br>然而，<code>KL</code> 散度具有不对称性，即 $KL(P||Q) \neq KL(Q||P)$<br>（2）<code>JS</code> 散度:<br>$$JS(P(x)||Q(x)) &#x3D; \frac{1}{2}KL(P(x)||\frac{P(x)+Q(x)}{2}) + \frac{1}{2}KL(Q(x)||\frac{P(x)+Q(x)}{2}),$$<br><code>JS</code> 散度则具有对称性，即 $JS(P||Q) &#x3D; JS(Q||P)$，且值域范围为 $[0, 1]$</p>
+</blockquote>
+<h3 id="原始-GAN-存在的问题"><a href="#原始-GAN-存在的问题" class="headerlink" title="原始 GAN 存在的问题"></a>原始 GAN 存在的问题</h3><p><strong>（1）梯度消失</strong><br>判别器网络的训练令其过于强大，导致生成分布和真实分布不重叠或者重叠较小，</p>
+<table>
+    <tr>
+        <td><center><img src="https://s2.loli.net/2022/08/21/TicY8DWJeyP1bvK.png" width=350></center></td>
+        <td><center><img src="https://s2.loli.net/2022/08/21/siZRotHApnczJeG.png" width=350></center></td>
+    </tr>
+</table>
+
+<blockquote>
+<p><strong>当两个分布没有重叠部分时，</strong>此时的 <code>JS</code> 散度为<br>$$JS(P_{data}(x)||P_{g}(x))&#x3D;\frac{1}{2}\mathbb{E}_{x \sim P_{data}(x)}[\log\frac{2P_{data}(x)}{P_{data}(x)+P_{g}(x)}] + \frac{1}{2}\mathbb{E}_{x \sim P_{g}(x)}[\log\frac{2P_{g}(x)}{P_{data}(x)+P_{g}(x)}],$$<br>不妨设 $P_{data}(x)&#x3D;0, P_{g}(x)\neq0$ 或 $P_{data}(x)\neq0, P_{g}(x)&#x3D;0$，则 $JS(P_{data}(x)||P_{g}(x))&#x3D;\log2$，此时生成器的 <strong>梯度消失</strong>，无法更新。</p>
+</blockquote>
+<blockquote>
+<p><strong>当两个分布有重叠部分时，</strong>有文献指出，两个分布在高维空间是很难相交的，<strong>即使相交，其相交部分其实是高维空间中的一个低维流形，可以忽略不计</strong>，则此时的 <code>JS</code> 散度依然为常数，生成器依然 <strong>梯度消失</strong>，无法更新。</p>
+</blockquote>
+<p><strong>（2）模式崩塌（Mode Collapse）</strong><br>崩塌的概念是针对 <strong>生成</strong> 和 <strong>判别</strong> 的 <strong>对抗模式</strong> 而言的，是指 GAN 生成了与真实样本相同的样本，但 <strong>生成样本不具多样性（或说存在大量重复的样本）</strong>，但在这种情况下 <strong>判别器却认为生成器的性能优越</strong>。</p>
+<p>如左下图中的绿色样本，右下图中的重复样本。</p>
+<table>
+    <tr>
+        <td><center><img src="https://s2.loli.net/2022/08/21/GfF1DmuV58W6nLZ.png" width=350></center></td>
+        <td><center><img src="https://s2.loli.net/2022/08/21/vje6TaShCUuLB1F.png" width=350></center></td>
+    </tr>
+</table>
+
+<h3 id="Wasserstein-GAN（W-GAN）"><a href="#Wasserstein-GAN（W-GAN）" class="headerlink" title="Wasserstein GAN（W-GAN）"></a>Wasserstein GAN（W-GAN）</h3><p>引入了 <code>Wasserstein</code> 距离（也称 <code>Earth-Mover (EM)</code> 距离），<strong>无论两个分布多远，都有梯度</strong>，相对 <code>KL</code> 散度与 <code>JS</code> 散度具有优越的平滑特性，理论上可以解决 <strong>真实分布和生成分布不重叠或重叠部分可忽略时</strong> 出现的<strong>梯度消失问题</strong>。</p>
+<p>将两个分布 $p$ 和 $q$ 看成两堆土，如下图所示，希望把其中的一堆土移成另一堆土的位置和形状，有很多种可能的方案。推土代价被定义为移动土的量乘以土移动的距离，在所有的方案中，存在一种推土代价最小的方案，这个代价就称为两个分布的 <code>Wasserstein</code> 距离。</p>
+<p><img src="https://s2.loli.net/2022/09/01/Dt9acjyQOHkdmfX.png"></p>
+<p><code>Wasserstein</code> 距离的形式化的表达式如下：$$W(p,q)&#x3D;\inf\limits_{\gamma\sim\prod(p,q)}E_{x,y\sim\gamma}[||x-y||]$$其中， $\prod(p,q)$ 表示​分布 $p$ 和 $q$ 组合起来的所有可能的<strong>联合分布</strong>的集合。</p>
+<p>对于每一个可能的联合分布 $\gamma$，可以从中<strong>采样一对样本​</strong> $x$ 和​​​ $y$，$(x,y)\sim\gamma$，并计算出这对样本的距离 $||x-y||$，计算该联合分布 $\gamma$ 下，<strong>样本对距离的期望值</strong> $E_{x,y\sim\gamma}[||x-y||]$。</p>
+<p>用推土的方式理解就是，$E_{x,y\sim\gamma}[||x-y||]$ 是<strong>在 $\gamma$ 路径规划下，把 $p$ 移动成​ $q$ 的消耗</strong>，而 <code>Wasserstein</code> 距离就是在<strong>“最优路径规划”下的最小消耗</strong>，也即<strong>所有可能的联合分布中能够对这个期望值取到的下界</strong>。</p>
+<h3 id="CycleGAN"><a href="#CycleGAN" class="headerlink" title="CycleGAN"></a>CycleGAN</h3><p><strong>待补充……</strong></p>
+<hr>
+<h1 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h1><table>
+    <tr>
+        <td><center><img src="https://s2.loli.net/2022/09/03/94btVRgkqF2GpHJ.png" width=350>Transformer（Encoder（左），Decoder（右））</center></td>
+        <td><center><img src="https://s2.loli.net/2022/09/03/8WQqKJyeM63lULj.png" width=350>Multi-head Self-attention</center></td>
+    </tr>
+</table>
+
+<h2 id="Encoder"><a href="#Encoder" class="headerlink" title="Encoder"></a>Encoder</h2><blockquote>
+<p><code>Encoder</code> 由 <code>N=6</code> 个相同的 <code>layers</code> 组成, 每个 <code>layers</code> 的结构：<br>（1）<strong>多头注意力层</strong>（Multi-head attention layer）；<br>（2）<strong>前馈层</strong>（Feed Forward Layer）；<br>每个 <code>sub-layer</code> 都加了残差连接和归一化。</p>
+</blockquote>
+<h3 id="Positional-Embedding"><a href="#Positional-Embedding" class="headerlink" title="Positional Embedding"></a>Positional Embedding</h3><h3 id="Multi-head-Attention"><a href="#Multi-head-Attention" class="headerlink" title="Multi-head Attention"></a>Multi-head Attention</h3><h4 id="多头注意力计算过程"><a href="#多头注意力计算过程" class="headerlink" title="多头注意力计算过程"></a>多头注意力计算过程</h4><p>以 <code>Head</code> 数等于 <code>4</code> 为例<br><img src="https://s2.loli.net/2022/09/02/v3ME1jfh2zWV5eL.png"></p>
+<h4 id="计算步骤"><a href="#计算步骤" class="headerlink" title="计算步骤"></a>计算步骤</h4><blockquote>
+<p><strong>（1）求出 $Q, K, V$</strong></p>
+</blockquote>
+<p>这里是求 <code>MultiHead</code> 的 $Q,K,V$，所以 <code>Shape</code> 为 (batch, head数, 词数，d_model&#x2F;head数)</p>
+<ul>
+<li>首先，通过定义的 $W^q,W^k,W^v$ 求出 <code>SelfAttention</code> 的 $Q,K,V$，此时 $Q,K,V$ 的 <code>Shape</code> 为 (batch, 词数, d_model)，对应代码为 <code>linear(x)</code>；</li>
+<li>分成多头，即将 <code>Shape</code> 由 (batch, 词数, d_model) 变为 (batch, 词数, head数，d_model&#x2F;head数)。对应代码为 <code>view(nbatches, -1, self.h, self.d_k)</code>；</li>
+<li>最终交换 “词数” 和 “head数” 这两个维度，将 head数 放在前面，最终 <code>shape</code> 变为 (batch, head数, 词数，d_model&#x2F;head数)。对应代码为 <code>transpose(1, 2)</code>。</li>
+</ul>
+<blockquote>
+<p><strong>（2）通过 <code>attention</code> 函数计算出 <code>Attention</code> 结果</strong></p>
+</blockquote>
+<p>$$Attention(Q,K,V)&#x3D;softmax(\frac{QK^{T}}{\sqrt{d_{k}}})V$$</p>
+<p>这里 <code>x</code> 的 <code>shape</code> 为 (batch, head数, 词数，d_model&#x2F;head数)，<code>self.attn</code> 的 <code>shape</code> 为 (batch, head数, 词数，词数)</p>
+<blockquote>
+</blockquote>
+<p><strong>（重点）注：<code>self-attention</code> 为什么要除以 $\sqrt{d_{k}}$<strong>（<a target="_blank" rel="noopener" href="https://blog.csdn.net/samuelzhoudev/article/details/120417922">参考</a>）<br><strong>目的：</strong>使得 <code>attention</code> 的结果处于一个合适的区间（数值不大不小），结果中个别数值偏大或整体偏小都会导致梯度消失（解释如下），同时也起到归一化的作用；<br><strong>解释：个别数值偏大</strong> 会导致数据数量级差距过大，<code>softmax</code> 会将概率分布（<code>p=1</code>）全部分配给最大值的标签，导致其他类别对应的偏导向量值为 $0$；</strong>整体数值偏小</strong> 则会导致梯度过小，会导致在前馈或反馈的过程中梯度消失。<br><strong>解决方案：</strong>对 <code>attention</code> 的结果进行 <code>scale</code>，缩小数据范围，扩大数据差异；<br><strong>数学证明：</strong>假设 $Q, K$ 均服从期望为 $0$，方差为 $1$ 的概率分布，则 $$E(Q)&#x3D;E(K)&#x3D;E(QK)&#x3D;0, D(Q)&#x3D;D(K)&#x3D;1,$$可得<br>$$D(QK)&#x3D;D(\sum_{i&#x3D;0}^{d_{k}}q_{i}k_{i})&#x3D;d_{k}\times1&#x3D;d_{k},$$由 $D(\frac{X}{a})&#x3D;\frac{D(X)}{a^{2}}$ 可得$$D(\frac{QK}{\sqrt{q_{k}}})&#x3D;\frac{d_{k}}{(\sqrt{d^{k}})^{2}}&#x3D;1$$</p>
+<blockquote>
+</blockquote>
+<blockquote>
+<p><strong>（3）合并多个 <code>head</code> 的结果</strong></p>
+</blockquote>
+<p>即将 <code>x</code> 的 <code>shape</code> 由 (batch, head数, 词数，d_model&#x2F;head数)，再变为 (batch, 词数，d_model)</p>
+<ul>
+<li>首先，交换 “<code>head数</code>”和“词数”，这两个维度，结果为(batch, 词数, head数, d_model&#x2F;head数)，对应代码为：<code>x.transpose(1, 2).contiguous()</code>；</li>
+<li>然后将 “head数” 和 “d_model&#x2F;head数” 这两个维度合并，结果为(batch, 词数，d_model)。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-comment"># 按注意力公式计算结果</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">attention</span>(<span class="hljs-params">query, key, value</span>):<br>    d_k = query.size(-<span class="hljs-number">1</span>)<br>    scores = torch.matmul(query, key.transpose(-<span class="hljs-number">2</span>, -<span class="hljs-number">1</span>)) / math.sqrt(d_k)<br>    p_attn = scores.softmax(dim=-<span class="hljs-number">1</span>)<br>    <span class="hljs-keyword">return</span> torch.matmul(p_attn, value)<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MultiHeadedAttention</span>(nn.Module):<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, h, d_model</span>):<br>        <span class="hljs-built_in">super</span>(MultiHeadedAttention, self).__init__()<br>        <span class="hljs-keyword">assert</span> d_model % h == <span class="hljs-number">0</span><br><br>        self.d_k = d_model // h<br>        self.h = h<br><br>        self.linears = [<br>            nn.Linear(d_model, d_model),<br>            nn.Linear(d_model, d_model),<br>            nn.Linear(d_model, d_model),<br>            nn.Linear(d_model, d_model),<br>        ]<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, x</span>):<br>        nbatches = x.size(<span class="hljs-number">0</span>)<br><br>        query, key, value = [<br>            linear(x).view(nbatches, -<span class="hljs-number">1</span>, self.h, self.d_k).transpose(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)<br>            <span class="hljs-keyword">for</span> linear, x <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(self.linears, (x, x, x))<br>        ]<br><br>        x = attention(query, key, value)<br><br>        x = (x.transpose(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>).contiguous().view(nbatches, -<span class="hljs-number">1</span>, self.h * self.d_k))<br><br>        <span class="hljs-keyword">return</span> self.linears[-<span class="hljs-number">1</span>](x)<br><br><br><span class="hljs-comment"># 定义8个head，词向量维度为512的多头注意力层</span><br>model = MultiHeadedAttention(<span class="hljs-number">8</span>, <span class="hljs-number">512</span>)<br><br><span class="hljs-comment"># 传入一个batch_size为2， 7个单词，每个单词为512维度</span><br>x = torch.rand(<span class="hljs-number">2</span>, <span class="hljs-number">7</span>, <span class="hljs-number">512</span>)<br><span class="hljs-built_in">print</span>(model(x).size())<br></code></pre></td></tr></table></figure>
+
+<h3 id="Layer-Normalization-1"><a href="#Layer-Normalization-1" class="headerlink" title="Layer Normalization"></a>Layer Normalization</h3><p>见 1.4.2。</p>
+<h3 id="Feed-Forward"><a href="#Feed-Forward" class="headerlink" title="Feed Forward"></a>Feed Forward</h3><blockquote>
+<p><strong>前馈全连接层的作用:</strong><br>考虑注意力机制可能对复杂过程的拟合程度不够，通过增加两层网络来增强模型的能力。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs Python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">PositionwiseFeedForward</span>(nn.Module):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, d_model, d_ff, dropout=<span class="hljs-number">0.1</span></span>):<br>        <span class="hljs-built_in">super</span>(PositionwiseFeedForward, self).__init__()<br>        <br>        self.w1 = nn.Linear(d_model, d_ff)<br>        self.w2 = nn.Linear(d_ff, d_model)<br>        self.dropout = nn.Dropout(p=dropout)<br>        <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, x</span>):<br>        x = self.w1(x)<br>        x = F.relu(x)<br>        x = self.dropout(x)<br>        x = self.w2(x)<br>        <span class="hljs-keyword">return</span> x<br></code></pre></td></tr></table></figure>
+
+<h2 id="Decoder"><a href="#Decoder" class="headerlink" title="Decoder"></a>Decoder</h2><blockquote>
+<p><code>Dncoder</code> 由 <code>N=6</code> 个相同的 <code>layers</code> 组成, 每个 <code>layers</code> 的结构：<br>（1）<strong>带mask的多头注意力层</strong><br>（2）<strong>多头注意力层</strong>（Multi-head attention layer）；<br>（3）<strong>前馈层</strong>（Feed Forward Layer）；<br>每个 sub-layer 都加了残差连接和归一化。</p>
+</blockquote>
+<h3 id="Masked-Multi-head-Attention"><a href="#Masked-Multi-head-Attention" class="headerlink" title="Masked Multi-head Attention"></a><strong>Masked</strong> Multi-head Attention</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhaohongfei_358/article/details/125858248">MultiHead-Attention和Masked-Attention的机制和原理</a></p>
+<hr>
+<h1 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h1><h2 id="数据增强"><a href="#数据增强" class="headerlink" title="数据增强"></a>数据增强</h2><h2 id="类别不平衡问题"><a href="#类别不平衡问题" class="headerlink" title="类别不平衡问题"></a>类别不平衡问题</h2><p>指 <strong>分类任务中不同类别的训练样例数⽬差别很⼤的情况。</strong></p>
+<blockquote>
+<p><strong>解决方案：</strong><br><strong>（1）扩大数据集；</strong><br><strong>（2）采样策略：</strong>对大类数据欠采样或对小类数据过采样；<br><strong>（3）训练策略：</strong>代价加权，新的评价指标或算法；<br><strong>（4）问题转化：</strong>子问题划分或将问题转换成小类样本检测问题（如异常点检测、变化趋势检测等）。</p>
+</blockquote>
+<hr>
+<h1 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h1><p>各种优化器的计算公式（GD，SGD，batch GD，SGD+momentum，NAG，AdaGrad，RMSProp，Adam）<br><strong>待补充……</strong></p>
+<hr>
+<h1 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h1><h2 id="Mean-Square-Error（均方误差，MSE）"><a href="#Mean-Square-Error（均方误差，MSE）" class="headerlink" title="Mean Square Error（均方误差，MSE）"></a>Mean Square Error（均方误差，MSE）</h2><h2 id="mathcal-L-MSE-x3D-frac-1-n-sum-i-x3D-1-n-p-i-y-i-2-Root-Mean-Square-Error（均方根误差，RMSE）-mathcal-L-RMSE-x3D-sqrt-frac-1-n-sum-i-x3D-1-n-p-i-y-i-2-Mean-Absolute-Error（平均绝对误差，MAE）-mathcal-L-MAE-x3D-frac-1-n-sum-i-x3D-1-n-p-i-y-i-Cross-Entropy（交叉熵，CE）-mathcal-L-CE-x3D-frac-1-n-sum-i-x3D-1-n-y-i-log-p-i-Weighted-Cross-Entropy（带权交叉熵，WCE）-mathcal-L-WCE-x3D-frac-1-n-sum-i-x3D-1-n-w-i-y-i-log-p-i-Binary-Cross-Entropy（二类交叉熵，BCE）-mathcal-L-BCE-x3D-frac-1-n-sum-i-x3D-1-n-y-i-log-p-i-1-y-i-log-1-p-i-Dice-Loss-IOU-Loss-Focal-Loss"><a href="#mathcal-L-MSE-x3D-frac-1-n-sum-i-x3D-1-n-p-i-y-i-2-Root-Mean-Square-Error（均方根误差，RMSE）-mathcal-L-RMSE-x3D-sqrt-frac-1-n-sum-i-x3D-1-n-p-i-y-i-2-Mean-Absolute-Error（平均绝对误差，MAE）-mathcal-L-MAE-x3D-frac-1-n-sum-i-x3D-1-n-p-i-y-i-Cross-Entropy（交叉熵，CE）-mathcal-L-CE-x3D-frac-1-n-sum-i-x3D-1-n-y-i-log-p-i-Weighted-Cross-Entropy（带权交叉熵，WCE）-mathcal-L-WCE-x3D-frac-1-n-sum-i-x3D-1-n-w-i-y-i-log-p-i-Binary-Cross-Entropy（二类交叉熵，BCE）-mathcal-L-BCE-x3D-frac-1-n-sum-i-x3D-1-n-y-i-log-p-i-1-y-i-log-1-p-i-Dice-Loss-IOU-Loss-Focal-Loss" class="headerlink" title="$$\mathcal{L}_{MSE}&#x3D;\frac{1}{n}\sum_{i&#x3D;1}^{n}(p_{i}-y_{i})^{2}$$## Root Mean Square Error（均方根误差，RMSE）$$\mathcal{L}_{RMSE}&#x3D;\sqrt{\frac{1}{n}\sum_{i&#x3D;1}^{n}(p_{i}-y_{i})^{2}}$$## Mean Absolute Error（平均绝对误差，MAE）$$\mathcal{L}_{MAE}&#x3D;\frac{1}{n}\sum_{i&#x3D;1}^{n}|p_{i}-y_{i}|$$## Cross Entropy（交叉熵，CE）$$\mathcal{L}_{CE}&#x3D;-\frac{1}{n}\sum_{i&#x3D;1}^{n}y_{i}\log(p_{i})$$Weighted Cross Entropy（带权交叉熵，WCE）$$\mathcal{L}_{WCE}&#x3D;-\frac{1}{n}\sum_{i&#x3D;1}^{n}w_{i}y_{i}\log(p_{i})$$Binary Cross Entropy（二类交叉熵，BCE）$$\mathcal{L}_{BCE}&#x3D;-\frac{1}{n}\sum_{i&#x3D;1}^{n}(y_{i}\log(p_{i})+(1-y_{i})\log(1-p_{i}))$$## Dice Loss## IOU Loss## Focal Loss"></a>$$\mathcal{L}_{MSE}&#x3D;\frac{1}{n}\sum_{i&#x3D;1}^{n}(p_{i}-y_{i})^{2}$$<br>## Root Mean Square Error（均方根误差，RMSE）<br>$$\mathcal{L}_{RMSE}&#x3D;\sqrt{\frac{1}{n}\sum_{i&#x3D;1}^{n}(p_{i}-y_{i})^{2}}$$<br>## Mean Absolute Error（平均绝对误差，MAE）<br>$$\mathcal{L}_{MAE}&#x3D;\frac{1}{n}\sum_{i&#x3D;1}^{n}|p_{i}-y_{i}|$$<br>## Cross Entropy（交叉熵，CE）<br>$$\mathcal{L}_{CE}&#x3D;-\frac{1}{n}\sum_{i&#x3D;1}^{n}y_{i}\log(p_{i})$$<br><strong>Weighted Cross Entropy（带权交叉熵，WCE）</strong><br>$$\mathcal{L}_{WCE}&#x3D;-\frac{1}{n}\sum_{i&#x3D;1}^{n}w_{i}y_{i}\log(p_{i})$$<br><strong>Binary Cross Entropy（二类交叉熵，BCE）</strong><br>$$\mathcal{L}_{BCE}&#x3D;-\frac{1}{n}\sum_{i&#x3D;1}^{n}(y_{i}\log(p_{i})+(1-y_{i})\log(1-p_{i}))$$<br>## Dice Loss<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">class SoftDiceLoss(nn.Module):<br>    def __init__(self, weight=None, size_average=True):<br>        super(SoftDiceLoss, self).__init__()<br> <br>    def forward(self, logits, targets):<br>        num = targets.size(0)<br>        // 为了防止除0的发生<br>        smooth = 1<br>        <br>        probs = F.sigmoid(logits)<br>        m1 = probs.view(num, -1)<br>        m2 = targets.view(num, -1)<br>        intersection = (m1 * m2)<br> <br>        score = 2. * (intersection.sum(1) + smooth) / (m1.sum(1) + m2.sum(1) + smooth)<br>        score = 1 - score.sum() / num<br>        return score<br></code></pre></td></tr></table></figure><br>## IOU Loss<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">#PyTorch<br>class IoULoss(nn.Module):<br>    def __init__(self, weight=None, size_average=True):<br>        super(IoULoss, self).__init__()<br><br>    def forward(self, inputs, targets, smooth=1):<br>        inputs = F.sigmoid(inputs)       <br>        <br>        inputs = inputs.view(-1)<br>        targets = targets.view(-1)<br>        <br>        intersection = (inputs * targets).sum()<br>        total = (inputs + targets).sum()<br>        union = total - intersection <br>        <br>        IoU = (intersection + smooth)/(union + smooth)<br>                <br>        return 1 - IoU<br></code></pre></td></tr></table></figure><br>## Focal Loss<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">#PyTorch<br>ALPHA = 0.8<br>GAMMA = 2<br><br>class FocalLoss(nn.Module):<br>    def __init__(self, weight=None, size_average=True):<br>        super(FocalLoss, self).__init__()<br><br>    def forward(self, inputs, targets, alpha=ALPHA, gamma=GAMMA, smooth=1):<br>        inputs = F.sigmoid(inputs)       <br>        <br>        inputs = inputs.view(-1)<br>        targets = targets.view(-1)<br>        <br>        BCE = F.binary_cross_entropy(inputs, targets, reduction=&#x27;mean&#x27;)<br>        BCE_EXP = torch.exp(-BCE)<br>        focal_loss = alpha * (1-BCE_EXP)**gamma * BCE<br>                       <br>        return focal_loss<br></code></pre></td></tr></table></figure></h2><h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="目标检测"><a href="#目标检测" class="headerlink" title="目标检测"></a>目标检测</h2><p><a target="_blank" rel="noopener" href="https://www.showmeai.tech/article-detail/271">深度学习与计算机视觉教程(12) | 目标检测 (两阶段, R-CNN系列)</a><br><a target="_blank" rel="noopener" href="https://www.showmeai.tech/article-detail/272">深度学习与计算机视觉教程(13) | 目标检测 (SSD, YOLO系列)</a></p>
+<h3 id="传统检测方法"><a href="#传统检测方法" class="headerlink" title="传统检测方法"></a>传统检测方法</h3><blockquote>
+<p><strong>三个步骤：</strong><br>（1）滑动窗口选择候选区域；<br>（2）提取候选区域的视觉特征；<br>（3）分类器识别；<br><strong>可以视为 穷举法</strong></p>
+</blockquote>
+<h3 id="深度学习方法"><a href="#深度学习方法" class="headerlink" title="深度学习方法"></a>深度学习方法</h3><blockquote>
+<p><strong>两阶段和一阶段的区别：</strong><br>（1）两阶段：生成一系列<strong>候选框</strong>，再通过 <code>CNN</code> 分类；（R-CNN、Fast R-CNN、Faster R-CNN 等）<br>（2）一阶段：直接将<strong>目标框的定位问题转化为回归问题</strong>；（YOLO、SSD 等）<br><strong>注：两阶段方法精度更高，一阶段方法速度更快</strong></p>
+</blockquote>
+<h3 id="R-CNN-系列"><a href="#R-CNN-系列" class="headerlink" title="R-CNN 系列"></a>R-CNN 系列</h3><h4 id="R-CNN"><a href="#R-CNN" class="headerlink" title="R-CNN"></a>R-CNN</h4><p><strong><code>R-CNN</code>（<code>Region with CNN features</code>） 尝试将爆火的 <code>CNN</code>（<code>AlexNet</code>）应用到目标检测的特征提取过程中</strong></p>
+<blockquote>
+<p><strong>Insights:</strong><br>（1）用 CNN 做特征提取；<br>（2）迁移学习的策略应对检测数据量少的问题，也就是预训练</p>
+</blockquote>
+<blockquote>
+<p><strong>检测方案：</strong><br>（1）直接回归锚框坐标；<br>（2）滑动窗口；<br>（3）<strong>候选框策略。（<code>RCNN</code>）</strong></p>
+</blockquote>
+<h4 id="Fast-R-CNN"><a href="#Fast-R-CNN" class="headerlink" title="Fast R-CNN"></a>Fast R-CNN</h4><h4 id="Faster-R-CNN"><a href="#Faster-R-CNN" class="headerlink" title="Faster R-CNN"></a>Faster R-CNN</h4><h3 id="YOLO-系列"><a href="#YOLO-系列" class="headerlink" title="YOLO 系列"></a>YOLO 系列</h3><h4 id="YOLO-V1（Paper）"><a href="#YOLO-V1（Paper）" class="headerlink" title="YOLO V1（Paper）"></a>YOLO V1（<a target="_blank" rel="noopener" href="https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Redmon_You_Only_Look_CVPR_2016_paper.pdf">Paper</a>）</h4><h4 id="YOLO-V2（Paper）"><a href="#YOLO-V2（Paper）" class="headerlink" title="YOLO V2（Paper）"></a>YOLO V2（<a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content_cvpr_2017/papers/Redmon_YOLO9000_Better_Faster_CVPR_2017_paper.pdf">Paper</a>）</h4><h4 id="YOLO-V3（Paper）"><a href="#YOLO-V3（Paper）" class="headerlink" title="YOLO V3（Paper）"></a>YOLO V3（<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1804.02767.pdf">Paper</a>）</h4><h4 id="YOLO-V4（Paper）"><a href="#YOLO-V4（Paper）" class="headerlink" title="YOLO V4（Paper）"></a>YOLO V4（<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2004.10934">Paper</a>）</h4><h4 id="YOLO-V5"><a href="#YOLO-V5" class="headerlink" title="YOLO V5"></a>YOLO V5</h4><p><strong>待补充……</strong></p>
+<h2 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h2><ul>
+<li>聚类</li>
+<li>主成分分析（PCA）</li>
+</ul>
+<h2 id="半监督学习"><a href="#半监督学习" class="headerlink" title="半监督学习"></a>半监督学习</h2><p><strong>待补充……</strong></p>
+<h2 id="自监督学习"><a href="#自监督学习" class="headerlink" title="自监督学习"></a>自监督学习</h2><blockquote>
+<p>自监督中的崩溃解问题的理解</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">SvyJ</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/09/17/027-InterviewQs_DL/">http://example.com/2022/09/17/027-InterviewQs_DL/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">“干杯( ﾟ-ﾟ)っロ”</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a><a class="post-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a><a class="post-meta__tags" href="/tags/Python/">Python</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2022/06/22/2dXg9eDULu3lQsE.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/09/25/026-InterviewQs_ML/" title="For Offersssss! （机器学习篇）"><img class="cover" src="https://s2.loli.net/2022/06/22/2dXg9eDULu3lQsE.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">For Offersssss! （机器学习篇）</div></div></a></div><div class="next-post pull-right"><a href="/2022/09/06/029-InterviewQs_Python/" title="For Offersssss! （Linux与Python篇）"><img class="cover" src="https://s2.loli.net/2022/06/22/2dXg9eDULu3lQsE.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">For Offersssss! （Linux与Python篇）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/09/01/028-InterviewQs_IP/" title="For Offersssss! （图像处理篇）"><img class="cover" src="https://s2.loli.net/2022/06/22/2dXg9eDULu3lQsE.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-01</div><div class="title">For Offersssss! （图像处理篇）</div></div></a></div><div><a href="/2022/09/25/026-InterviewQs_ML/" title="For Offersssss! （机器学习篇）"><img class="cover" src="https://s2.loli.net/2022/06/22/2dXg9eDULu3lQsE.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-25</div><div class="title">For Offersssss! （机器学习篇）</div></div></a></div><div><a href="/2022/09/06/029-InterviewQs_Python/" title="For Offersssss! （Linux与Python篇）"><img class="cover" src="https://s2.loli.net/2022/06/22/2dXg9eDULu3lQsE.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-06</div><div class="title">For Offersssss! （Linux与Python篇）</div></div></a></div><div><a href="/2022/07/05/002-LeNet_Mnist/" title="深度学习算法中的Hello-World：用LeNet模型实现手写数字识别"><img class="cover" src="https://i.loli.net/2021/07/05/uVxbZ7TaRqkijHf.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-05</div><div class="title">深度学习算法中的Hello-World：用LeNet模型实现手写数字识别</div></div></a></div><div><a href="/2022/07/01/010-Semantic_Segementation/" title="语义分割综述"><img class="cover" src="https://i.loli.net/2021/07/05/z3mAyiTIeYhFDQO.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-01</div><div class="title">语义分割综述</div></div></a></div><div><a href="/2022/07/05/005-DL_Models_Classification/" title="经典分类模型的Pytorch实现"><img class="cover" src="https://s2.loli.net/2022/06/30/mh1gcH8wJx9QMCs.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-05</div><div class="title">经典分类模型的Pytorch实现</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%88CNN%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">卷积神经网络（CNN）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%B7%E7%A7%AF%E5%B1%82"><span class="toc-number">1.1.</span> <span class="toc-text">卷积层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%B7%E7%A7%AF%E6%A0%B8"><span class="toc-number">1.1.1.</span> <span class="toc-text">卷积核</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%84%9F%E5%8F%97%E9%87%8E"><span class="toc-number">1.1.2.</span> <span class="toc-text">感受野</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%C3%97-1-%E5%8D%B7%E7%A7%AF"><span class="toc-number">1.1.3.</span> <span class="toc-text">1 × 1 卷积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#K-%C3%97-K-%E5%8D%B7%E7%A7%AF"><span class="toc-number">1.1.4.</span> <span class="toc-text">K × K 卷积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%BB%84%E5%8D%B7%E7%A7%AF"><span class="toc-number">1.1.5.</span> <span class="toc-text">分组卷积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%8F%AF%E5%88%86%E7%A6%BB%E5%8D%B7%E7%A7%AF"><span class="toc-number">1.1.6.</span> <span class="toc-text">深度可分离卷积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E5%8F%98%E5%BD%A2%E5%8D%B7%E7%A7%AF"><span class="toc-number">1.1.7.</span> <span class="toc-text">可变形卷积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AC%E7%BD%AE%E5%8D%B7%E7%A7%AF"><span class="toc-number">1.1.8.</span> <span class="toc-text">转置卷积</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%A0%E5%8C%96%E5%B1%82"><span class="toc-number">1.2.</span> <span class="toc-text">池化层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E9%87%87%E6%A0%B7"><span class="toc-number">1.2.1.</span> <span class="toc-text">上采样</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E5%8D%B7%E7%A7%AF%EF%BC%88%E8%BD%AC%E7%BD%AE%E5%8D%B7%E7%A7%AF%EF%BC%89"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">反卷积（转置卷积）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E5%80%BC%E6%B3%95%EF%BC%88%E5%8F%8C%E7%BA%BF%E6%80%A7%E6%8F%92%E5%80%BC%EF%BC%89"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">插值法（双线性插值）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E6%B1%A0%E5%8C%96%EF%BC%88Unpooling-x2F-Unsampling%EF%BC%89"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">反池化（Unpooling &#x2F; Unsampling）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E8%BF%9E%E6%8E%A5%E5%B1%82"><span class="toc-number">1.3.</span> <span class="toc-text">全连接层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#FC%E3%80%81MLP-%E5%92%8C-DNN"><span class="toc-number">1.3.1.</span> <span class="toc-text">FC、MLP 和 DNN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dropout"><span class="toc-number">1.3.2.</span> <span class="toc-text">Dropout</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%92%E4%B8%80%E5%8C%96%E5%B1%82"><span class="toc-number">1.4.</span> <span class="toc-text">归一化层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Batch-Normalization"><span class="toc-number">1.4.1.</span> <span class="toc-text">Batch Normalization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Layer-Normalization"><span class="toc-number">1.4.2.</span> <span class="toc-text">Layer Normalization</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="toc-number">1.5.</span> <span class="toc-text">激活函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Sigmoid"><span class="toc-number">1.5.1.</span> <span class="toc-text">Sigmoid</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tanh"><span class="toc-number">1.5.2.</span> <span class="toc-text">tanh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ReLU"><span class="toc-number">1.5.3.</span> <span class="toc-text">ReLU</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%88RNN%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">循环神经网络（RNN）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#LSTM"><span class="toc-number">2.1.</span> <span class="toc-text">LSTM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GRU"><span class="toc-number">2.2.</span> <span class="toc-text">GRU</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">生成模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B%E4%B8%8E%E5%88%A4%E5%88%AB%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.1.</span> <span class="toc-text">生成模型与判别模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pixel-RNN-x2F-CNN"><span class="toc-number">3.2.</span> <span class="toc-text">Pixel RNN &#x2F; CNN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E5%88%86%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8%EF%BC%88VAE%EF%BC%89"><span class="toc-number">3.3.</span> <span class="toc-text">变分自编码器（VAE）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C%EF%BC%88GAN%EF%BC%89"><span class="toc-number">3.4.</span> <span class="toc-text">生成对抗网络（GAN）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%80%9D%E8%B7%AF"><span class="toc-number">3.4.1.</span> <span class="toc-text">核心思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%A7%8B-GAN-%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">3.4.2.</span> <span class="toc-text">原始 GAN 存在的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Wasserstein-GAN%EF%BC%88W-GAN%EF%BC%89"><span class="toc-number">3.4.3.</span> <span class="toc-text">Wasserstein GAN（W-GAN）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CycleGAN"><span class="toc-number">3.4.4.</span> <span class="toc-text">CycleGAN</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Transformer"><span class="toc-number">4.</span> <span class="toc-text">Transformer</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Encoder"><span class="toc-number">4.1.</span> <span class="toc-text">Encoder</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Positional-Embedding"><span class="toc-number">4.1.1.</span> <span class="toc-text">Positional Embedding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multi-head-Attention"><span class="toc-number">4.1.2.</span> <span class="toc-text">Multi-head Attention</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B%E8%AE%A1%E7%AE%97%E8%BF%87%E7%A8%8B"><span class="toc-number">4.1.2.1.</span> <span class="toc-text">多头注意力计算过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%AD%A5%E9%AA%A4"><span class="toc-number">4.1.2.2.</span> <span class="toc-text">计算步骤</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Layer-Normalization-1"><span class="toc-number">4.1.3.</span> <span class="toc-text">Layer Normalization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Feed-Forward"><span class="toc-number">4.1.4.</span> <span class="toc-text">Feed Forward</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Decoder"><span class="toc-number">4.2.</span> <span class="toc-text">Decoder</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Masked-Multi-head-Attention"><span class="toc-number">4.2.1.</span> <span class="toc-text">Masked Multi-head Attention</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text">数据处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA"><span class="toc-number">5.1.</span> <span class="toc-text">数据增强</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%88%AB%E4%B8%8D%E5%B9%B3%E8%A1%A1%E9%97%AE%E9%A2%98"><span class="toc-number">5.2.</span> <span class="toc-text">类别不平衡问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text">优化方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-number">7.</span> <span class="toc-text">损失函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Mean-Square-Error%EF%BC%88%E5%9D%87%E6%96%B9%E8%AF%AF%E5%B7%AE%EF%BC%8CMSE%EF%BC%89"><span class="toc-number">7.1.</span> <span class="toc-text">Mean Square Error（均方误差，MSE）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mathcal-L-MSE-x3D-frac-1-n-sum-i-x3D-1-n-p-i-y-i-2-Root-Mean-Square-Error%EF%BC%88%E5%9D%87%E6%96%B9%E6%A0%B9%E8%AF%AF%E5%B7%AE%EF%BC%8CRMSE%EF%BC%89-mathcal-L-RMSE-x3D-sqrt-frac-1-n-sum-i-x3D-1-n-p-i-y-i-2-Mean-Absolute-Error%EF%BC%88%E5%B9%B3%E5%9D%87%E7%BB%9D%E5%AF%B9%E8%AF%AF%E5%B7%AE%EF%BC%8CMAE%EF%BC%89-mathcal-L-MAE-x3D-frac-1-n-sum-i-x3D-1-n-p-i-y-i-Cross-Entropy%EF%BC%88%E4%BA%A4%E5%8F%89%E7%86%B5%EF%BC%8CCE%EF%BC%89-mathcal-L-CE-x3D-frac-1-n-sum-i-x3D-1-n-y-i-log-p-i-Weighted-Cross-Entropy%EF%BC%88%E5%B8%A6%E6%9D%83%E4%BA%A4%E5%8F%89%E7%86%B5%EF%BC%8CWCE%EF%BC%89-mathcal-L-WCE-x3D-frac-1-n-sum-i-x3D-1-n-w-i-y-i-log-p-i-Binary-Cross-Entropy%EF%BC%88%E4%BA%8C%E7%B1%BB%E4%BA%A4%E5%8F%89%E7%86%B5%EF%BC%8CBCE%EF%BC%89-mathcal-L-BCE-x3D-frac-1-n-sum-i-x3D-1-n-y-i-log-p-i-1-y-i-log-1-p-i-Dice-Loss-IOU-Loss-Focal-Loss"><span class="toc-number">7.2.</span> <span class="toc-text">$$\mathcal{L}_{MSE}&#x3D;\frac{1}{n}\sum_{i&#x3D;1}^{n}(p_{i}-y_{i})^{2}$$## Root Mean Square Error（均方根误差，RMSE）$$\mathcal{L}_{RMSE}&#x3D;\sqrt{\frac{1}{n}\sum_{i&#x3D;1}^{n}(p_{i}-y_{i})^{2}}$$## Mean Absolute Error（平均绝对误差，MAE）$$\mathcal{L}_{MAE}&#x3D;\frac{1}{n}\sum_{i&#x3D;1}^{n}|p_{i}-y_{i}|$$## Cross Entropy（交叉熵，CE）$$\mathcal{L}_{CE}&#x3D;-\frac{1}{n}\sum_{i&#x3D;1}^{n}y_{i}\log(p_{i})$$Weighted Cross Entropy（带权交叉熵，WCE）$$\mathcal{L}_{WCE}&#x3D;-\frac{1}{n}\sum_{i&#x3D;1}^{n}w_{i}y_{i}\log(p_{i})$$Binary Cross Entropy（二类交叉熵，BCE）$$\mathcal{L}_{BCE}&#x3D;-\frac{1}{n}\sum_{i&#x3D;1}^{n}(y_{i}\log(p_{i})+(1-y_{i})\log(1-p_{i}))$$## Dice Loss1234567891011121314151617class SoftDiceLoss(nn.Module):    def __init__(self, weight&#x3D;None, size_average&#x3D;True):        super(SoftDiceLoss, self).__init__()     def forward(self, logits, targets):        num &#x3D; targets.size(0)        &#x2F;&#x2F; 为了防止除0的发生        smooth &#x3D; 1                probs &#x3D; F.sigmoid(logits)        m1 &#x3D; probs.view(num, -1)        m2 &#x3D; targets.view(num, -1)        intersection &#x3D; (m1 * m2)         score &#x3D; 2. * (intersection.sum(1) + smooth) &#x2F; (m1.sum(1) + m2.sum(1) + smooth)        score &#x3D; 1 - score.sum() &#x2F; num        return score## IOU Loss123456789101112131415161718#PyTorchclass IoULoss(nn.Module):    def __init__(self, weight&#x3D;None, size_average&#x3D;True):        super(IoULoss, self).__init__()    def forward(self, inputs, targets, smooth&#x3D;1):        inputs &#x3D; F.sigmoid(inputs)                       inputs &#x3D; inputs.view(-1)        targets &#x3D; targets.view(-1)                intersection &#x3D; (inputs * targets).sum()        total &#x3D; (inputs + targets).sum()        union &#x3D; total - intersection                 IoU &#x3D; (intersection + smooth)&#x2F;(union + smooth)                        return 1 - IoU## Focal Loss12345678910111213141516171819#PyTorchALPHA &#x3D; 0.8GAMMA &#x3D; 2class FocalLoss(nn.Module):    def __init__(self, weight&#x3D;None, size_average&#x3D;True):        super(FocalLoss, self).__init__()    def forward(self, inputs, targets, alpha&#x3D;ALPHA, gamma&#x3D;GAMMA, smooth&#x3D;1):        inputs &#x3D; F.sigmoid(inputs)                       inputs &#x3D; inputs.view(-1)        targets &#x3D; targets.view(-1)                BCE &#x3D; F.binary_cross_entropy(inputs, targets, reduction&#x3D;&#39;mean&#39;)        BCE_EXP &#x3D; torch.exp(-BCE)        focal_loss &#x3D; alpha * (1-BCE_EXP)**gamma * BCE                               return focal_loss</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">8.</span> <span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B"><span class="toc-number">8.1.</span> <span class="toc-text">目标检测</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E7%BB%9F%E6%A3%80%E6%B5%8B%E6%96%B9%E6%B3%95"><span class="toc-number">8.1.1.</span> <span class="toc-text">传统检测方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95"><span class="toc-number">8.1.2.</span> <span class="toc-text">深度学习方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#R-CNN-%E7%B3%BB%E5%88%97"><span class="toc-number">8.1.3.</span> <span class="toc-text">R-CNN 系列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#R-CNN"><span class="toc-number">8.1.3.1.</span> <span class="toc-text">R-CNN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Fast-R-CNN"><span class="toc-number">8.1.3.2.</span> <span class="toc-text">Fast R-CNN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Faster-R-CNN"><span class="toc-number">8.1.3.3.</span> <span class="toc-text">Faster R-CNN</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#YOLO-%E7%B3%BB%E5%88%97"><span class="toc-number">8.1.4.</span> <span class="toc-text">YOLO 系列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#YOLO-V1%EF%BC%88Paper%EF%BC%89"><span class="toc-number">8.1.4.1.</span> <span class="toc-text">YOLO V1（Paper）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#YOLO-V2%EF%BC%88Paper%EF%BC%89"><span class="toc-number">8.1.4.2.</span> <span class="toc-text">YOLO V2（Paper）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#YOLO-V3%EF%BC%88Paper%EF%BC%89"><span class="toc-number">8.1.4.3.</span> <span class="toc-text">YOLO V3（Paper）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#YOLO-V4%EF%BC%88Paper%EF%BC%89"><span class="toc-number">8.1.4.4.</span> <span class="toc-text">YOLO V4（Paper）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#YOLO-V5"><span class="toc-number">8.1.4.5.</span> <span class="toc-text">YOLO V5</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-number">8.2.</span> <span class="toc-text">无监督学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-number">8.3.</span> <span class="toc-text">半监督学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-number">8.4.</span> <span class="toc-text">自监督学习</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://s2.loli.net/2022/06/22/2dXg9eDULu3lQsE.webp')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By SvyJ</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hello, Stranger~</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'e5bWQMoOycxPCdtTvxkPGJ0d-gzGzoHsz',
+      appKey: 'peE7twywLp5HcdBx6gmKQYUH',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

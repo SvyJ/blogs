@@ -1,0 +1,310 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>For Offersssss! （图像处理篇） | “干杯( ﾟ-ﾟ)っロ”</title><meta name="author" content="SvyJ"><meta name="copyright" content="SvyJ"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="图像处理图像处理基础 图像预处理方法及原理低通高通滤波器高斯滤波器均值、中值滤波  图像的增强和降噪几何变换颜色变换区域置零  常用的图像特征提取算法方向梯度直方图（HOG）尺度不变特征变换（SIFT）加速稳健特征（SURF）高斯函数差分（DOG）局部二值模式（LBP）哈尔变换（HAAR）  常用的图像插值算法  直方图直方图的概念直方图均衡化   图像变换图像编码和压缩图像增强和复原图像分割边缘">
+<meta property="og:type" content="article">
+<meta property="og:title" content="For Offersssss! （图像处理篇）">
+<meta property="og:url" content="http://example.com/2022/09/01/028-InterviewQs_IP/index.html">
+<meta property="og:site_name" content="“干杯( ﾟ-ﾟ)っロ”">
+<meta property="og:description" content="图像处理图像处理基础 图像预处理方法及原理低通高通滤波器高斯滤波器均值、中值滤波  图像的增强和降噪几何变换颜色变换区域置零  常用的图像特征提取算法方向梯度直方图（HOG）尺度不变特征变换（SIFT）加速稳健特征（SURF）高斯函数差分（DOG）局部二值模式（LBP）哈尔变换（HAAR）  常用的图像插值算法  直方图直方图的概念直方图均衡化   图像变换图像编码和压缩图像增强和复原图像分割边缘">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/06/22/2dXg9eDULu3lQsE.webp">
+<meta property="article:published_time" content="2022-09-01T13:31:36.000Z">
+<meta property="article:modified_time" content="2022-09-01T13:31:36.000Z">
+<meta property="article:author" content="SvyJ">
+<meta property="article:tag" content="图像处理">
+<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/06/22/2dXg9eDULu3lQsE.webp"><link rel="shortcut icon" href="/img/logo.png"><link rel="canonical" href="http://example.com/2022/09/01/028-InterviewQs_IP/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: SvyJ","link":"链接: ","source":"来源: “干杯( ﾟ-ﾟ)っロ”","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'For Offersssss! （图像处理篇）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-01 21:31:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="//at.alicdn.com/t/font_3054216_qov50ieeupn.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s2.loli.net/2021/12/23/X7TzdfHKCI56Vus.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2022/06/22/2dXg9eDULu3lQsE.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="“干杯( ﾟ-ﾟ)っロ”"><span class="site-name">“干杯( ﾟ-ﾟ)っロ”</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">For Offersssss! （图像处理篇）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-01T13:31:36.000Z" title="发表于 2022-09-01 21:31:36">2022-09-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-01T13:31:36.000Z" title="更新于 2022-09-01 21:31:36">2022-09-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="For Offersssss! （图像处理篇）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="图像处理"><a href="#图像处理" class="headerlink" title="图像处理"></a>图像处理</h2><h3 id="图像处理基础"><a href="#图像处理基础" class="headerlink" title="图像处理基础"></a>图像处理基础</h3><ul>
+<li><p><strong>图像预处理方法及原理</strong><br>低通高通滤波器<br>高斯滤波器<br>均值、中值滤波</p>
+</li>
+<li><p><strong>图像的增强和降噪</strong><br>几何变换<br>颜色变换<br>区域置零</p>
+</li>
+<li><p><strong>常用的图像特征提取算法</strong><br>方向梯度直方图（HOG）<br>尺度不变特征变换（SIFT）<br>加速稳健特征（SURF）<br>高斯函数差分（DOG）<br>局部二值模式（LBP）<br>哈尔变换（HAAR）</p>
+</li>
+<li><p><strong>常用的图像插值算法</strong></p>
+</li>
+<li><p><strong>直方图</strong><br>直方图的概念<br>直方图均衡化</p>
+</li>
+</ul>
+<h3 id="图像变换"><a href="#图像变换" class="headerlink" title="图像变换"></a>图像变换</h3><h3 id="图像编码和压缩"><a href="#图像编码和压缩" class="headerlink" title="图像编码和压缩"></a>图像编码和压缩</h3><h3 id="图像增强和复原"><a href="#图像增强和复原" class="headerlink" title="图像增强和复原"></a>图像增强和复原</h3><h3 id="图像分割"><a href="#图像分割" class="headerlink" title="图像分割"></a>图像分割</h3><h3 id="边缘检测"><a href="#边缘检测" class="headerlink" title="边缘检测"></a>边缘检测</h3><ul>
+<li><p><strong>传统的边缘检测算子</strong><br>Sobel<br>Canny<br>Prewitt<br>Laplace<br>Robert<br>各算法优缺点</p>
+</li>
+<li><p><strong>极大值抑制</strong></p>
+</li>
+</ul>
+<h3 id="形态学处理"><a href="#形态学处理" class="headerlink" title="形态学处理"></a>形态学处理</h3><ul>
+<li><strong>腐蚀</strong></li>
+<li><strong>膨胀</strong></li>
+<li><strong>开运算</strong></li>
+<li><strong>闭运算</strong></li>
+</ul>
+<hr>
+<h2 id="OpenCV"><a href="#OpenCV" class="headerlink" title="OpenCV"></a>OpenCV</h2><p>注：以下转自<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45445740/article/details/120354641">面试问题总结——关于OpenCV</a><br><a target="_blank" rel="noopener" href="https://aistudio.baidu.com/aistudio/projectdetail/2360571">【地表最全】零基础！计算机视觉OpenCV从入门到入土</a></p>
+<h3 id="OpenCV-中-cv-Mat-的深拷贝和浅拷贝问题"><a href="#OpenCV-中-cv-Mat-的深拷贝和浅拷贝问题" class="headerlink" title="OpenCV 中 cv::Mat 的深拷贝和浅拷贝问题"></a>OpenCV 中 cv::Mat 的深拷贝和浅拷贝问题</h3><p><code>深拷贝</code>：分配新内存的同时拷贝数据，当被赋值的容器被修改时，原始容器数据不会改变。<br><code>浅拷贝</code>：仅拷贝数据，当被赋值容器修改时，原始容器数据也会做同样改变。</p>
+<p>OpenCV 的 Mat 时，有几种赋值方式分别为：<br>  深拷贝 是 <code>b = a.clone();</code> 和 <code>a.copyTo(b);</code><br>  浅拷贝 是 <code>b = a;</code> 和 <code>b(a);</code></p>
+<p>  关于这个问题，我还测试了 OpenCV 中的 ROI，就是图像截图，发现ROI也是浅拷贝。</p>
+<p>  C++ 中利用opencv存储图像的结构体是 Mat。</p>
+<h3 id="OpenCV-中-RGB2GRAY-是怎么实现的"><a href="#OpenCV-中-RGB2GRAY-是怎么实现的" class="headerlink" title="OpenCV 中 RGB2GRAY 是怎么实现的"></a>OpenCV 中 RGB2GRAY 是怎么实现的</h3><p>  本质上就是寻找一个三维空间到一维空间的映射，以 <code>R、G、B</code> 为轴建立空间直角坐标系，则图片上的每一个像素点都可以用一个点表示，则可以通过一个公式 $Gray &#x3D; 0.29900×R + 0.58700×G + 0.11400×B$，来完成一维空间的映射。</p>
+<h3 id="连续图像转化为数字图像需要进行哪些操作？"><a href="#连续图像转化为数字图像需要进行哪些操作？" class="headerlink" title="连续图像转化为数字图像需要进行哪些操作？"></a>连续图像转化为数字图像需要进行哪些操作？</h3><p>  取样 量化</p>
+<h3 id="数字图像中有哪些基本特征？"><a href="#数字图像中有哪些基本特征？" class="headerlink" title="数字图像中有哪些基本特征？"></a>数字图像中有哪些基本特征？</h3><p>  颜色特征、纹理特征、形状特征、空间关系特征等。</p>
+<h3 id="图像边缘检测中常用的边缘检测算子有哪些？"><a href="#图像边缘检测中常用的边缘检测算子有哪些？" class="headerlink" title="图像边缘检测中常用的边缘检测算子有哪些？"></a>图像边缘检测中常用的边缘检测算子有哪些？</h3><p>  <code>Roberts</code> 算子、<code>Prewitt</code> 算子、<code>Sobel</code> 算子、<code>Canny</code> 算子、<code>Laplacian</code> 算子等。</p>
+<h3 id="对霍夫变换的理解"><a href="#对霍夫变换的理解" class="headerlink" title="对霍夫变换的理解"></a>对霍夫变换的理解</h3><p>  霍夫变换常用来提取图像中的直线和圆等几何形状。它通过一种投票算法检测具有特定形状的物体，就是<strong>通过计算累计结果的局部最大值得到一个符合该几何形状的集合</strong>作为结果。</p>
+<p>  算法原理：针对每个像素点，使得 $\theta$ 在 <code>-90</code> 度到 <code>180</code> 度之间，用极坐标 $p &#x3D; xcos\theta + ysin\theta$ 计算得到共 <code>270</code> 组 $(p,\theta)$ 代表着霍夫空间的 <code>270</code> 条直线。将这 <code>270</code> 组值存储到 $H$ 中。如果一组点共线，则这组点中的每个值，都会使得 $H(p,\theta)$ 加 <code>1</code>，因此找到最大的 $H$ 值，就是共线的点最多的直线，也可以通过设定阈值来判定。</p>
+<h3 id="对-HOG-特征的理解"><a href="#对-HOG-特征的理解" class="headerlink" title="对 HOG 特征的理解"></a>对 HOG 特征的理解</h3><p>  <strong>主要思想</strong>：在边缘具体位置未知的情况下，边缘方向的分布也可以很好的表示行人目标的外形轮廓，即梯度的统计信息，而梯度主要位于边缘的地方很好地描述。<br>  <strong><code>HOG</code> 特征检测算法的几个步骤</strong>：颜色空间归一化 —&gt; 梯度计算 —&gt; 梯度方向直方图 —&gt; 重叠块直方图归一化 —&gt; <code>HOG</code> 特征。</p>
+<h3 id="图像的插值方法有哪些？"><a href="#图像的插值方法有哪些？" class="headerlink" title="图像的插值方法有哪些？"></a>图像的插值方法有哪些？</h3><p>  最近邻法<br>  双线性内插法<br>  三次内插法</p>
+<h3 id="Grabcut-的基本原理和应用"><a href="#Grabcut-的基本原理和应用" class="headerlink" title="Grabcut 的基本原理和应用"></a>Grabcut 的基本原理和应用</h3><p>  <code>Graph Cut</code> 和 <code>Grab Cut</code> 算法，两者都是基于图论的分割方法。<br>  <code>Graph Cut</code> 在计算机视觉领域普遍应用于前背景分割、抠图等。<br>  基本原理：根据待分割的图像，确定图的节点与边，即图的形状已确定下来,是给图中所有边赋值相应的权值，然后找到权值和最小的边的组合，就完成了图像分割。</p>
+<h3 id="SIFT-x2F-SURF的特征提取方法，是如何保持尺度不变性的？"><a href="#SIFT-x2F-SURF的特征提取方法，是如何保持尺度不变性的？" class="headerlink" title="SIFT &#x2F; SURF的特征提取方法，是如何保持尺度不变性的？"></a>SIFT &#x2F; SURF的特征提取方法，是如何保持尺度不变性的？</h3><p>  <code>SIFT (Scale-Invariant Feature Transform)</code> 算法的实质是在不同的尺度空间上查找关键点(特征点)，并计算出关键点的方向。<code>SIFT</code> 所查找到的关键点是一些十分突出，不会因光照，仿射变换和噪音等因素而变化的点，如角点、边缘点、暗区的亮点及亮区的暗点等。</p>
+<p>  <strong>如何保持尺度不变性？</strong><br>  ① <strong>尺度空间极值检测</strong>：搜索所有尺度上的图像位置。通过高斯差分函数来识别潜在的对于尺度和旋转不变的关键点。（第一步获取图片的高斯金字塔，高斯金字塔指的是图片在不同尺寸下进行的高斯模糊处理后的图片，为了寻找图片的特征点，我们要找到图片在不同尺寸空间里的极值，这些极值通常存在于图片的边缘或者灰度突变的地方，所以要对高斯模糊后的图片进行高斯差分，然后到寻找极值点。）<br>  ② <strong>关键点定位</strong>：由于图片的坐标是离散，所以要精确定位的话，作者采用了曲面拟合的方法，通过插值找到真正极值点的位置，位置找到之后，我们要找到这个极值点的主方向。<br>  ③ <strong>关键点方向确定</strong>：基于图像局部的梯度方向，分配给每个关键点位置一个或多个方向。所有后面的对图像数据的操作都相对于关键点的方向、尺度和位置进行变换，从而保证了对于这些变换的不变性。<br>  ④ <strong>关键点描述</strong>：在每个关键点周围的邻域内，在选定的尺度上测量图像局部的梯度。这些梯度作为关键点的描述符，它允许比较大的局部形状的变形或光照变化。</p>
+<p>  <code>SURF</code> 是在 <code>SIFT</code> 的基础上改进的，原理基本相似，在特征点检测这儿，<code>SIFT</code> 是先进行非极大值抑制，再去除低对比度的点，最后再通过 <code>Hessian</code> 矩阵去除边缘的点；而 <code>SURF</code> 是先用 <code>Hessian</code> 矩阵确定候选点，然后再进行非极大值抑制，该算法提高了 <code>SIFT</code> 的速度和鲁棒性，且理论上 <code>SURF</code> 是 <code>SIFT</code> 速度的 <code>3</code> 倍。（见书《OpenCV3编程入门》P417）</p>
+<h3 id="关于-FLANN-算法"><a href="#关于-FLANN-算法" class="headerlink" title="关于 FLANN 算法"></a>关于 FLANN 算法</h3><p>  <code>FLANN</code> 算法也属于关键点匹配算法，算法步骤整体来说分为两步：一是建立索引，而是搜索。<br>  建立索引：其实就是要两部分参数，一是数据也就是 <code>mat</code> 矩阵，二是一些具体参数，这个参数要根据建立的索引类型来设置。而有哪些索引类型呢？共有：线性索引、<code>KD-Tree</code> 索引、K均值索引、复合索引、<code>LSH</code> 方法索引、自动索引六种。<br>  进行搜索：有两种搜索方式 ：搜索 k 邻近 （具体点的个数由用户设定，设 <code>n</code> 个就一定返回 <code>n</code> 个）、搜索半径最近 （即可能不存在符合条件的点，则返回空的）。<br>  <code>SIFT / SURF</code> 是基于浮点数的匹配，<code>ORB</code> 是二值匹配，速度更快。对于 <code>FLANN</code> 匹配算法，当使用 <code>ORB</code> 匹配算法的时候，需要重新构造 <code>HASH</code>。</p>
+<h3 id="Canny边缘检测的流程"><a href="#Canny边缘检测的流程" class="headerlink" title="Canny边缘检测的流程"></a>Canny边缘检测的流程</h3><p>  图像降噪——计算图像梯度，得到可能边缘——非极大值抑制——双阈值筛选</p>
+<h3 id="图像锐化-–-sharpen"><a href="#图像锐化-–-sharpen" class="headerlink" title="图像锐化 – sharpen"></a>图像锐化 – sharpen</h3><p>  平滑：把图像变模糊；<br>  锐化：把图像变清晰；<br>  图像锐化主要用于增强图像的灰度跳变部分，这和图像平滑对灰度跳变的抑制正好相反。</p>
+<h3 id="图像对比度"><a href="#图像对比度" class="headerlink" title="图像对比度"></a>图像对比度</h3><p>  对比度：指一幅图像中灰度反差的大小；<br>  对比度 &#x3D; 最大亮度 &#x2F; 最小亮度</p>
+<h3 id="图像滤波"><a href="#图像滤波" class="headerlink" title="图像滤波"></a>图像滤波</h3><p>  <strong>定义</strong>：把滤波想象成一个包含加权系数的窗口，当使用这个滤波器平滑处理图像时，就把这个窗口放到图像上，透过该窗口查看。<br>  <strong>滤波的作用</strong>：去除图像中的噪声<br>  <strong>低通滤波器</strong>：去除图像中的高频部分——模糊化<br>  <strong>高通滤波器</strong>：去除图像中的低频部分——锐化<br>  <strong>线性滤波器</strong>：方框滤波、均值滤波、高斯滤波<br>  <strong>非线性滤波</strong>：中值滤波、双边滤波</p>
+<h3 id="OpenCV-中图像加法（cv2-add-）与图像融合（cv2-addWeighted-）有何区别？"><a href="#OpenCV-中图像加法（cv2-add-）与图像融合（cv2-addWeighted-）有何区别？" class="headerlink" title="OpenCV 中图像加法（cv2.add()）与图像融合（cv2.addWeighted()）有何区别？"></a>OpenCV 中图像加法（cv2.add()）与图像融合（cv2.addWeighted()）有何区别？</h3><p>  <strong>图像加法</strong>：目标图像 &#x3D; 图像1 + 图像2<br>  <strong>图像融合</strong>：目标图像 &#x3D; 图像1 × 系数1 + 图像2 × 系数2 + 亮度调节量</p>
+<h3 id="如何检测图片中的汽车，并识别车型，如果有遮挡怎么办？"><a href="#如何检测图片中的汽车，并识别车型，如果有遮挡怎么办？" class="headerlink" title="如何检测图片中的汽车，并识别车型，如果有遮挡怎么办？"></a>如何检测图片中的汽车，并识别车型，如果有遮挡怎么办？</h3><p>  首先这是一个细粒度的分类（Fine-Grained Classification）问题，和普通的分类不一样，要分类的类别往往只是有细微的差异。<br>  思路：<br>  ① 人工框定局部图像，然后识别。比如我去框定，汽车的车灯，汽车的前脸，汽车轮毂等，然后用 <code>cnn</code> 或 <code>deep cnn</code> 其他的分类器做这些的分类，对于分类器来说输入是汽车的车灯+汽车的前脸+汽车轮毂，而不是整张图片，分类器再从车灯前脸等提取高级特征，从而得到一个分类模型。<br>  ② 不做局部变换，做图片整体识别。但是做分级或是分层。首先，训练第一个分类器，它只针对汽车和非汽车进行分类，标记了 <code>car</code> 和 <code>other</code>。这一步要求尽可能的广，涵盖生活中常见的图片，力求 98% 以上的准确率，每个分类用了2w张图片，实际上能达到 99.5% 的准确率。接着，对于汽车做品牌分类器，只对汽车所属的品牌进行分类，不对细分的子品牌分类。这一步每一类人工标记5000张图片，输入是第一步的输出，准确率能达到96%以上。<br>最后，对每个品牌的汽车进行车型分类，这一层识别率在 94% 左右。这样会得到一个 0.98×0.96×0.94~0.88 的识别率。</p>
+<h3 id="常用图像增强算法"><a href="#常用图像增强算法" class="headerlink" title="常用图像增强算法"></a>常用图像增强算法</h3><p>  ① <strong>直方图均衡化</strong>：直方图均衡化是图像处理领域中利用图像直方图对对比度进行调整的方法。<br>这种方法通常用来增加许多图像的局部对比度，这种方法对于背景和前景都太亮或者太暗的图像非常有用，这种方法尤其是可以带来X光图像中更好的骨骼结构显示以及曝光过度或者曝光不足照片中更好的细节。</p>
+<p>  ② <strong>对数图像增强算法</strong>：对数图像增强是图像增强的一种常见方法，其公式为： $S &#x3D; c \times log(r+1)$，其中 $c$ 是常数（以下算法 $c&#x3D;255&#x2F;(log(256)$），这样可以实现整个画面的亮度增大。</p>
+<p>  ③ <strong>指数图像增强算法</strong>：指数图像增强的表达为：$S &#x3D; cR^{r}$，通过合理的选择c和r可以压缩灰度范围，算法以 $c&#x3D;1.0&#x2F;255.0, r&#x3D;2$ 实现。</p>
+<p>  ④ <strong>加Masaic算法（马赛克）</strong>：原理：用中心像素来表示邻域像素</p>
+<p>  ⑤ <strong>曝光过度问题处理</strong>：对于曝光过度问题，可以通过计算当前图像的反相（$255-image$)，然后取当前图像和反相图像的较小者为当前像素位置的值。</p>
+<p>  ⑥ <strong>高反差保留</strong>：高反差保留主要是将图像中颜色、明暗反差较大两部分的交界处保留下来，比如图像中有一个人和一块石头，那么石头的轮廓线和人的轮廓线以及面部、服装等有明显线条的地方会变被保留，而其他大面积无明显明暗变化的地方则生成棕灰色。其表达形式为：$dst &#x3D; r \times(img - Blur(img))$。</p>
+<p>  ⑦ <strong>拉普拉斯算子图像增强</strong>：使用中心为 <code>5</code> 的 <code>8</code> 邻域拉普拉斯算子与图像卷积可以达到锐化增强图像的目的。</p>
+<p>  ⑧ <strong>Gamma校正</strong>：伽马变换主要用于图像的校正，将灰度过高或者灰度过低的图片进行修正，增强对比度。伽马变换对图像的修正作用其实就是通过增强低灰度或高灰度的细节实现的。</p>
+<h3 id="数字图像处理中常用图像分割算法有哪些？"><a href="#数字图像处理中常用图像分割算法有哪些？" class="headerlink" title="数字图像处理中常用图像分割算法有哪些？"></a>数字图像处理中常用图像分割算法有哪些？</h3><p>  ① <strong>多数的图像分割算法</strong>：均是基于灰度值的不连续和相似的性质。</p>
+<p>  ② <strong>图像边缘分割</strong>：边缘是图像中灰度突变像素的集合，一般用微分进行检测。基本的边缘检测算法有：<code>Roberts</code> 算子、<code>Sobel</code> 算子。稍高级的算法有：<code>Canny</code> 边缘检测器。</p>
+<p>  ③ <strong>图像阈值分割</strong>：由于阈值处理直观、实现简单且计算速度快，因此阈值处理在分割应用中处于核心地位。如 <code>Otsu</code>（最大类间方差算法）算法。</p>
+<p>  ④ <strong>基于区域的分割</strong>：区域生长算法和区域分裂与聚合都是属于基于区域的分割算法。</p>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">SvyJ</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/09/01/028-InterviewQs_IP/">http://example.com/2022/09/01/028-InterviewQs_IP/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">“干杯( ﾟ-ﾟ)っロ”</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a><a class="post-meta__tags" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a><a class="post-meta__tags" href="/tags/Python/">Python</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2022/06/22/2dXg9eDULu3lQsE.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/09/06/029-InterviewQs_Python/" title="For Offersssss! （Linux与Python篇）"><img class="cover" src="https://s2.loli.net/2022/06/22/2dXg9eDULu3lQsE.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">For Offersssss! （Linux与Python篇）</div></div></a></div><div class="next-post pull-right"><a href="/2022/08/14/032-Leetcode/" title="（持续更新中...）Leetcode 周赛记录"><img class="cover" src="https://static.leetcode-cn.com/cn-mono-assets/production/assets/logo-dark-cn.c42314a8.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">（持续更新中...）Leetcode 周赛记录</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/09/17/027-InterviewQs_DL/" title="For Offersssss! （深度学习篇）"><img class="cover" src="https://s2.loli.net/2022/06/22/2dXg9eDULu3lQsE.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-17</div><div class="title">For Offersssss! （深度学习篇）</div></div></a></div><div><a href="/2022/09/25/026-InterviewQs_ML/" title="For Offersssss! （机器学习篇）"><img class="cover" src="https://s2.loli.net/2022/06/22/2dXg9eDULu3lQsE.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-25</div><div class="title">For Offersssss! （机器学习篇）</div></div></a></div><div><a href="/2022/09/06/029-InterviewQs_Python/" title="For Offersssss! （Linux与Python篇）"><img class="cover" src="https://s2.loli.net/2022/06/22/2dXg9eDULu3lQsE.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-06</div><div class="title">For Offersssss! （Linux与Python篇）</div></div></a></div><div><a href="/2022/07/05/002-LeNet_Mnist/" title="深度学习算法中的Hello-World：用LeNet模型实现手写数字识别"><img class="cover" src="https://i.loli.net/2021/07/05/uVxbZ7TaRqkijHf.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-05</div><div class="title">深度学习算法中的Hello-World：用LeNet模型实现手写数字识别</div></div></a></div><div><a href="/2022/07/01/010-Semantic_Segementation/" title="语义分割综述"><img class="cover" src="https://i.loli.net/2021/07/05/z3mAyiTIeYhFDQO.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-01</div><div class="title">语义分割综述</div></div></a></div><div><a href="/2022/07/05/005-DL_Models_Classification/" title="经典分类模型的Pytorch实现"><img class="cover" src="https://s2.loli.net/2022/06/30/mh1gcH8wJx9QMCs.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-05</div><div class="title">经典分类模型的Pytorch实现</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">图像处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%9F%BA%E7%A1%80"><span class="toc-number">1.1.</span> <span class="toc-text">图像处理基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E5%8F%98%E6%8D%A2"><span class="toc-number">1.2.</span> <span class="toc-text">图像变换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E7%BC%96%E7%A0%81%E5%92%8C%E5%8E%8B%E7%BC%A9"><span class="toc-number">1.3.</span> <span class="toc-text">图像编码和压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA%E5%92%8C%E5%A4%8D%E5%8E%9F"><span class="toc-number">1.4.</span> <span class="toc-text">图像增强和复原</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2"><span class="toc-number">1.5.</span> <span class="toc-text">图像分割</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B"><span class="toc-number">1.6.</span> <span class="toc-text">边缘检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%A2%E6%80%81%E5%AD%A6%E5%A4%84%E7%90%86"><span class="toc-number">1.7.</span> <span class="toc-text">形态学处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenCV"><span class="toc-number">2.</span> <span class="toc-text">OpenCV</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenCV-%E4%B8%AD-cv-Mat-%E7%9A%84%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B5%85%E6%8B%B7%E8%B4%9D%E9%97%AE%E9%A2%98"><span class="toc-number">2.1.</span> <span class="toc-text">OpenCV 中 cv::Mat 的深拷贝和浅拷贝问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenCV-%E4%B8%AD-RGB2GRAY-%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0%E7%9A%84"><span class="toc-number">2.2.</span> <span class="toc-text">OpenCV 中 RGB2GRAY 是怎么实现的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E7%BB%AD%E5%9B%BE%E5%83%8F%E8%BD%AC%E5%8C%96%E4%B8%BA%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E9%9C%80%E8%A6%81%E8%BF%9B%E8%A1%8C%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C%EF%BC%9F"><span class="toc-number">2.3.</span> <span class="toc-text">连续图像转化为数字图像需要进行哪些操作？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E4%B8%AD%E6%9C%89%E5%93%AA%E4%BA%9B%E5%9F%BA%E6%9C%AC%E7%89%B9%E5%BE%81%EF%BC%9F"><span class="toc-number">2.4.</span> <span class="toc-text">数字图像中有哪些基本特征？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B%E7%AE%97%E5%AD%90%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-number">2.5.</span> <span class="toc-text">图像边缘检测中常用的边缘检测算子有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E9%9C%8D%E5%A4%AB%E5%8F%98%E6%8D%A2%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">2.6.</span> <span class="toc-text">对霍夫变换的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9-HOG-%E7%89%B9%E5%BE%81%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">2.7.</span> <span class="toc-text">对 HOG 特征的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E7%9A%84%E6%8F%92%E5%80%BC%E6%96%B9%E6%B3%95%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-number">2.8.</span> <span class="toc-text">图像的插值方法有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Grabcut-%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E5%92%8C%E5%BA%94%E7%94%A8"><span class="toc-number">2.9.</span> <span class="toc-text">Grabcut 的基本原理和应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SIFT-x2F-SURF%E7%9A%84%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96%E6%96%B9%E6%B3%95%EF%BC%8C%E6%98%AF%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8C%81%E5%B0%BA%E5%BA%A6%E4%B8%8D%E5%8F%98%E6%80%A7%E7%9A%84%EF%BC%9F"><span class="toc-number">2.10.</span> <span class="toc-text">SIFT &#x2F; SURF的特征提取方法，是如何保持尺度不变性的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E-FLANN-%E7%AE%97%E6%B3%95"><span class="toc-number">2.11.</span> <span class="toc-text">关于 FLANN 算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Canny%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="toc-number">2.12.</span> <span class="toc-text">Canny边缘检测的流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E9%94%90%E5%8C%96-%E2%80%93-sharpen"><span class="toc-number">2.13.</span> <span class="toc-text">图像锐化 – sharpen</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E5%AF%B9%E6%AF%94%E5%BA%A6"><span class="toc-number">2.14.</span> <span class="toc-text">图像对比度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E6%BB%A4%E6%B3%A2"><span class="toc-number">2.15.</span> <span class="toc-text">图像滤波</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenCV-%E4%B8%AD%E5%9B%BE%E5%83%8F%E5%8A%A0%E6%B3%95%EF%BC%88cv2-add-%EF%BC%89%E4%B8%8E%E5%9B%BE%E5%83%8F%E8%9E%8D%E5%90%88%EF%BC%88cv2-addWeighted-%EF%BC%89%E6%9C%89%E4%BD%95%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">2.16.</span> <span class="toc-text">OpenCV 中图像加法（cv2.add()）与图像融合（cv2.addWeighted()）有何区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%A3%80%E6%B5%8B%E5%9B%BE%E7%89%87%E4%B8%AD%E7%9A%84%E6%B1%BD%E8%BD%A6%EF%BC%8C%E5%B9%B6%E8%AF%86%E5%88%AB%E8%BD%A6%E5%9E%8B%EF%BC%8C%E5%A6%82%E6%9E%9C%E6%9C%89%E9%81%AE%E6%8C%A1%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-number">2.17.</span> <span class="toc-text">如何检测图片中的汽车，并识别车型，如果有遮挡怎么办？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%9B%BE%E5%83%8F%E5%A2%9E%E5%BC%BA%E7%AE%97%E6%B3%95"><span class="toc-number">2.18.</span> <span class="toc-text">常用图像增强算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E7%AE%97%E6%B3%95%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-number">2.19.</span> <span class="toc-text">数字图像处理中常用图像分割算法有哪些？</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://s2.loli.net/2022/06/22/2dXg9eDULu3lQsE.webp')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By SvyJ</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hello, Stranger~</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'e5bWQMoOycxPCdtTvxkPGJ0d-gzGzoHsz',
+      appKey: 'peE7twywLp5HcdBx6gmKQYUH',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/fireworks.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
