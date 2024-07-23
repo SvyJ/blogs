@@ -29,6 +29,31 @@
     
     
     <entry>
+      <title>M3DM复现记录</title>
+      <link href="/2023/05/03/038-M3DM/"/>
+      <url>/2023/05/03/038-M3DM/</url>
+      
+        <content type="html"><![CDATA[<h1 id="创建-python3-9-环境"><a href="#创建-python3-9-环境" class="headerlink" title="创建 python3.9 环境"></a>创建 <code>python3.9</code> 环境</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">conda create -n pointnet2_ops python=3.9<br><span class="hljs-built_in">source</span> activate pointnet2_ops<br></code></pre></td></tr></table></figure><h1 id="更改-nvcc-版本"><a href="#更改-nvcc-版本" class="headerlink" title="更改 nvcc 版本"></a>更改 <code>nvcc</code> 版本</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /M3DM<br>conda search cuda-nvcc -c nvidia<br>conda install cuda-nvcc=11.3.58 -c nvidia<br>nvcc -V<br></code></pre></td></tr></table></figure><h1 id="安装-pytorch"><a href="#安装-pytorch" class="headerlink" title="安装 pytorch"></a>安装 <code>pytorch</code></h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html<br></code></pre></td></tr></table></figure><p>或 （为使用 <code>torch.frombuffer</code>，推荐兼容性更高的新版本）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu113<br></code></pre></td></tr></table></figure><h1 id="安装通用工具包"><a href="#安装通用工具包" class="headerlink" title="安装通用工具包"></a>安装通用工具包</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install -r requirements.txt<br>pip install numpy==1.26 (要求python≥3.9)<br>pip install ninja<br>pip install open3d (要求python≤3.11)<br></code></pre></td></tr></table></figure><h1 id="安装老版本-GCC-≤8"><a href="#安装老版本-GCC-≤8" class="headerlink" title="安装老版本 GCC (≤8)"></a>安装老版本 <code>GCC (≤8)</code></h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install g++-8<br>sudo apt-get install gcc-8<br>sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 20<br>sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 20<br></code></pre></td></tr></table></figure><h1 id="安装-pointnet2-ops-lib"><a href="#安装-pointnet2-ops-lib" class="headerlink" title="安装 pointnet2_ops_lib"></a>安装 <code>pointnet2_ops_lib</code></h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install --upgrade pip<br>pip install --upgrade setuptools<br>pip install Pointnet2_PyTorch/pointnet2_ops_lib/.<br>Successfully built pointnet2-ops<br>Installing collected packages: pointnet2-ops<br>Successfully installed pointnet2-ops-3.0.0<br></code></pre></td></tr></table></figure><h1 id="安装-KNN-CUDA"><a href="#安装-KNN-CUDA" class="headerlink" title="安装 KNN-CUDA"></a>安装 <code>KNN-CUDA</code></h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> packages<br>wget https://github.com/unlimblue/KNN_CUDA/releases/download/0.2/KNN_CUDA-0.2-py3-none-any.whl<br>pip install pakages/KNN_CUDA-0.2-py3-none-any.whl<br></code></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 深度学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2023博士申请记录</title>
       <link href="/2023/04/03/036-DoctorApplication/"/>
       <url>/2023/04/03/036-DoctorApplication/</url>
@@ -106,9 +131,9 @@
       
         <tags>
             
-            <tag> 图像处理 </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> 图像处理 </tag>
             
             <tag> Python </tag>
             
@@ -135,9 +160,9 @@
       
         <tags>
             
-            <tag> 图像处理 </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> 图像处理 </tag>
             
             <tag> Python </tag>
             
@@ -164,9 +189,9 @@
       
         <tags>
             
-            <tag> 图像处理 </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> 图像处理 </tag>
             
             <tag> Python </tag>
             
@@ -193,9 +218,9 @@
       
         <tags>
             
-            <tag> 图像处理 </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> 图像处理 </tag>
             
             <tag> Python </tag>
             
@@ -311,9 +336,9 @@
       
         <tags>
             
-            <tag> 图像处理 </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> 图像处理 </tag>
             
             <tag> 网络模型 </tag>
             
@@ -342,9 +367,9 @@
       
         <tags>
             
-            <tag> 图像处理 </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> 图像处理 </tag>
             
             <tag> 网络模型 </tag>
             
@@ -375,13 +400,13 @@
       
         <tags>
             
-            <tag> 图像处理 </tag>
-            
             <tag> 深度学习 </tag>
             
             <tag> 环境配置 </tag>
             
             <tag> Pytorch </tag>
+            
+            <tag> 图像处理 </tag>
             
         </tags>
       
@@ -406,13 +431,13 @@
       
         <tags>
             
-            <tag> 图像处理 </tag>
-            
             <tag> 深度学习 </tag>
             
-            <tag> 网络模型 </tag>
-            
             <tag> Pytorch </tag>
+            
+            <tag> 图像处理 </tag>
+            
+            <tag> 网络模型 </tag>
             
         </tags>
       
@@ -437,9 +462,9 @@
       
         <tags>
             
-            <tag> 图像处理 </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> 图像处理 </tag>
             
             <tag> 图像分割 </tag>
             
@@ -497,9 +522,9 @@
             
             <tag> 深度学习 </tag>
             
-            <tag> 网络模型 </tag>
-            
             <tag> Pytorch </tag>
+            
+            <tag> 网络模型 </tag>
             
             <tag> 图像分割 </tag>
             
@@ -526,15 +551,15 @@
       
         <tags>
             
-            <tag> 图像处理 </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> Pytorch </tag>
+            
+            <tag> 图像处理 </tag>
             
             <tag> 图像分类 </tag>
             
             <tag> 网络模型 </tag>
-            
-            <tag> Pytorch </tag>
             
         </tags>
       
@@ -617,9 +642,9 @@
       
         <tags>
             
-            <tag> 图像处理 </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> 图像处理 </tag>
             
             <tag> 图像分类 </tag>
             
@@ -675,9 +700,9 @@
       
         <tags>
             
-            <tag> 图像处理 </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> 图像处理 </tag>
             
             <tag> 网络模型 </tag>
             
@@ -706,9 +731,9 @@
       
         <tags>
             
-            <tag> 图像处理 </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> 图像处理 </tag>
             
             <tag> 图像分割 </tag>
             
@@ -735,13 +760,13 @@
       
         <tags>
             
-            <tag> 图像处理 </tag>
-            
             <tag> 深度学习 </tag>
             
-            <tag> 网络模型 </tag>
-            
             <tag> Pytorch </tag>
+            
+            <tag> 图像处理 </tag>
+            
+            <tag> 网络模型 </tag>
             
             <tag> 图像分割 </tag>
             
@@ -770,9 +795,9 @@
             
             <tag> 深度学习 </tag>
             
-            <tag> 网络模型 </tag>
-            
             <tag> Pytorch </tag>
+            
+            <tag> 网络模型 </tag>
             
         </tags>
       
@@ -797,9 +822,9 @@
       
         <tags>
             
-            <tag> 图像处理 </tag>
-            
             <tag> Pytorch </tag>
+            
+            <tag> 图像处理 </tag>
             
         </tags>
       
