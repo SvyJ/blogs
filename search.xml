@@ -29,11 +29,11 @@
     
     
     <entry>
-      <title>M3DM复现记录</title>
-      <link href="/2023/05/03/038-M3DM/"/>
-      <url>/2023/05/03/038-M3DM/</url>
+      <title>少样本学习（Few Shot Learning）</title>
+      <link href="/2023/05/03/037-FewShotLearning/"/>
+      <url>/2023/05/03/037-FewShotLearning/</url>
       
-        <content type="html"><![CDATA[<h2 id="1-创建-python3-9-环境"><a href="#1-创建-python3-9-环境" class="headerlink" title="1 创建 python3.9 环境"></a>1 创建 <code>python3.9</code> 环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">conda create -n pointnet2_ops python=3.9<br><span class="hljs-built_in">source</span> activate pointnet2_ops<br></code></pre></td></tr></table></figure><h2 id="2-更改-nvcc-版本"><a href="#2-更改-nvcc-版本" class="headerlink" title="2 更改 nvcc 版本"></a>2 更改 <code>nvcc</code> 版本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /M3DM<br>conda search cuda-nvcc -c nvidia<br>conda install cuda-nvcc=11.3.58 -c nvidia<br>nvcc -V<br></code></pre></td></tr></table></figure><h2 id="3-安装-pytorch"><a href="#3-安装-pytorch" class="headerlink" title="3 安装 pytorch"></a>3 安装 <code>pytorch</code></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html<br></code></pre></td></tr></table></figure><p>或 （为使用 <code>torch.frombuffer</code>，推荐兼容性更高的新版本）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu113<br></code></pre></td></tr></table></figure><h2 id="4-安装通用工具包"><a href="#4-安装通用工具包" class="headerlink" title="4 安装通用工具包"></a>4 安装通用工具包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install -r requirements.txt<br>pip install numpy==1.26 (要求python≥3.9)<br>pip install ninja<br>pip install open3d (要求python≤3.11)<br></code></pre></td></tr></table></figure><h2 id="5-安装老版本-GCC-≤8"><a href="#5-安装老版本-GCC-≤8" class="headerlink" title="5 安装老版本 GCC (≤8)"></a>5 安装老版本 <code>GCC (≤8)</code></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install g++-8<br>sudo apt-get install gcc-8<br>sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 20<br>sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 20<br></code></pre></td></tr></table></figure><h2 id="6-安装-pointnet2-ops-lib"><a href="#6-安装-pointnet2-ops-lib" class="headerlink" title="6 安装 pointnet2_ops_lib"></a>6 安装 <code>pointnet2_ops_lib</code></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install --upgrade pip<br>pip install --upgrade setuptools<br>pip install Pointnet2_PyTorch/pointnet2_ops_lib/.<br>Successfully built pointnet2-ops<br>Installing collected packages: pointnet2-ops<br>Successfully installed pointnet2-ops-3.0.0<br></code></pre></td></tr></table></figure><h2 id="7-安装-KNN-CUDA"><a href="#7-安装-KNN-CUDA" class="headerlink" title="7 安装 KNN-CUDA"></a>7 安装 <code>KNN-CUDA</code></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> packages<br>wget https://github.com/unlimblue/KNN_CUDA/releases/download/0.2/KNN_CUDA-0.2-py3-none-any.whl<br>pip install pakages/KNN_CUDA-0.2-py3-none-any.whl<br></code></pre></td></tr></table></figure><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] Wang Y, Peng J, Zhang J, et al. Multimodal industrial anomaly detection via hybrid fusion[C]&#x2F;&#x2F;Proceedings of the IEEE&#x2F;CVF Conference on Computer Vision and Pattern Recognition. 2023: 8032-8041.<br>[2] Costanzino A, Ramirez P Z, Lisanti G, et al. Multimodal industrial anomaly detection by crossmodal feature mapping[C]&#x2F;&#x2F;Proceedings of the IEEE&#x2F;CVF Conference on Computer Vision and Pattern Recognition. 2024: 17234-17243.<br>[3] Chu Y M, Liu C, Hsieh T I, et al. Shape-Guided Dual-Memory Learning for 3D Anomaly Detection[C]&#x2F;&#x2F;International Conference on Machine Learning. PMLR, 2023: 6185-6194.</p>]]></content>
+        <content type="html"><![CDATA[<p>挖坑待填～</p><p>开始之前，我们先了解一下什么是元学习（Meta Lerrning）？</p><h1 id="Meta-Learning"><a href="#Meta-Learning" class="headerlink" title="Meta Learning"></a>Meta Learning</h1>]]></content>
       
       
       <categories>
@@ -54,11 +54,11 @@
     
     
     <entry>
-      <title>少样本学习（Few Shot Learning）</title>
-      <link href="/2023/05/03/037-FewShotLearning/"/>
-      <url>/2023/05/03/037-FewShotLearning/</url>
+      <title>M3DM复现记录</title>
+      <link href="/2023/05/03/038-M3DM/"/>
+      <url>/2023/05/03/038-M3DM/</url>
       
-        <content type="html"><![CDATA[<p>挖坑待填～</p><p>开始之前，我们先了解一下什么是元学习（Meta Lerrning）？</p><h1 id="Meta-Learning"><a href="#Meta-Learning" class="headerlink" title="Meta Learning"></a>Meta Learning</h1>]]></content>
+        <content type="html"><![CDATA[<h2 id="1-创建-python3-9-环境"><a href="#1-创建-python3-9-环境" class="headerlink" title="1 创建 python3.9 环境"></a>1 创建 <code>python3.9</code> 环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">conda create -n pointnet2_ops python=3.9<br><span class="hljs-built_in">source</span> activate pointnet2_ops<br></code></pre></td></tr></table></figure><h2 id="2-更改-nvcc-版本"><a href="#2-更改-nvcc-版本" class="headerlink" title="2 更改 nvcc 版本"></a>2 更改 <code>nvcc</code> 版本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /M3DM<br>conda search cuda-nvcc -c nvidia<br>conda install cuda-nvcc=11.3.58 -c nvidia<br>nvcc -V<br></code></pre></td></tr></table></figure><h2 id="3-安装-pytorch"><a href="#3-安装-pytorch" class="headerlink" title="3 安装 pytorch"></a>3 安装 <code>pytorch</code></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html<br></code></pre></td></tr></table></figure><p>或 （为使用 <code>torch.frombuffer</code>，推荐兼容性更高的新版本）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu113<br></code></pre></td></tr></table></figure><h2 id="4-安装通用工具包"><a href="#4-安装通用工具包" class="headerlink" title="4 安装通用工具包"></a>4 安装通用工具包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install -r requirements.txt<br>pip install numpy==1.26 (要求python≥3.9)<br>pip install ninja<br>pip install open3d (要求python≤3.11)<br></code></pre></td></tr></table></figure><h2 id="5-安装老版本-GCC-≤8"><a href="#5-安装老版本-GCC-≤8" class="headerlink" title="5 安装老版本 GCC (≤8)"></a>5 安装老版本 <code>GCC (≤8)</code></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install g++-8<br>sudo apt-get install gcc-8<br>sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 20<br>sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 20<br></code></pre></td></tr></table></figure><h2 id="6-安装-pointnet2-ops-lib"><a href="#6-安装-pointnet2-ops-lib" class="headerlink" title="6 安装 pointnet2_ops_lib"></a>6 安装 <code>pointnet2_ops_lib</code></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install --upgrade pip<br>pip install --upgrade setuptools<br>pip install Pointnet2_PyTorch/pointnet2_ops_lib/.<br>Successfully built pointnet2-ops<br>Installing collected packages: pointnet2-ops<br>Successfully installed pointnet2-ops-3.0.0<br></code></pre></td></tr></table></figure><h2 id="7-安装-KNN-CUDA"><a href="#7-安装-KNN-CUDA" class="headerlink" title="7 安装 KNN-CUDA"></a>7 安装 <code>KNN-CUDA</code></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> packages<br>wget https://github.com/unlimblue/KNN_CUDA/releases/download/0.2/KNN_CUDA-0.2-py3-none-any.whl<br>pip install pakages/KNN_CUDA-0.2-py3-none-any.whl<br></code></pre></td></tr></table></figure><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] Wang Y, Peng J, Zhang J, et al. Multimodal industrial anomaly detection via hybrid fusion[C]&#x2F;&#x2F;Proceedings of the IEEE&#x2F;CVF Conference on Computer Vision and Pattern Recognition. 2023: 8032-8041.<br>[2] Costanzino A, Ramirez P Z, Lisanti G, et al. Multimodal industrial anomaly detection by crossmodal feature mapping[C]&#x2F;&#x2F;Proceedings of the IEEE&#x2F;CVF Conference on Computer Vision and Pattern Recognition. 2024: 17234-17243.<br>[3] Chu Y M, Liu C, Hsieh T I, et al. Shape-Guided Dual-Memory Learning for 3D Anomaly Detection[C]&#x2F;&#x2F;International Conference on Machine Learning. PMLR, 2023: 6185-6194.</p>]]></content>
       
       
       <categories>
@@ -429,9 +429,9 @@
             
             <tag> 深度学习 </tag>
             
-            <tag> Pytorch </tag>
-            
             <tag> 环境配置 </tag>
+            
+            <tag> Pytorch </tag>
             
         </tags>
       
@@ -549,9 +549,9 @@
             
             <tag> 网络模型 </tag>
             
-            <tag> 图像分割 </tag>
-            
             <tag> Pytorch </tag>
+            
+            <tag> 图像分割 </tag>
             
         </tags>
       
@@ -636,11 +636,11 @@
             
             <tag> 深度学习 </tag>
             
-            <tag> Pytorch </tag>
-            
             <tag> 环境配置 </tag>
             
             <tag> Conda </tag>
+            
+            <tag> Pytorch </tag>
             
             <tag> Jupyter </tag>
             
@@ -791,9 +791,9 @@
             
             <tag> 网络模型 </tag>
             
-            <tag> 图像分割 </tag>
-            
             <tag> Pytorch </tag>
+            
+            <tag> 图像分割 </tag>
             
         </tags>
       
